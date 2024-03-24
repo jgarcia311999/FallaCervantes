@@ -23,7 +23,7 @@
 
     <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fechaSeleccionada" presentation="date"
       [highlightedDates]="highlightedDates" (ionChange)="mostrarInformacionMejorada()"></ion-datetime>
-    
+
     <ion-card *ngIf="fechaDestacadaSeleccionada">
       <ion-card-header>
         <ion-card-title>Eventos para {{ fechaDestacadaSeleccionada.date }}</ion-card-title>
@@ -38,9 +38,32 @@
       </ion-card-content>
     </ion-card>
 
-
-
   </ion-card>
+
+    <ion-button (click)="mostrarFormulario()">Agregar Evento</ion-button>
+    
+    <ion-card *ngIf="mostrarForm">
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Nombre del evento</ion-label>
+          <ion-input [(ngModel)]="nuevoEvento.titulo" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Descripción del evento</ion-label>
+          <ion-textarea [(ngModel)]="nuevoEvento.descripcion" rows="6" required></ion-textarea>
+          <!-- Ajustar el número de filas según sea necesario -->
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Fecha y hora del evento</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY HH:mm" [(ngModel)]="nuevoEvento.fechaHora" required></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Subir foto (opcional)</ion-label>
+          <ion-input type="file" accept="image/*" (change)="handleFileInput($event)"></ion-input>
+        </ion-item>
+        <ion-button (click)="agregarEvento()">Agregar</ion-button>
+      </ion-card-content>
+    </ion-card>
 
 
 

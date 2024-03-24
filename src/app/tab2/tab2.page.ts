@@ -18,7 +18,8 @@ interface FechaDestacada {
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-
+  nuevoEvento: any = {}; // Objeto para almacenar los datos del nuevo evento
+  eventos: Evento[] = []; // Arreglo para almacenar los eventos
   fechaSeleccionada: string | undefined;
   fechaDestacadaSeleccionada: FechaDestacada | undefined;
   highlightedDates: FechaDestacada[] = [
@@ -60,17 +61,35 @@ export class Tab2Page {
     }
   ];
 
-
-  
-
-  constructor() { }
-
   mostrarInformacionMejorada() {
-    // Obtén la parte de la fecha seleccionada
     const fechaSeleccionada = this.fechaSeleccionada ? this.fechaSeleccionada.substring(0, 10) : '';
-
-    // Busca la fecha destacada correspondiente a la fecha seleccionada
     this.fechaDestacadaSeleccionada = this.highlightedDates.find(fechaDestacada => fechaDestacada.date === fechaSeleccionada);
   }
+
+  mostrarForm: boolean = false;
+
+  mostrarFormulario() {
+    this.mostrarForm = true;
+  }
+
+  agregarEvento() {
+    if (this.nuevoEvento.titulo && this.nuevoEvento.descripcion) {
+      this.fechaDestacadaSeleccionada?.eventos.push({ titulo: this.nuevoEvento.titulo, descripcion: this.nuevoEvento.descripcion });
+      console.log('Evento agregado:', this.nuevoEvento);
+      this.nuevoEvento = {};
+      this.mostrarForm = false;
+    } else {
+      console.log("Por favor, complete todos los campos del formulario.");
+    }
+  }
+
+  fechaHoraSeleccionada: string | undefined;
+
+  handleFileInput(event: any) {
+    const file = event.target.files[0]; // Obtener el archivo seleccionado
+    // Aquí puedes agregar la lógica para manejar el archivo, por ejemplo, cargarlo a un servidor
+  }
+
+
 
 }
