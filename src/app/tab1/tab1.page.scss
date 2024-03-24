@@ -1,0 +1,107 @@
+// Define tus colores personalizados
+:root {
+    --color-naranja-fondo: rgb(251, 165, 35);
+    --color-azul-marino: #000066;
+}
+
+
+/* color del logo: #FE4C02 */
+
+
+.imagen-falla {
+    width: 100%;
+    max-width: 400px;
+    /* ajusta el tamaño máximo según tus necesidades */
+    display: block;
+    margin: 3vh auto;
+    /* para centrar la imagen horizontalmente */
+    border-radius: 8px;
+    /* para redondear las esquinas de la imagen, si deseas */
+    box-shadow: 0 0 10px rgba(0, 0, 102, 0.4);
+    /* sombra suave */
+}
+
+
+
+h1 .falla,
+h1 .mercat {
+    color: rgb(251, 165, 35);
+}
+
+h2,
+h4 {
+    text-align: center;
+    color: #000066;
+}
+
+p {
+    text-align: justify;
+    color: #000066;
+    margin: 3.5vh;
+}
+
+
+
+ion-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centra horizontalmente los elementos */
+}
+
+ion-datetime {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+ion-title.topTitle {
+    background-color: rgba(251, 165, 35, 0.5);
+    width: 100%;
+    /* Ocupar todo el ancho disponible */
+    text-align: center;
+    /* Centrar el contenido */
+    z-index: 1;
+    /* Asegurar que esté por encima del contenido */
+    top: 0;
+    /* Anclar al borde superior */
+    left: 0;
+    /* Anclar al borde izquierdo */
+
+}
+
+.topTitle h1 {
+    color: white;
+    /* Cambiar el color del texto si es necesario */
+    font-weight: bold;
+    font-style: italic;
+    margin: 5vh auto;
+    /* Ajustar el margen para centrar vertical y horizontalmente */
+    display: flex;
+    flex-direction: row;
+}
+
+
+ion-card {
+    text-align: center;
+    /* Centra el texto dentro del ion-card */
+}
+
+ion-card-title,
+ion-card-subtitle,
+ion-card-content,
+ion-item {
+    text-align: center;
+    /* Centra el texto dentro de los elementos hijo */
+}
+
+swiper-container{
+    width: 100%;
+    height: auto;
+}
+
+swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

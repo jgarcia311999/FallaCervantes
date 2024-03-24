@@ -1,0 +1,47 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large" class="topTitle">
+        <h1>Sóc de la <span class="falla"> falla</span>, de la falla del <span class="mercat">mercat</span></h1>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <!-- <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fechaSeleccionada"
+      (ionChange)="mostrarInformacion()"></ion-datetime>
+
+    <ion-card-header>
+      <ion-card-title>{{ eventoSeleccionado.titulo }}</ion-card-title>
+      <ion-card-subtitle>{{ eventoSeleccionado.fecha }}</ion-card-subtitle>
+    </ion-card-header> 
+
+    <ion-card-content>
+      <br>
+      {{ eventoSeleccionado.descripcion }}
+    </ion-card-content>-->
+
+    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fechaSeleccionada" presentation="date"
+      [highlightedDates]="highlightedDates" (ionChange)="mostrarInformacionMejorada()"></ion-datetime>
+    
+    <ion-card *ngIf="fechaDestacadaSeleccionada">
+      <ion-card-header>
+        <ion-card-title>Eventos para {{ fechaDestacadaSeleccionada.date }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let evento of fechaDestacadaSeleccionada.eventos">
+            <ion-label>{{ evento.titulo }}</ion-label>
+            <ion-text>{{ evento.descripcion }}</ion-text>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+
+
+  </ion-card>
+
+
+
+</ion-content>
