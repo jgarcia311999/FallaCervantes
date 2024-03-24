@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 interface Evento {
   titulo: string;
   descripcion: string;
+  photo?: string; // Campo opcional para almacenar la URL de la foto
 }
 
 interface FechaDestacada {
@@ -29,7 +30,7 @@ export class Tab2Page {
       backgroundColor: '#000066',
       eventos: [
         { titulo: "Evento mejorado 1", descripcion: "Decripcion mejorado 1" },
-        { titulo: "Evento mejorado 1.2", descripcion: "Decripcion mejorado 1.2" }
+        { titulo: "Evento mejorado 1.2", descripcion: "Decripcion mejorado 1.2"}
       ]
     },
     {
@@ -47,7 +48,6 @@ export class Tab2Page {
       backgroundColor: '#000066',
       eventos: [
         { titulo: "Evento mejorado 3", descripcion: "Decripcion mejorado 3" },
-        { titulo: "Evento mejorado 3.2", descripcion: "Decripcion mejorado 3.2" }
       ]
     },
     {
@@ -60,6 +60,7 @@ export class Tab2Page {
       ]
     }
   ];
+  modal: any;
 
   mostrarInformacionMejorada() {
     const fechaSeleccionada = this.fechaSeleccionada ? this.fechaSeleccionada.substring(0, 10) : '';
@@ -90,6 +91,13 @@ export class Tab2Page {
     // Aquí puedes agregar la lógica para manejar el archivo, por ejemplo, cargarlo a un servidor
   }
 
+  isModalOpen = false;
+
+  cancel(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
+
+  
 
 
 }
