@@ -1,33 +1,4 @@
-ion-title.topTitle {
-  background-color: rgba(251, 165, 35, 0.5);
-  width: 100%;
-  /* Ocupar todo el ancho disponible */
-  text-align: center;
-  /* Centrar el contenido */
-  z-index: 1;
-  /* Asegurar que esté por encima del contenido */
-  top: 0;
-  /* Anclar al borde superior */
-  left: 0;
-  /* Anclar al borde izquierdo */
-}
 
-h1 .falla,
-h1 .mercat {
-  color: rgb(251, 165, 35);
-}
-
-.topTitle h1 {
-  color: white;
-  /* Cambiar el color del texto si es necesario */
-  font-weight: bold;
-  font-style: italic;
-  margin: 5vh auto;
-  /* Ajustar el margen para centrar vertical y horizontalmente */
-  display: flex;
-  flex-direction: row;
-  font-size: 2.3vh;
-}
 
 ion-datetime {
   margin-bottom: 20px;
@@ -48,3 +19,5 @@ ion-item {
   text-align: center;
   /* Centra el texto dentro de los elementos hijo */
 }
+
+

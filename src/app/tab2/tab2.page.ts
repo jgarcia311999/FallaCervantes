@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 
+// Interfaz para definir la estructura de un evento
 interface Evento {
   titulo: string;
   descripcion: string;
   photo?: string; // Campo opcional para almacenar la URL de la foto
 }
 
+// Interfaz para definir la estructura de una fecha destacada con eventos asociados
 interface FechaDestacada {
   date: string;
   textColor: string;
@@ -19,10 +21,12 @@ interface FechaDestacada {
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-  nuevoEvento: any = {}; // Objeto para almacenar los datos del nuevo evento
-  eventos: Evento[] = []; // Arreglo para almacenar los eventos
+  // Variables
+  nuevoEvento: any = {};
+  eventos: Evento[] = [];
   fechaSeleccionada: string | undefined;
   fechaDestacadaSeleccionada: FechaDestacada | undefined;
+  
   highlightedDates: FechaDestacada[] = [
     {
       date: '2024-03-31',
@@ -61,43 +65,55 @@ export class Tab2Page {
     }
   ];
   modal: any;
+  mostrarForm: boolean = false;
+  fechaHoraSeleccionada: string | undefined;
+  isModalOpen = false;
 
+  /** 
+   * Método para mostrar la información mejorada cuando se selecciona una fecha.
+   * Busca la fecha seleccionada en el arreglo de fechas destacadas y actualiza la variable fechaDestacadaSeleccionada.
+   */
   mostrarInformacionMejorada() {
     const fechaSeleccionada = this.fechaSeleccionada ? this.fechaSeleccionada.substring(0, 10) : '';
     this.fechaDestacadaSeleccionada = this.highlightedDates.find(fechaDestacada => fechaDestacada.date === fechaSeleccionada);
   }
 
-  mostrarForm: boolean = false;
-
+  /** 
+   * Método para mostrar el formulario de creación de eventos.
+   */
   mostrarFormulario() {
     this.mostrarForm = true;
   }
 
+  /** 
+   * Método para agregar un nuevo evento a la fecha destacada seleccionada.
+   * Valida que el título y la descripción del evento sean proporcionados antes de agregarlo.
+   */
   agregarEvento() {
     if (this.nuevoEvento.titulo && this.nuevoEvento.descripcion) {
       this.fechaDestacadaSeleccionada?.eventos.push({ titulo: this.nuevoEvento.titulo, descripcion: this.nuevoEvento.descripcion });
       console.log('Evento agregado:', this.nuevoEvento);
-      this.nuevoEvento = {};
-      this.mostrarForm = false;
+      this.nuevoEvento = {}; // Reinicia el objeto nuevoEvento
+      this.mostrarForm = false; // Oculta el formulario
     } else {
       console.log("Por favor, complete todos los campos del formulario.");
     }
   }
 
-  fechaHoraSeleccionada: string | undefined;
-
+  /** 
+   * Método para manejar la carga de archivos.
+   * Se ejecuta cuando se selecciona un archivo en el input de tipo file.
+   */
   handleFileInput(event: any) {
     const file = event.target.files[0]; // Obtener el archivo seleccionado
     // Aquí puedes agregar la lógica para manejar el archivo, por ejemplo, cargarlo a un servidor
   }
 
-  isModalOpen = false;
-
+  /** 
+   * Método para manejar el evento de cancelación del modal.
+   * @param isOpen Indica si el modal está abierto o cerrado
+   */
   cancel(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
-
-  
-
-
 }

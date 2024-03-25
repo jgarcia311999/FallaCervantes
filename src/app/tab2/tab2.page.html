@@ -2,24 +2,13 @@
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large" class="topTitle">
-        <h1>Sóc de la <span class="falla"> falla</span>, de la falla del <span class="mercat">mercat</span></h1>
+        <h1>Sóc de la <span class="falla"> falla</span></h1>
+        <h1>de la falla del <span class="mercat">mercat</span></h1>
       </ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-card>
-    <!-- <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fechaSeleccionada"
-      (ionChange)="mostrarInformacion()"></ion-datetime>
-
-    <ion-card-header>
-      <ion-card-title>{{ eventoSeleccionado.titulo }}</ion-card-title>
-      <ion-card-subtitle>{{ eventoSeleccionado.fecha }}</ion-card-subtitle>
-    </ion-card-header> 
-
-    <ion-card-content>
-      <br>
-      {{ eventoSeleccionado.descripcion }}
-    </ion-card-content>-->
 
     <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fechaSeleccionada" presentation="date"
       [highlightedDates]="highlightedDates" (ionChange)="mostrarInformacionMejorada()">
@@ -42,8 +31,6 @@
 
   </ion-card>
 
-  <!--     <ion-button expand="block" (click)="setOpen(true)" (click)="mostrarFormulario()">Agregar Evento</ion-button>
- -->
   <ion-button expand="block" (click)="cancel(true)">Open</ion-button>
   <ion-modal [isOpen]="isModalOpen">
     <ion-card *ngIf="mostrarForm">
@@ -63,8 +50,7 @@
         </ion-item>
         <ion-item>
           <ion-label position="floating">Descripción del evento</ion-label>
-          <ion-textarea [(ngModel)]="nuevoEvento.descripcion" rows="6" required></ion-textarea>
-          <!-- Ajustar el número de filas según sea necesario -->
+          <ion-textarea [(ngModel)]="nuevoEvento.descripcion" rows="5" required></ion-textarea>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Fecha y hora del evento</ion-label>

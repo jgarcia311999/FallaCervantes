@@ -7,11 +7,80 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-segment [(ngModel)]="segmentValue">
+    <ion-segment-button value="avisos">
+      <ion-label>Avisos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="foro">
+      <ion-label>Foro</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-list *ngIf="segmentValue === 'avisos'">
+    <!-- Contenido para la sección de avisos -->
+
+    <ion-card (click)="toggleShowInfo()">
+      <ion-card-header>
+        <ion-card-title>Evento 1</ion-card-title>
+      </ion-card-header>
+      <ion-card-content *ngIf="showInfo">
+        <ion-label class="labelChat">Fecha</ion-label>
+        <p>Informacion del evento 1. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Totam fugit assumenda odit, voluptate blanditiis vitae! Amet doloremque ullam voluptatum
+        quam, esse obcaecati repellat tenetur nesciunt, odio explicabo saepe autem. Illum?</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-accordion-group>
+      <ion-accordion value="first" toggleIconSlot="start">
+        <ion-item slot="header">
+          <ion-label>Evento 1</ion-label>
+          <ion-label>Fecha</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">Informacion del evento 1. Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Totam fugit assumenda odit, voluptate blanditiis vitae! Amet doloremque ullam voluptatum
+          quam, esse obcaecati repellat tenetur nesciunt, odio explicabo saepe autem. Illum?</div>
+      </ion-accordion>
+      <ion-accordion value="second" toggleIconSlot="start">
+        <ion-item slot="header">
+          <ion-label>Evento 2</ion-label>
+          <ion-label>Fecha</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">Informacion del evento 2. Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Totam fugit assumenda odit, voluptate blanditiis vitae! Amet doloremque ullam voluptatum
+          quam, esse obcaecati repellat tenetur nesciunt, odio explicabo saepe autem. Illum?</div>
+      </ion-accordion>
+      <ion-accordion value="third" toggleIconSlot="start">
+        <ion-item slot="header">
+          <ion-label>Evento 3</ion-label>
+          <ion-label>Fecha</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">Informacion del evento 3. Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Totam fugit assumenda odit, voluptate blanditiis vitae! Amet doloremque ullam voluptatum
+          quam, esse obcaecati repellat tenetur nesciunt, odio explicabo saepe autem. Illum?</div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </ion-list>
+
+  <ion-list *ngIf="segmentValue === 'foro'">
+    <!-- Contenido para la sección de foro -->
+    <ion-card>
+      <ion-label>He encontrado un gorro naranja, es de alguien?</ion-label>
+    </ion-card>
+    <ion-card>
+      <ion-label>Mi hijo a perdido un gorro naranja</ion-label>
+    </ion-card>
+
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" *ngIf="segmentValue === 'foro'">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+
+
+
 </ion-content>
