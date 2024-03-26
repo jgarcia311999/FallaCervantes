@@ -7,7 +7,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { CabeceraComponent } from '../components/cabecera/cabecera.component';
+import { SharedModule } from '../shared.module';
 
 @NgModule({
   imports: [
@@ -15,10 +15,10 @@ import { CabeceraComponent } from '../components/cabecera/cabecera.component';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    
+    SharedModule,
     Tab1PageRoutingModule
   ],
-  declarations: [Tab1Page, CabeceraComponent],
+  declarations: [Tab1Page],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class Tab1PageModule {}
