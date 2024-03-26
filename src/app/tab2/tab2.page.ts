@@ -26,6 +26,12 @@ export class Tab2Page {
   eventos: Evento[] = [];
   fechaSeleccionada: string | undefined;
   fechaDestacadaSeleccionada: FechaDestacada | undefined;
+
+  primeraLinea: string = 'Som '
+  primeraPalabra: string = 'xics i xiques'
+  segundaLinea: string = 'vine al nostre  '
+  segundaPalabra: string = 'casal'
+
   
   highlightedDates: FechaDestacada[] = [
     {

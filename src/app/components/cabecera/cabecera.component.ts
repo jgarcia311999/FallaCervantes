@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cabecera',
@@ -9,6 +9,10 @@ export class CabeceraComponent   {
 
   constructor() { }
 
-  
+  @Input() primeraLinea: string = '';
+  @Input() segundaLinea: string = '';
+
+  @Input() primeraPalabra: string = '';
+  @Input() segundaPalabra: string = '';
 
 }

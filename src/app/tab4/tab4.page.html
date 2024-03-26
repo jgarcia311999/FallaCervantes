@@ -1,6 +1,7 @@
 <ion-content [fullscreen]="true">
 
-  <app-cabecera></app-cabecera>
+  <app-cabecera [primeraLinea]="primeraLinea" [primeraPalabra]="primeraPalabra" [segundaLinea]="segundaLinea"
+    [segundaPalabra]="segundaPalabra"></app-cabecera>
 
   <div class="centered-photo">
     <ion-img src="../../assets/images/50aniversari.jpg" class="fotoGrande"></ion-img>
@@ -13,7 +14,7 @@
   <ion-grid>
     <ion-row>
       <ion-col size="4" *ngFor="let photo of photos">
-        <ion-img [src]="photo.url"></ion-img>
+        <ion-img [src]="photo"></ion-img>
       </ion-col>
     </ion-row>
   </ion-grid>

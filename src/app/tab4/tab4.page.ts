@@ -9,16 +9,21 @@ export class Tab4Page  {
 
   constructor() { }
 
-  photos = [
-    { url: 'https://via.placeholder.com/150' },
-    { url: 'https://via.placeholder.com/150' },
-    { url: 'https://via.placeholder.com/150' },
-    { url: 'https://via.placeholder.com/150' },
-    { url: 'https://via.placeholder.com/150' },
-    { url: 'https://via.placeholder.com/150' },
-    { url: 'https://via.placeholder.com/150' },
-    { url: 'https://via.placeholder.com/150' },
-    { url: 'https://via.placeholder.com/150' }
-  ];
+  photos: string[] = [
+    'assets/images/fallaGrande1.jpg',
+    'assets/images/fallaGrande2.jpg',
+    'assets/images/fallaGrande3.jpg',
+    'assets/images/fallaGrande4.jpg',
+    'assets/images/fallaGrande5.jpg',
+    'assets/images/fallaGrande6.jpg',
+    'assets/images/fallaGrande7.jpg',
+    'assets/images/fallaGrande8.jpg',
+    'assets/images/fallaGrande9.jpg'
+    ];
+
+  primeraLinea: string = 'Som '
+  primeraPalabra: string = 'xics i xiques'
+  segundaLinea: string = 'vine al nostre  '
+  segundaPalabra: string = 'casal'
 
 }

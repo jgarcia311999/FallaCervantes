@@ -39,6 +39,11 @@ export class Tab1Page {
     'assets/images/fallaPeqqueña10.jpg',
   ];
 
+  primeraLinea: string = 'Sóc de la '
+  primeraPalabra: string = 'falla'
+  segundaLinea: string = 'de la falla del '
+  segundaPalabra: string = 'mercat'
+
   
 
   

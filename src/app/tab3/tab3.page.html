@@ -1,6 +1,8 @@
 <ion-content [fullscreen]="true">
 
-  <app-cabecera></app-cabecera>
+  <app-cabecera [primeraLinea]="primeraLinea" [primeraPalabra]="primeraPalabra" [segundaLinea]="segundaLinea"
+    [segundaPalabra]="segundaPalabra"></app-cabecera>
+    
   <ion-segment [(ngModel)]="segmentValue">
     <ion-segment-button value="avisos">
       <ion-label>Avisos</ion-label>
