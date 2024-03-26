@@ -33,8 +33,10 @@ export class Tab2Page {
       textColor: 'rgb(251, 165, 35)',
       backgroundColor: '#000066',
       eventos: [
-        { titulo: "Evento mejorado 1", descripcion: "Decripcion mejorado 1" },
-        { titulo: "Evento mejorado 1.2", descripcion: "Decripcion mejorado 1.2"}
+        {
+          titulo: "Evento mejorado 1", descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque vitae quisquam ratione dolore tempora necessitatibus assumenda quo aliquam, natus quod, praesentium in consectetur. Asperiores, libero. Nisi repellat quod ullam illo." },
+        {
+          titulo: "Evento mejorado 1.2", descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque vitae quisquam ratione dolore tempora necessitatibus assumenda quo aliquam, natus quod, praesentium in consectetur. Asperiores, libero. Nisi repellat quod ullam illo."}
       ]
     },
     {
@@ -78,6 +80,16 @@ export class Tab2Page {
     this.fechaDestacadaSeleccionada = this.highlightedDates.find(fechaDestacada => fechaDestacada.date === fechaSeleccionada);
   }
 
+  formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    const month = date.getMonth() + 1; // Los meses en JavaScript comienzan desde 0, por lo que debemos sumar 1
+    const day = date.getDate();
+    // Utilizamos el método `String.padStart()` para asegurarnos de que el mes y el día tengan siempre dos dígitos
+    const formattedMonth = month.toString().padStart(2, '0');
+    const formattedDay = day.toString().padStart(2, '0');
+    return formattedMonth + '/' + formattedDay;
+  }
+
   /** 
    * Método para mostrar el formulario de creación de eventos.
    */
@@ -116,4 +128,6 @@ export class Tab2Page {
   cancel(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
+
+  
 }

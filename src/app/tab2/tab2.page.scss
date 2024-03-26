@@ -19,5 +19,29 @@ ion-item {
   text-align: center;
   /* Centra el texto dentro de los elementos hijo */
 }
+.full-width-card ion-card-title,
+.full-width-content h2,
+.full-width-content p {
+    color: #000066;
+}
+
+
+.full-width-card {
+  width: 90%;
+}
+
+.full-width-content {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.full-width-content h2 {
+margin-bottom: 1rem;
+margin-top: 1rem;
+}
+
+
+
+
 
 

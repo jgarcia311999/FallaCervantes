@@ -1,0 +1,22 @@
+<ion-content [fullscreen]="true">
+
+  <app-cabecera></app-cabecera>
+
+  <div class="centered-photo">
+    <ion-img src="../../assets/images/50aniversari.jpg" class="fotoGrande"></ion-img>
+  </div>
+
+  <div class="centered-text">
+    <h1>LA FALLA DEL MERCAT</h1>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" *ngFor="let photo of photos">
+        <ion-img [src]="photo.url"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

@@ -8,6 +8,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CabeceraModule } from '../components/cabecera/cabecera.module';
+import { SwiperModule } from '../components/swiper/swiper.module';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { CabeceraModule } from '../components/cabecera/cabecera.module';
     FormsModule,
     ExploreContainerComponentModule,
     CabeceraModule,
+    SwiperModule,
     Tab1PageRoutingModule
   ],
   declarations: [Tab1Page],

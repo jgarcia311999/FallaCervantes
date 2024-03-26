@@ -1,18 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CabeceraComponent } from './cabecera.component';
+import { SwiperComponent } from './swiper.component';
 import { IonicModule } from '@ionic/angular';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 
 @NgModule({
     declarations: [
-        CabeceraComponent
+        SwiperComponent
     ],
     imports: [
         CommonModule,
         IonicModule
     ],
     exports: [
-        CabeceraComponent
-    ]
+        SwiperComponent
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+
+    
 })
-export class CabeceraModule { }
+export class SwiperModule { }

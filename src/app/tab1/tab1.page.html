@@ -17,7 +17,11 @@
     </ng-template>
   </ion-modal>
 
-  <swiper-container speed="300" loop="true" css-mode="true" pagination="true">
+  <app-swiper [imagenes]="imagenesFallaGrande"></app-swiper>
+  <app-swiper [imagenes]="imagenesFallaPequena"></app-swiper>
+
+
+  <!-- <swiper-container speed="300" loop="true" css-mode="true" pagination="true">
     <swiper-slide>
       <img src="../../assets/images/fallaGrande1.jpg" alt="Falla grande" class="imagen-falla">
     </swiper-slide>
@@ -81,25 +85,7 @@
     <swiper-slide>
       <img src="../../assets/images/fallaPeqqueña10.jpg" alt="Falla pequeña" class="imagen-falla">
     </swiper-slide>
-  </swiper-container>
-
-
-
-  <!-- <ion-card>
-    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fechaSeleccionada"
-      (ionChange)="mostrarInformacion()"></ion-datetime>
-
-    <ion-card-header>
-      <ion-card-title>{{ eventoSeleccionado.titulo }}</ion-card-title>
-      <ion-card-subtitle>{{ eventoSeleccionado.fecha }}</ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-      <br>
-      {{ eventoSeleccionado.descripcion }}
-    </ion-card-content>
-  </ion-card> -->
-
+  </swiper-container> -->
 
   <h2>FALLERA MAYOR</h2>
 

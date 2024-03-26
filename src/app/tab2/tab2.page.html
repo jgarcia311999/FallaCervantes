@@ -9,19 +9,23 @@
 
     </ion-datetime>
 
-    <ion-card *ngIf="fechaDestacadaSeleccionada">
+    <ion-card *ngIf="fechaDestacadaSeleccionada" class="full-width-card">
       <ion-card-header>
-        <ion-card-title>Eventos para {{ fechaDestacadaSeleccionada.date }}</ion-card-title>
+        <ion-card-title>{{ fechaDestacadaSeleccionada.date }}</ion-card-title>
       </ion-card-header>
-      <ion-card-content>
+      <ion-card-content class="full-width-content">
         <ion-list>
           <ion-item *ngFor="let evento of fechaDestacadaSeleccionada.eventos">
-            <ion-label>{{ evento.titulo }}</ion-label>
-            <ion-text>{{ evento.descripcion }}</ion-text>
+            <ion-label>
+              <h2>{{ evento.titulo }}</h2>
+              <p>{{ evento.descripcion }}</p>
+            </ion-label>
           </ion-item>
         </ion-list>
       </ion-card-content>
     </ion-card>
+
+
 
   </ion-card>
 
