@@ -1,0 +1,25 @@
+ion-title.topTitle {
+  background-color: rgba(251, 165, 35, 0.5);
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 7vh;
+}
+
+h1 .falla,
+h1 .mercat {
+  color: rgb(251, 165, 35);
+}
+
+.topTitle h1 {
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+  margin: 2vh auto;
+  font-size: 2.3vh;
+  text-align: center;
+}

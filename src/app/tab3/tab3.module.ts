@@ -6,7 +6,7 @@ import { Tab3Page } from './tab3.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { Tab3PageRoutingModule } from './tab3-routing.module';
-import { SharedModule } from '../shared.module';
+import { CabeceraModule } from '../components/cabecera/cabecera.module';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { SharedModule } from '../shared.module';
     FormsModule,
     ExploreContainerComponentModule,
     Tab3PageRoutingModule,
-    SharedModule
+    CabeceraModule
   ],
   declarations: [Tab3Page]
 })

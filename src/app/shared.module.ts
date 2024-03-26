@@ -7,14 +7,12 @@ import { CabeceraComponent } from './components/cabecera/cabecera.component';
 
 @NgModule({
     declarations: [
-        CabeceraComponent,
         // Agrega aquí otros componentes, directivas o pipes
     ],
     imports: [
         CommonModule
     ],
     exports: [
-        CabeceraComponent,
         // Exporta aquí otros componentes, directivas o pipes
     ]
 })

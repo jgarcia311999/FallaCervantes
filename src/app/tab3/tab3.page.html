@@ -1,12 +1,6 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
+
+  <app-cabecera></app-cabecera>
   <ion-segment [(ngModel)]="segmentValue">
     <ion-segment-button value="avisos">
       <ion-label>Avisos</ion-label>
@@ -26,8 +20,8 @@
       <ion-card-content *ngIf="showInfo">
         <ion-label class="labelChat">Fecha</ion-label>
         <p>Informacion del evento 1. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Totam fugit assumenda odit, voluptate blanditiis vitae! Amet doloremque ullam voluptatum
-        quam, esse obcaecati repellat tenetur nesciunt, odio explicabo saepe autem. Illum?</p>
+          adipisicing elit. Totam fugit assumenda odit, voluptate blanditiis vitae! Amet doloremque ullam voluptatum
+          quam, esse obcaecati repellat tenetur nesciunt, odio explicabo saepe autem. Illum?</p>
       </ion-card-content>
     </ion-card>
 
