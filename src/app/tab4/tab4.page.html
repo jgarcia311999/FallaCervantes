@@ -19,7 +19,7 @@
       <ng-container *ngFor="let photo of photos; let first = first">
         <ng-container *ngIf="!first">
           <ion-col size="4">
-            <ion-img [src]="photo"></ion-img>
+        <ion-img [src]="photo" class="square-image"></ion-img>
           </ion-col>
         </ng-container>
       </ng-container>

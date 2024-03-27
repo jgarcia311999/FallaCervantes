@@ -25,3 +25,14 @@
   letter-spacing: 2px; /* Ajustar el espaciado entre letras */
   color: #000066;
 }
+
+.square-image {
+  width: 100%;
+  height: auto;
+/*   padding-top: 100%; /* Esto establece la altura como un porcentaje del ancho, lo que mantiene la imagen cuadrada */
+   object-fit: cover; /* Esto asegura que la imagen cubra completamente el contenedor */
+  object-position: center; /* Esto asegura que la imagen se posicione centrada en el contenedor */
+}
+
+
+
