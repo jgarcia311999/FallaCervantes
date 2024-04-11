@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { formatDate } from '@angular/common';
+import { Component, ViewChild  } from '@angular/core';
 
 // Interfaz para definir la estructura de un evento
 interface Evento {
@@ -15,12 +16,21 @@ interface FechaDestacada {
   eventos: Evento[];
 }
 
+interface nuevoEvento {
+  titulo: '',
+  descripcion: '',
+  fechaHora: ''
+};
+
+
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+
+  @ViewChild('calendario') calendario: any;
   // Variables
   nuevoEvento: any = {};
   eventos: Evento[] = [];
@@ -32,7 +42,7 @@ export class Tab2Page {
   segundaLinea: string = 'vine al nostre  '
   segundaPalabra: string = 'casal'
 
-  
+
   highlightedDates: FechaDestacada[] = [
     {
       date: '2024-03-31',
@@ -40,13 +50,15 @@ export class Tab2Page {
       backgroundColor: '#000066',
       eventos: [
         {
-          titulo: "Evento mejorado 1", descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque vitae quisquam ratione dolore tempora necessitatibus assumenda quo aliquam, natus quod, praesentium in consectetur. Asperiores, libero. Nisi repellat quod ullam illo." },
+          titulo: "Evento mejorado 1", descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque vitae quisquam ratione dolore tempora necessitatibus assumenda quo aliquam, natus quod, praesentium in consectetur. Asperiores, libero. Nisi repellat quod ullam illo."
+        },
         {
-          titulo: "Evento mejorado 1.2", descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque vitae quisquam ratione dolore tempora necessitatibus assumenda quo aliquam, natus quod, praesentium in consectetur. Asperiores, libero. Nisi repellat quod ullam illo."}
+          titulo: "Evento mejorado 1.2", descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque vitae quisquam ratione dolore tempora necessitatibus assumenda quo aliquam, natus quod, praesentium in consectetur. Asperiores, libero. Nisi repellat quod ullam illo."
+        }
       ]
     },
     {
-      date: '2024-03-24',
+      date: '2024-04-24',
       textColor: 'rgb(251, 165, 35)',
       backgroundColor: '#000066',
       eventos: [
@@ -55,7 +67,7 @@ export class Tab2Page {
       ]
     },
     {
-      date: '2024-03-16',
+      date: '2024-04-16',
       textColor: 'rgb(251, 165, 35)',
       backgroundColor: '#000066',
       eventos: [
@@ -63,7 +75,7 @@ export class Tab2Page {
       ]
     },
     {
-      date: '2024-03-10',
+      date: '2024-04-10',
       textColor: 'rgb(251, 165, 35)',
       backgroundColor: '#000066',
       eventos: [
@@ -77,6 +89,41 @@ export class Tab2Page {
   fechaHoraSeleccionada: string | undefined;
   isModalOpen = false;
 
+  agregarEvento() {
+    // Formatear la fecha a 'YYYY-MM-DD' antes de agregarla al objeto nuevo evento
+    const fechaFormateada = formatDate(this.nuevoEvento.fechaHora, 'yyyy-MM-dd', 'en');
+  
+    // Agregar el nuevo evento a la última posición de highlightedDates
+    this.highlightedDates.push({
+      date: fechaFormateada,
+      textColor: 'rgb(251, 165, 35)',
+      backgroundColor: '#000066',
+      eventos: [{
+        titulo: this.nuevoEvento.titulo,
+        descripcion: this.nuevoEvento.descripcion
+      }]
+    });
+  
+    // Reiniciar el objeto nuevoEvento para futuros usos
+    this.nuevoEvento = {
+      titulo: '',
+      descripcion: '',
+      fechaHora: ''
+    };
+  
+    // Cerrar el modal después de agregar el evento
+    this.isModalOpen = false;
+  
+    // Actualizar el calendario después de agregar el evento
+    this.mostrarInformacionMejorada();
+  
+    // Forzar la actualización del calendario llamando al método refresh()
+    this.calendario.refresh();
+  }
+  
+
+
+
   /** 
    * Método para mostrar la información mejorada cuando se selecciona una fecha.
    * Busca la fecha seleccionada en el arreglo de fechas destacadas y actualiza la variable fechaDestacadaSeleccionada.
@@ -84,6 +131,7 @@ export class Tab2Page {
   mostrarInformacionMejorada() {
     const fechaSeleccionada = this.fechaSeleccionada ? this.fechaSeleccionada.substring(0, 10) : '';
     this.fechaDestacadaSeleccionada = this.highlightedDates.find(fechaDestacada => fechaDestacada.date === fechaSeleccionada);
+    console.log('Función mostrarInformacionMejorada() llamada') ;
   }
 
   formatDate(dateString: string): string {
@@ -104,21 +152,6 @@ export class Tab2Page {
   }
 
   /** 
-   * Método para agregar un nuevo evento a la fecha destacada seleccionada.
-   * Valida que el título y la descripción del evento sean proporcionados antes de agregarlo.
-   */
-  agregarEvento() {
-    if (this.nuevoEvento.titulo && this.nuevoEvento.descripcion) {
-      this.fechaDestacadaSeleccionada?.eventos.push({ titulo: this.nuevoEvento.titulo, descripcion: this.nuevoEvento.descripcion });
-      console.log('Evento agregado:', this.nuevoEvento);
-      this.nuevoEvento = {}; // Reinicia el objeto nuevoEvento
-      this.mostrarForm = false; // Oculta el formulario
-    } else {
-      console.log("Por favor, complete todos los campos del formulario.");
-    }
-  }
-
-  /** 
    * Método para manejar la carga de archivos.
    * Se ejecuta cuando se selecciona un archivo en el input de tipo file.
    */
@@ -135,5 +168,5 @@ export class Tab2Page {
     this.isModalOpen = isOpen;
   }
 
-  
+
 }

@@ -5,10 +5,10 @@
 
   <ion-card>
 
-    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fechaSeleccionada" presentation="date"
-      [highlightedDates]="highlightedDates" (ionChange)="mostrarInformacionMejorada()">
+    <ion-datetime #calendario displayFormat="DD/MM/YYYY" [(ngModel)]="fechaSeleccionada" presentation="date"
+      [highlightedDates]="highlightedDates" (ionChange)="mostrarInformacionMejorada()"></ion-datetime>
 
-    </ion-datetime>
+
 
     <ion-card *ngIf="fechaDestacadaSeleccionada" class="full-width-card">
       <ion-card-header>
@@ -61,6 +61,7 @@
       </ion-card-content>
     </ion-card>
   </ion-modal>
+
 
 
 
