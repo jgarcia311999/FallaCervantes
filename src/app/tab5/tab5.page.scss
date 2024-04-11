@@ -1,0 +1,29 @@
+.imagen-redonda {
+    width: 200px; /* Ajusta el tamaño según sea necesario */
+    height: 200px; /* Ajusta el tamaño según sea necesario */
+    overflow: hidden; /* Esto ocultará cualquier parte de la imagen que se salga del contenedor */
+    border-radius: 50%; /* Esto redondeará la imagen */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3vh;
+}
+
+.imagen-redonda img {
+    width: 100%; /* Asegúrate de que la imagen ocupe todo el contenedor */
+    height: auto; /* La altura se ajustará automáticamente para mantener la proporción */
+    display: block; /* Para evitar espacios en blanco debajo de la imagen */
+}
+
+
+.nombreUsuario {
+    text-align: center;
+    margin-top: 5vh;
+}
+
+ion-fab {
+    position: fixed;
+    bottom: 1.5rem;
+    /* Ajusta según sea necesario */
+    right: 1.5rem;
+    /* Ajusta según sea necesario */
+}

@@ -1,47 +1,82 @@
-
-
-ion-datetime {
-  margin-bottom: 20px;
-  margin-top: 20px;
+.circle-background {
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  background-color: #fa8f42;
+  position: absolute;
+  top: 35%;
+  left: -275px;
+  transform: translate(0%, -50%);
+  overflow: hidden;
+  z-index: -1; /* Aquí establecemos el z-index en un valor menor */
 }
 
-ion-card {
+ion-fab {
+  position: absolute;
+  top: 3rem;
+  /* Ajusta según sea necesario */
+  right: 3rem;
+  /* Ajusta según sea necesario */
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); // Fondo oscuro semi-transparente
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999; // Asegúrate de que el modal esté por encima del contenido
+}
+
+.modal-content {
+  width: 80%; // Tamaño del contenido del modal
+  background-color: #fff; // Fondo blanco del modal
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.main-card {
+  background-color: #d9d9d9;
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    /* Color de fondo de la tarjeta */
+    border-radius: 10px;
+  }
+
+  .card-content {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.first-heading {
+  margin-top: 15vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Centra horizontalmente los elementos */
+  margin-bottom: 20px;
+  /* Agrega margen inferior para separar el h1 de la tarjeta */
 }
 
-ion-card-title,
-ion-card-subtitle,
-ion-card-content,
-ion-item {
-  text-align: center;
-  /* Centra el texto dentro de los elementos hijo */
-}
-.full-width-card ion-card-title,
-.full-width-content h2,
-.full-width-content p {
-    color: #000066;
+ion-content[fullscreen="true"] {
+  .main-card:first-of-type {
+    margin-top: 30vh;
+  }
 }
 
-
-.full-width-card {
-  width: 90%;
+h2 {
+  font-size: 20px; /* Tamaño de letra más grande */
+  font-weight: bold; /* Texto en negrita */
+  margin-bottom: 3vh;
+  margin-top: 1vh;
 }
-
-.full-width-content {
-  width: 100%;
-  margin-top: 1rem;
-}
-
-.full-width-content h2 {
-margin-bottom: 1rem;
-margin-top: 1rem;
-}
-
-
-
-
-
-

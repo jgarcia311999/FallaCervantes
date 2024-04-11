@@ -1,107 +1,89 @@
-// Define tus colores personalizados
-:root {
-    --color-naranja-fondo: rgb(251, 165, 35);
-    --color-azul-marino: #000066;
+.circle-background {
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  background-color: #fa8f42;
+  position: absolute;
+  top: 35%;
+  right: -275px;
+  transform: translate(0%, -50%);
+  overflow: hidden;
+  z-index: -1; /* Aquí establecemos el z-index en un valor menor */
 }
 
-
-/* color del logo: #FE4C02 */
-
-
-.imagen-falla {
-    width: 100%;
-    max-width: 400px;
-    /* ajusta el tamaño máximo según tus necesidades */
-    display: block;
-    margin: 3vh auto;
-    /* para centrar la imagen horizontalmente */
-    border-radius: 8px;
-    /* para redondear las esquinas de la imagen, si deseas */
-    box-shadow: 0 0 10px rgba(0, 0, 102, 0.4);
-    /* sombra suave */
+.centered-image {
+  position: static;
+  margin-top: 20vh;
+  top: 100%;
+  left: 50%;
 }
 
-
-
-h1 .falla,
-h1 .mercat {
-    color: rgb(251, 165, 35);
+.centered-image img {
+  width: 100%;
+  transform: scale(1.7);
 }
 
-h2,
-h4 {
-    text-align: center;
-    color: #000066;
+h1 {
+  margin-top: 8vh;
+  margin-left: 2vh;
+  margin-bottom: 20px;
+  /* Agrega margen inferior para separar el h1 de la tarjeta */
 }
 
-p {
-    text-align: justify;
-    color: #000066;
-    margin: 3.5vh;
-}
+.main-card {
+  background-color: #d9d9d9;
 
-
-
-ion-card {
+  .card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Centra horizontalmente los elementos */
-}
+  }
 
-ion-datetime {
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-
-ion-title.topTitle {
-    background-color: rgba(251, 165, 35, 0.5);
+  .card {
     width: 100%;
-    /* Ocupar todo el ancho disponible */
-    text-align: center;
-    /* Centrar el contenido */
-    z-index: 1;
-    /* Asegurar que esté por encima del contenido */
-    top: 0;
-    /* Anclar al borde superior */
-    left: 0;
-    /* Anclar al borde izquierdo */
+    /* Color de fondo de la tarjeta */
+    border-radius: 10px;
+  }
 
-}
-
-.topTitle h1 {
-    color: white;
-    /* Cambiar el color del texto si es necesario */
-    font-weight: bold;
-    font-style: italic;
-    margin: 5vh auto;
-    /* Ajustar el margen para centrar vertical y horizontalmente */
+  .card-content {
     display: flex;
-    flex-direction: row;
-}
-
-
-ion-card {
-    text-align: center;
-    /* Centra el texto dentro del ion-card */
-}
-
-ion-card-title,
-ion-card-subtitle,
-ion-card-content,
-ion-item {
-    text-align: center;
-    /* Centra el texto dentro de los elementos hijo */
-}
-
-swiper-container{
-    width: 100%;
-    height: auto;
-}
-
-swiper-slide {
-    display: flex;
-    flex-direction: column;
     align-items: center;
+  }
+
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+    display: flex; /* Usamos flexbox */
+    justify-content: center; /* Centramos horizontalmente */
 }
 
+img {
+    width: 100%;
+    border-radius: 50%;
+    align-self: center; /* Para centrar verticalmente */
+}
+
+
+  h2 {
+    margin: 0;
+    font-size: 24px; /* Tamaño de letra más grande */
+    font-weight: bold; /* Texto en negrita */
+  }
+
+  .divider {
+    margin-top: 1.5vh;
+    border-top: 1px solid #888;
+    width: 90%;
+  }
+}
+
+ion-fab {
+  position: absolute;
+  top: 3rem;
+  /* Ajusta según sea necesario */
+  left: 3rem;
+  /* Ajusta según sea necesario */
+}

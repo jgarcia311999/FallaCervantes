@@ -1,5 +1,7 @@
 import { formatDate } from '@angular/common';
 import { Component, ViewChild  } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+
 
 // Interfaz para definir la estructura de un evento
 interface Evento {
@@ -29,6 +31,9 @@ interface nuevoEvento {
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  tarjetaSeleccionada: number | null | undefined;
+  constructor() { }
+
 
   @ViewChild('calendario') calendario: any;
   // Variables
@@ -37,10 +42,9 @@ export class Tab2Page {
   fechaSeleccionada: string | undefined;
   fechaDestacadaSeleccionada: FechaDestacada | undefined;
 
-  primeraLinea: string = 'Som '
-  primeraPalabra: string = 'xics i xiques'
-  segundaLinea: string = 'vine al nostre  '
-  segundaPalabra: string = 'casal'
+
+  mostrarModal: boolean = false;
+
 
 
   highlightedDates: FechaDestacada[] = [
@@ -122,6 +126,11 @@ export class Tab2Page {
   }
   
 
+  esFechaIgualOPosterior(fechaEvento: string): boolean {
+    const hoy = new Date();
+    const fecha = new Date(fechaEvento);
+    return fecha >= hoy;
+  }
 
 
   /** 
@@ -168,5 +177,19 @@ export class Tab2Page {
     this.isModalOpen = isOpen;
   }
 
+  toggleModal() {
+    this.mostrarModal = !this.mostrarModal; // Alternar el estado del modal
+  }
 
+  cerrarModal() {
+    this.mostrarModal = false; // Cerrar el modal si se hace clic fuera del contenido
+  }
+
+  onModalContentClick(event: MouseEvent) {
+    event.stopPropagation(); // Detener la propagación del evento de clic dentro del contenido del modal
+  }
+  
+  seleccionarTarjeta(index: number) {
+    this.tarjetaSeleccionada = this.tarjetaSeleccionada === index ? null : index; // Alternar la selección de la tarjeta
+  }
 }

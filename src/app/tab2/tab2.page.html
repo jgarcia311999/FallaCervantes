@@ -1,68 +1,75 @@
 <ion-content [fullscreen]="true">
-  <app-cabecera [primeraLinea]="primeraLinea" [primeraPalabra]="primeraPalabra" [segundaLinea]="segundaLinea"
-    [segundaPalabra]="segundaPalabra"></app-cabecera>
+  <div class="circle-background"></div>
+  <ion-fab vertical="top" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="calendar"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
-
-  <ion-card>
-
-    <ion-datetime #calendario displayFormat="DD/MM/YYYY" [(ngModel)]="fechaSeleccionada" presentation="date"
-      [highlightedDates]="highlightedDates" (ionChange)="mostrarInformacionMejorada()"></ion-datetime>
-
-
-
-    <ion-card *ngIf="fechaDestacadaSeleccionada" class="full-width-card">
-      <ion-card-header>
-        <ion-card-title>{{ fechaDestacadaSeleccionada.date }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content class="full-width-content">
-        <ion-list>
-          <ion-item *ngFor="let evento of fechaDestacadaSeleccionada.eventos">
-            <ion-label>
-              <h2>{{ evento.titulo }}</h2>
-              <p>{{ evento.descripcion }}</p>
-            </ion-label>
-          </ion-item>
-        </ion-list>
+  <div class="first-heading"></div>
+  <ion-card class="main-card" *ngFor="let fechaDestacada of highlightedDates; let i = index">
+    <ion-card-content [class.expanded]="tarjetaSeleccionada === i" (click)="seleccionarTarjeta(i)" *ngIf="esFechaIgualOPosterior(fechaDestacada.date)">
+      <div class="card-container">
+        <div class="card">
+          <div class="card-content">
+            <h1>{{ formatDate(fechaDestacada.date) }}</h1> <!-- Mostrar solo la fecha -->
+          </div>
+        </div>
+      </div>
+    </ion-card-content>
+  
+    <!-- Contenido de la tarjeta expandible -->
+    <ion-card *ngIf="tarjetaSeleccionada === i" class="expanded-card">
+      <ion-card-content>
+        <div class="card-container">
+          <div class="card">
+            <div class="card-content">
+              <!-- Iterar sobre los eventos de la fecha seleccionada que son igual o superior a la fecha actual -->
+              <ion-list>
+                <ion-item *ngFor="let evento of fechaDestacada.eventos">
+                  <ion-label>
+                    <h2>{{ evento.titulo }}</h2>
+                    <p>{{ evento.descripcion }}</p>
+                  </ion-label>
+                </ion-item>
+              </ion-list>
+            </div>
+          </div>
+        </div>
       </ion-card-content>
     </ion-card>
-
-
-
   </ion-card>
 
-  <ion-button expand="block" (click)="cancel(true)">Open</ion-button>
-  <ion-modal [isOpen]="isModalOpen">
-    <ion-card *ngIf="mostrarForm">
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-button (click)="cancel(false)">Cancel</ion-button>
-        </ion-buttons>
-        <ion-title>Nuevo evento</ion-title>
-        <ion-buttons slot="end">
-          <ion-button (click)="agregarEvento()" [strong]="true">Confirm</ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-      <ion-card-content>
-        <ion-item>
-          <ion-label position="floating">Nombre del evento</ion-label>
-          <ion-input [(ngModel)]="nuevoEvento.titulo" required></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Descripción del evento</ion-label>
-          <ion-textarea [(ngModel)]="nuevoEvento.descripcion" rows="5" required></ion-textarea>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Fecha y hora del evento</ion-label>
-          <ion-datetime displayFormat="DD/MM/YYYY HH:mm" [(ngModel)]="nuevoEvento.fechaHora" required></ion-datetime>
-        </ion-item>
-        <ion-item>
-          <ion-input type="file" accept="image/*" (change)="handleFileInput($event)"></ion-input>
-        </ion-item>
-      </ion-card-content>
-    </ion-card>
-  </ion-modal>
 
 
+  <ion-fab vertical="top" horizontal="end">
+    <ion-fab-button (click)="toggleModal()">
+      <ion-icon name="calendar"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
+  <ion-card *ngIf="mostrarModal" class="modal-overlay" (click)="cerrarModal()">
+    <div class="modal-content" (click)="onModalContentClick($event)">
+      <!-- Contenido del modal -->
+      <ion-datetime #calendario displayFormat="DD/MM/YYYY" [(ngModel)]="fechaSeleccionada" presentation="date"
+        [highlightedDates]="highlightedDates" (ionChange)="mostrarInformacionMejorada()"></ion-datetime>
+
+      <ion-card *ngIf="fechaDestacadaSeleccionada" class="full-width-card">
+        <ion-card-header>
+          <ion-card-title>{{ fechaDestacadaSeleccionada.date }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="full-width-content">
+          <ion-list>
+            <ion-item *ngFor="let evento of fechaDestacadaSeleccionada.eventos">
+              <ion-label>
+                <h2>{{ evento.titulo }}</h2>
+                <p>{{ evento.descripcion }}</p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-card>
 
 </ion-content>

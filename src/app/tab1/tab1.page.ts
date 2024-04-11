@@ -27,16 +27,16 @@ export class Tab1Page {
   ];
   
   imagenesFallaPequena: string[] = [
-    'assets/images/fallaPeqqueña1.jpg',
-    'assets/images/fallaPeqqueña2.jpg',
-    'assets/images/fallaPeqqueña3.jpg',
-    'assets/images/fallaPeqqueña4.jpg',
-    'assets/images/fallaPeqqueña5.jpg',
-    'assets/images/fallaPeqqueña6.jpg',
-    'assets/images/fallaPeqqueña7.jpg',
-    'assets/images/fallaPeqqueña8.jpg',
-    'assets/images/fallaPeqqueña9.jpg',
-    'assets/images/fallaPeqqueña10.jpg',
+    'assets/images/fallaPeqquenya1.jpg',
+    'assets/images/fallaPeqquenya2.jpg',
+    'assets/images/fallaPeqquenya3.jpg',
+    'assets/images/fallaPeqquenya4.jpg',
+    'assets/images/fallaPeqquenya5.jpg',
+    'assets/images/fallaPeqquenya6.jpg',
+    'assets/images/fallaPeqquenya7.jpg',
+    'assets/images/fallaPeqquenya8.jpg',
+    'assets/images/fallaPeqquenya9.jpg',
+    'assets/images/fallaPeqquenya10.jpg',
   ];
 
   primeraLinea: string = 'Sóc de la '
