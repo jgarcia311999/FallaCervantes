@@ -1,0 +1,96 @@
+.circle-background1 {
+    width: 550px;
+    height: 550px;
+    border-radius: 50%;
+    background-color: #fa8f42;
+    position: absolute;
+    top: 0%;
+    right: -275px;
+    transform: translate(0%, -50%);
+    overflow: hidden;
+    z-index: -1;
+}
+
+.circle-background2 {
+    width: 550px;
+    height: 550px;
+    border-radius: 50%;
+    background-color: #fa8f42;
+    position: absolute;
+    top: 100%;
+    left: -275px;
+    transform: translate(0%, -50%);
+    overflow: hidden;
+    z-index: -1;
+}
+
+.centered-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+
+}
+
+ion-item {
+    width: 70%; // Ancho del formulario
+    max-width: 400px; // Ancho máximo del formulario para dispositivos más grandes
+}
+
+.correoItem {
+    border-top-right-radius: 50px; /* Esquina superior derecha */
+    border-top: 3px solid black; /* Borde sólido de 2px en color negro en el lado superior */
+    border-right: 3px solid black; /* Borde sólido de 2px en color negro en el lado superior */
+  }
+  
+
+.contraItem {
+    border-bottom-right-radius: 50px;
+    border-top: 3px solid black; /* Borde sólido de 2px en color negro en el lado superior */
+    border-bottom: 3px solid black; /* Borde sólido de 2px en color negro en el lado superior */
+    border-right: 3px solid black; /* Borde sólido de 2px en color negro en el lado superior */
+}
+
+.circle-button {
+    position: fixed;
+    /* Posicionar de forma fija */
+    top: 46.5%;
+    /* Distancia desde la parte superior de la pantalla */
+    right: 22%;
+    /* Distancia desde el borde derecho de la pantalla */
+    z-index: 999;
+    /* Valor alto para que esté por encima del resto del contenido */
+    width: 60px;
+    /* Ancho del círculo */
+    height: 60px;
+    /* Altura del círculo */
+    border-radius: 50%;
+    /* Hacer que el botón sea un círculo */
+    background-color: #fa8f42;
+    /* Color de fondo del botón */
+    display: flex;
+    /* Para centrar el icono */
+    justify-content: center;
+    /* Para centrar el icono */
+    align-items: center;
+    /* Para centrar el icono */
+}
+
+.icon {
+    color: #fff;
+    /* Color del icono */
+    font-size: 24px;
+    /* Tamaño del icono */
+}
+
+.circle {
+    position: fixed;
+    top: 8vh;
+    left: 5vh;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex; /* Usamos flexbox */
+    justify-content: center; /* Centramos horizontalmente */
+}

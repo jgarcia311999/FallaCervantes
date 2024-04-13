@@ -1,6 +1,30 @@
 <ion-content [fullscreen]="true">
+  <div class="circle-background1" *ngIf="segmentValue === 'avisos'"></div>
 
-  <app-cabecera [primeraLinea]="primeraLinea" [primeraPalabra]="primeraPalabra" [segundaLinea]="segundaLinea"
+  <div class="circle-background2" *ngIf="segmentValue === 'foro'"></div>
+
+  <ion-segment [(ngModel)]="segmentValue">
+    <ion-segment-button value="avisos">
+      <ion-label>Avisos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="foro">
+      <ion-label>Foro</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-fab vertical="bottom" horizontal="start" *ngIf="segmentValue === 'avisos'" class="btnPlusAvisos">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="end" *ngIf="segmentValue === 'foro'" class="btnPlusForo">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- <app-cabecera [primeraLinea]="primeraLinea" [primeraPalabra]="primeraPalabra" [segundaLinea]="segundaLinea"
     [segundaPalabra]="segundaPalabra"></app-cabecera>
     
   <ion-segment [(ngModel)]="segmentValue">
@@ -13,7 +37,6 @@
   </ion-segment>
 
   <ion-list *ngIf="segmentValue === 'avisos'">
-    <!-- Contenido para la sección de avisos -->
     <ion-card (click)="toggleShowInfo()">
       <ion-card-header>
         <ion-card-title>Evento 1</ion-card-title>
@@ -58,7 +81,6 @@
   </ion-list>
 
   <ion-list *ngIf="segmentValue === 'foro'">
-    <!-- Contenido para la sección de foro -->
     <ion-card>
       <ion-label>He encontrado un gorro naranja, es de alguien?</ion-label>
     </ion-card>
@@ -72,6 +94,6 @@
     <ion-fab-button>
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
-  </ion-fab>
+  </ion-fab> -->
 
 </ion-content>

@@ -1,3 +1,17 @@
+.circle-background {
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  background-color: #fa8f42;
+  position: absolute;
+  top: 0%;
+  right: -50px;
+  transform: translate(0%, -50%);
+  overflow: hidden;
+  z-index: -1;
+}
+
+
 .centered-photo {
   display: flex;
   justify-content: center;
@@ -8,6 +22,10 @@
 
 .fotoGrande {
   width: 70%;
+  border-radius: 20px;
+  /* Aplicar redondeo de esquinas */
+  overflow: hidden;
+  /* Ocultar partes de la imagen que se extienden más allá del radio */
 }
 
 .centered-text {
@@ -20,19 +38,49 @@
 
 .centered-text h1 {
   font-weight: bold;
-  font-weight: 3000; /* Aumentar el grosor de la negrita */
-  font-size: 2em; /* Ajustar el tamaño del texto */
-  letter-spacing: 2px; /* Ajustar el espaciado entre letras */
+  font-weight: 3000;
+  /* Aumentar el grosor de la negrita */
+  font-size: 2em;
+  /* Ajustar el tamaño del texto */
+  letter-spacing: 2px;
+  /* Ajustar el espaciado entre letras */
   color: #000066;
 }
 
-.square-image {
-  width: 100%;
-  height: auto;
-/*   padding-top: 100%; /* Esto establece la altura como un porcentaje del ancho, lo que mantiene la imagen cuadrada */
-   object-fit: cover; /* Esto asegura que la imagen cubra completamente el contenedor */
-  object-position: center; /* Esto asegura que la imagen se posicione centrada en el contenedor */
+ion-grid {
+  display: flex;
+  justify-content: center;
+  /* Centrar horizontalmente */
+  flex-wrap: wrap;
+  /* Permitir que las columnas se envuelvan si no hay suficiente espacio */
 }
 
+ion-col {
+  display: flex;
+  justify-content: center;
+  /* Centrar horizontalmente */
+  align-items: center;
+  /* Centrar verticalmente */
+  width: calc(100% / 3);
+  /* Ancho igual para cada columna en el grid */
+  padding: 0.5rem;
+  /* Espaciado entre columnas */
+}
 
+.square-image {
+  width: 200px;
+  /* Ancho fijo */
+  height: 200px;
+  /* Altura fija */
+  object-fit: cover;
+  /* Esto asegura que la imagen cubra completamente el contenedor */
+  object-position: center;
+  /* Esto asegura que la imagen se posicione centrada en el contenedor */
+  max-width: 100%;
+  /* Ajustar el tamaño máximo de la imagen al ancho de la columna */
+  border-radius: 20px;
+  /* Aplicar redondeo de esquinas */
+  overflow: hidden;
+  /* Ocultar partes de la imagen que se extienden más allá del radio */
+}
 

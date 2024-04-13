@@ -10,11 +10,6 @@ export class Tab3Page {
   showInfo: boolean = false;
   constructor() { }
 
-  primeraLinea: string = 'i si vols '
-  primeraPalabra: string = 'marxa'
-  segundaLinea: string = 'vine al '
-  segundaPalabra: string = 'casal'
-
   toggleShowInfo() {
     this.showInfo = !this.showInfo;
   }

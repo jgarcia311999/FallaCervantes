@@ -8,7 +8,8 @@
   left: -275px;
   transform: translate(0%, -50%);
   overflow: hidden;
-  z-index: -1; /* Aquí establecemos el z-index en un valor menor */
+  z-index: -1;
+  /* Aquí establecemos el z-index en un valor menor */
 }
 
 ion-fab {
@@ -41,6 +42,7 @@ ion-fab {
 
 .main-card {
   background-color: #d9d9d9;
+
   .card-container {
     display: flex;
     flex-direction: column;
@@ -49,13 +51,20 @@ ion-fab {
 
   .card {
     width: 100%;
-    /* Color de fondo de la tarjeta */
     border-radius: 10px;
   }
 
   .card-content {
-    display: flex;
     align-items: center;
+    width: 90%;
+
+  }
+
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
   }
 }
 
@@ -65,7 +74,6 @@ ion-fab {
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
-  /* Agrega margen inferior para separar el h1 de la tarjeta */
 }
 
 ion-content[fullscreen="true"] {
@@ -75,8 +83,14 @@ ion-content[fullscreen="true"] {
 }
 
 h2 {
-  font-size: 20px; /* Tamaño de letra más grande */
-  font-weight: bold; /* Texto en negrita */
+  font-size: 20px;
+  font-weight: bold;
   margin-bottom: 3vh;
   margin-top: 1vh;
+}
+
+.centered-row {
+  margin-top: 3vh;
+  display: flex;
+  justify-content: center;
 }

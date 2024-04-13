@@ -1,7 +1,10 @@
 <ion-content [fullscreen]="true">
-
-  <app-cabecera [primeraLinea]="primeraLinea" [primeraPalabra]="primeraPalabra" [segundaLinea]="segundaLinea"
-    [segundaPalabra]="segundaPalabra"></app-cabecera>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
 
   <div class="imagen-redonda">
     <img src="../../assets/images/placeholder.PNG" alt="" style="border-radius: 20vh;">
@@ -11,8 +14,8 @@
     <h1>Jesús García</h1>
   </div>
 
-  <ion-fab vertical="bottom" horizontal="end">
-    <ion-fab-button>
+  <ion-fab vertical="bottom" horizontal="end" >
+    <ion-fab-button (click)="onClick()">
       <ion-icon name="options-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>

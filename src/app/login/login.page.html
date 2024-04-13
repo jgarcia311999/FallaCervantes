@@ -1,0 +1,30 @@
+<ion-content [fullscreen]="true">
+  <div class="circle-background1"></div>
+
+  <div class="circle-background2"></div>
+
+  <div class="circle">
+    <img src="../../assets/images/fallalogo.PNG" alt="Imagen">
+  </div>
+
+  <div class="centered-form">
+    <form (submit)="onSubmit()">
+      <ion-item class="correoItem">
+        <ion-label position="floating">Correo electrónico</ion-label>
+        <ion-input type="email" name="email" required [(ngModel)]="email"></ion-input>
+      </ion-item>
+    
+      <ion-item class="contraItem">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" name="password" required [(ngModel)]="password"></ion-input>
+      </ion-item>
+    
+      <div class="circle-button">
+        <ion-icon name="arrow-forward-outline" class="icon" (click)="onSubmit()"></ion-icon>
+      </div>
+    </form>
+
+  </div>
+
+
+</ion-content>

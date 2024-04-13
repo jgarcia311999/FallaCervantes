@@ -1,10 +1,57 @@
+.circle-background2 {
+    width: 550px;
+    height: 550px;
+    border-radius: 50%;
+    background-color: #fa8f42;
+    position: absolute;
+    top: 5%;
+    left: -235px;
+    transform: translate(0%, -50%);
+    overflow: hidden;
+    z-index: -1;
+}
+
+.circle-background1 {
+    width: 550px;
+    height: 550px;
+    border-radius: 50%;
+    background-color: #fa8f42;
+    position: absolute;
+    top: 5%;
+    right: -235px;
+    transform: translate(0%, -50%);
+    overflow: hidden;
+    z-index: -1;
+}
+
 ion-segment {
-    margin-top: 3vh;
-    background-color: rgb(251, 165, 35);
+    margin-top: 15vh;
+    background-color: #fa8f42;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+    border: 2px solid #000; /* Añade un borde de 2 píxeles sólido de color negro */
+    border-radius: 10px; /* Añade bordes redondeados */
+    box-sizing: border-box; /* Incluye el borde en el ancho total */
 }
+
+ion-fab {
+    position: fixed;
+    bottom: 1.5rem;
+}
+
+.btnPlusAvisos{
+    left: 1.5rem;
+}
+
+.btnPlusForo{
+    right: 1.5rem;
+}
+
+
+
+
+/* 
 
 ion-accordion {
     margin-left: auto;
@@ -39,32 +86,23 @@ ion-accordion.accordion-expanded ion-item[slot='header'] {
 ion-fab {
     position: fixed;
     bottom: 1.5rem;
-    /* Ajusta según sea necesario */
     right: 1.5rem;
-    /* Ajusta según sea necesario */
 }
 
 ion-card {
     margin-bottom: 1.25rem;
-    /* Equivalente a 20px */
     padding: 1.25rem;
-    /* Equivalente a 20px */
     border-radius: 0.625rem;
-    /* Equivalente a 10px */
     background-color: #ffffff;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
-    /* Equivalente a 0 4px 8px */
 }
 
 ion-label {
     font-size: 1rem;
-    /* Tamaño de fuente en rem */
 }
 
 
-/* Ajustes de estilos para el contenido del card */
 .labelChat {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    /* Tamaño de fuente más grande */
-}
+} */

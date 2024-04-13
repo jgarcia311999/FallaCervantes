@@ -8,7 +8,8 @@
   right: -275px;
   transform: translate(0%, -50%);
   overflow: hidden;
-  z-index: -1; /* Aquí establecemos el z-index en un valor menor */
+  z-index: -1;
+  /* Aquí establecemos el z-index en un valor menor */
 }
 
 .centered-image {
@@ -50,27 +51,32 @@ h1 {
     align-items: center;
   }
 
-.circle {
+  .circle {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     overflow: hidden;
     margin-right: 10px;
-    display: flex; /* Usamos flexbox */
-    justify-content: center; /* Centramos horizontalmente */
-}
+    display: flex;
+    /* Usamos flexbox */
+    justify-content: center;
+    /* Centramos horizontalmente */
+  }
 
-img {
+  img {
     width: 100%;
     border-radius: 50%;
-    align-self: center; /* Para centrar verticalmente */
-}
+    align-self: center;
+    /* Para centrar verticalmente */
+  }
 
 
   h2 {
     margin: 0;
-    font-size: 24px; /* Tamaño de letra más grande */
-    font-weight: bold; /* Texto en negrita */
+    font-size: 24px;
+    /* Tamaño de letra más grande */
+    font-weight: bold;
+    /* Texto en negrita */
   }
 
   .divider {

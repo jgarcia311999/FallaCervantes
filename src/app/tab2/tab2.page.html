@@ -8,16 +8,17 @@
 
   <div class="first-heading"></div>
   <ion-card class="main-card" *ngFor="let fechaDestacada of highlightedDates; let i = index">
-    <ion-card-content [class.expanded]="tarjetaSeleccionada === i" (click)="seleccionarTarjeta(i)" *ngIf="esFechaIgualOPosterior(fechaDestacada.date)">
+    <ion-card-content [class.expanded]="tarjetaSeleccionada === i" (click)="seleccionarTarjeta(i)"
+      *ngIf="esFechaIgualOPosterior(fechaDestacada.date)">
       <div class="card-container">
         <div class="card">
           <div class="card-content">
-            <h1>{{ formatDate(fechaDestacada.date) }}</h1> <!-- Mostrar solo la fecha -->
+            <h1>{{ formatDate(fechaDestacada.date) }}</h1>
           </div>
         </div>
       </div>
     </ion-card-content>
-  
+
     <!-- Contenido de la tarjeta expandible -->
     <ion-card *ngIf="tarjetaSeleccionada === i" class="expanded-card">
       <ion-card-content>
@@ -69,7 +70,16 @@
           </ion-list>
         </ion-card-content>
       </ion-card>
+
+      <!-- Botón dentro de una fila para que esté debajo de la tarjeta -->
+      <!-- Botón dentro de una fila para que esté debajo de la tarjeta -->
+      <ion-row class="centered-row">
+        <ion-fab-button>
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-row>
     </div>
   </ion-card>
+
 
 </ion-content>

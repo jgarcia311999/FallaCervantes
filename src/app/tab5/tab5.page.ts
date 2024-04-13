@@ -1,17 +1,23 @@
 import { Component } from '@angular/core';
+import { UserService } from '../servicios/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab5',
   templateUrl: './tab5.page.html',
   styleUrls: ['./tab5.page.scss'],
 })
-export class Tab5Page  {
+export class Tab5Page {
 
-  constructor() { }
+  constructor(private userService: UserService, private router: Router) { }
 
-  primeraLinea: string = 'parapa '
-  primeraPalabra: string = 'pa pa'
-  segundaLinea: string = 'parapa  '
-  segundaPalabra: string = 'parapa'
- 
+  onClick() {
+    this.userService.logout()
+      .then(response => {
+        this.router.navigate(['/login']);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
 }
