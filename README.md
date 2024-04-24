@@ -1,3 +1,4 @@
+
 # Casaleo
 
 Casaleo es una aplicación para iOS y Android dedicada a proporcionar información sobre la falla. La aplicación incluye una lista completa de todos los eventos de la falla, avisos importantes, un foro para la interacción de los usuarios, y una galería que se sincroniza con el Instagram de la falla. Es una herramienta esencial para los miembros y seguidores de la falla, permitiéndoles mantenerse informados y conectados.
@@ -52,3 +53,10 @@ Las contribuciones son siempre bienvenidas. Por favor, envía un pull request o 
 
 ## Licencia
 Este es un proyecto para el TFC de desarrollo de aplicaciones web del curso 2023/2024.
+
+
+
+## Authors
+
+- [@jgarcia311999](https://github.com/jgarcia311999)
+
