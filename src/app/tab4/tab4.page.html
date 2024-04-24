@@ -1,30 +1,42 @@
 <ion-content [fullscreen]="true">
 
   <div class="circle-background"></div>
-
-
-  <!-- Mostrar la primera foto por separado -->
-  <div class="centered-photo">
-    <ion-img [src]="photos[0]" class="fotoGrande"></ion-img>
-  </div>
   
-  <div class="centered-text">
-    <h1>LA FALLA DEL MERCAT</h1>
-  </div>
+    <!-- Contenido de la página -->
+    <div *ngIf="!isLoading">
+      <!-- Mostrar el contenido cuando no esté cargando -->
+      
+      <!-- Mostrar la primera foto por separado -->
+      <div class="centered-photo">
+        <ion-img [src]="photos[0]" class="fotoGrande"></ion-img>
+      </div>
+      
+      <div class="centered-text">
+        <h1>LA FALLA DEL MERCAT</h1>
+      </div>
+      
+      <!-- Iterar sobre el resto de las fotos -->
+      <ion-grid>
+        <ion-row>
+          <!-- Ignorar la primera foto en la iteración -->
+          <ng-container *ngFor="let photo of photos; let first = first">
+            <ng-container *ngIf="!first">
+              <ion-col size="4">
+                <ion-img [src]="photo" class="square-image"></ion-img>
+              </ion-col>
+            </ng-container>
+          </ng-container>
+        </ion-row>
+      </ion-grid>
+    </div>
   
-  <!-- Iterar sobre el resto de las fotos -->
-  <ion-grid>
-    <ion-row>
-      <!-- Ignorar la primera foto en la iteración -->
-      <ng-container *ngFor="let photo of photos; let first = first">
-        <ng-container *ngIf="!first">
-          <ion-col size="4">
-        <ion-img [src]="photo" class="square-image"></ion-img>
-          </ion-col>
-        </ng-container>
-      </ng-container>
-    </ion-row>
-  </ion-grid>
-
-
-</ion-content>
+    <!-- Loader -->
+    <div class="loader" *ngIf="isLoading">
+      <div class="wrapper">
+        <div class="text">LOADING</div>
+        <div class="box"></div>
+      </div>
+    </div>
+    
+  </ion-content>
+  
