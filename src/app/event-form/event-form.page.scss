@@ -1,0 +1,24 @@
+/* event-form.page.scss */
+
+.page-event-form {
+    ion-content {
+      --ion-background-color: #f4f4f4; /* Color de fondo del contenido */
+    }
+  
+    ion-item {
+      --padding-start: 16px; /* Espaciado izquierdo del elemento */
+      --padding-end: 16px; /* Espaciado derecho del elemento */
+      --padding-top: 8px; /* Espaciado superior del elemento */
+      --padding-bottom: 8px; /* Espaciado inferior del elemento */
+      --ion-item-background: #ffffff; /* Color de fondo del item */
+      --border-radius: 8px; /* Radio de borde del item */
+    }
+  
+    ion-button {
+      margin-top: 16px; /* Espaciado superior del botón */
+      --background: #007bff; /* Color de fondo del botón */
+      --color: #ffffff; /* Color de texto del botón */
+      --border-radius: 8px; /* Radio de borde del botón */
+    }
+  }
+  

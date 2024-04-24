@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab2"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Crear Evento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Nombre del Evento</ion-label>
+    <ion-input type="text" [(ngModel)]="nombreEvento"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Descripción</ion-label>
+    <ion-textarea [(ngModel)]="descripcion"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Fecha</ion-label>
+    <ion-datetime #calendario displayFormat="DD/MM/YYYY" [(ngModel)]="fechaEvento"
+      presentation="date"></ion-datetime>
+  </ion-item>
+
+  <ion-button expand="full" (click)="guardarEvento()">Guardar</ion-button>
+</ion-content>
