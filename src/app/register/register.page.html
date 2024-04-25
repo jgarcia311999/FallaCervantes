@@ -13,17 +13,23 @@
         <ion-label position="floating">Correo electrónico</ion-label>
         <ion-input type="email" name="email" required [(ngModel)]="email"></ion-input>
       </ion-item>
-    
+
       <ion-item class="contraItem">
         <ion-label position="floating">Contraseña</ion-label>
         <ion-input type="password" name="password" required [(ngModel)]="password"></ion-input>
       </ion-item>
-    
+
       <div class="circle-button">
         <ion-icon name="arrow-back-outline" class="icon" (click)="onSubmit()"></ion-icon>
       </div>
     </form>
 
   </div>
+
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button routerLink="/login">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

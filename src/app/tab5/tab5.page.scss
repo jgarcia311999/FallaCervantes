@@ -23,7 +23,13 @@
 ion-fab {
     position: fixed;
     bottom: 1.5rem;
-    /* Ajusta según sea necesario */
     right: 1.5rem;
-    /* Ajusta según sea necesario */
+    width: 56px; /* Ancho del botón */
+    height: 56px; /* Altura del botón */
+    border-radius: 50%; /* Hace que el botón sea redondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+
