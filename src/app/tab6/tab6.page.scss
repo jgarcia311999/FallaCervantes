@@ -1,0 +1,125 @@
+.circle-background {
+    width: 550px;
+    height: 550px;
+    border-radius: 50%;
+    background-color: #fa8f42;
+    position: absolute;
+    top: 35%;
+    left: -275px;
+    transform: translate(0%, -50%);
+    overflow: hidden;
+    z-index: -1;
+    /* Aquí establecemos el z-index en un valor menor */
+  }
+  
+  ion-fab {
+    position: absolute;
+    top: 3rem;
+    /* Ajusta según sea necesario */
+    right: 3rem;
+    /* Ajusta según sea necesario */
+  }
+  
+  .custom-modal-css {
+    --min-height: fit-content;
+    --height: fit-content;  // Ajustar según el contenido
+    --max-height: 65%;  // Ajustar según necesidad y diseño
+    --min-width: fit-content;
+    --width: 100%;  // O un porcentaje que se adapte mejor al diseño
+    --max-width: 100%;  // Esto garantiza que el modal se expanda horizontalmente
+  
+    // Asegúrate de que la altura no es demasiado grande para pequeños contenidos
+    height: fit-content;
+    max-height: 65vh;  // Ajustar según necesidad y diseño
+  }
+  
+  
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  
+  
+  
+  .full-width-card {
+    margin-top: 20px;
+  }
+  
+  .centered-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  ion-card {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+  }
+  
+  ion-card-header {
+    background-color: #f8f8f8;
+  }
+  
+  ion-list {
+    margin-top: 10px;
+  }
+  
+  
+  .main-card {
+    background-color: #d9d9d9;
+  
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .card {
+      width: 100%;
+      border-radius: 10px;
+    }
+  
+    .card-content {
+      align-items: center;
+      width: 90%;
+  
+    }
+  
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      color: black;
+      text-align: center;
+    }
+  }
+  
+  .first-heading {
+    margin-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  ion-content[fullscreen="true"] {
+    .main-card:first-of-type {
+      margin-top: 30vh;
+    }
+  }
+  
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 3vh;
+    margin-top: 1vh;
+  }
+  
+  .centered-row {
+    margin-top: 3vh;
+    display: flex;
+    justify-content: center;
+  }
+  

@@ -7,20 +7,22 @@
   
   <h1>Els nostres representants.</h1>
   
-  <ion-card class="main-card" *ngFor="let item of [1, 2, 3, 4]">
+  <ion-card class="main-card" *ngFor="let card of cards">
     <ion-card-content>
-      <div class="card-container" >
-        <div class="card" >
-          <div class="card-content">
+      <div class="card-container">
+        <div class="card">
+          <div class="card-content" [routerLink]="['/info-page']" [queryParams]="{ id: card.id }">
             <div class="circle">
-              <img src="../../assets/images/fallallibret1.png" alt="Imagen">
+              <img [src]="'../../assets/images/fallallibret' + card.id + '.png'" alt="Imagen">
             </div>
-            <h2>La nostra falla</h2>
+            <h2>{{ card.name }}</h2>
           </div>
         </div>
       </div>
     </ion-card-content>
   </ion-card>
+  
+  
   
   <ion-fab vertical="top" horizontal="start" routerLink="/tab5">
     <ion-fab-button>

@@ -20,25 +20,51 @@ ion-fab {
   /* Ajusta según sea necesario */
 }
 
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0); /* Fondo completamente transparente */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999; /* Asegúrate de que el modal esté por encima del contenido */
+.custom-modal-css {
+  --min-height: fit-content;
+  --height: fit-content;  // Ajustar según el contenido
+  --max-height: 65%;  // Ajustar según necesidad y diseño
+  --min-width: fit-content;
+  --width: 100%;  // O un porcentaje que se adapte mejor al diseño
+  --max-width: 100%;  // Esto garantiza que el modal se expanda horizontalmente
+
+  // Asegúrate de que la altura no es demasiado grande para pequeños contenidos
+  height: fit-content;
+  max-height: 65vh;  // Ajustar según necesidad y diseño
 }
 
 
 .modal-content {
-  width: 80%; /* Tamaño del contenido del modal */
-  background-color: #fff; /* Fondo blanco del modal */
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Sombra con desplazamiento de 10px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+
+.full-width-card {
+  margin-top: 20px;
+}
+
+.centered-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+ion-card {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+}
+
+ion-card-header {
+  background-color: #f8f8f8;
+}
+
+ion-list {
+  margin-top: 10px;
 }
 
 

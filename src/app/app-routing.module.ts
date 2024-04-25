@@ -23,6 +23,14 @@ const routes: Routes = [
     path: 'event-form',
     loadChildren: () => import('./event-form/event-form.module').then( m => m.EventFormPageModule)
   },
+  {
+    path: 'info-page',
+    loadChildren: () => import('./info-page/info-page.module').then( m => m.InfoPagePageModule)
+  },
+  {
+    path: 'tab6',
+    loadChildren: () => import('./tab6/tab6.module').then( m => m.Tab6PageModule)
+  },
 
 ];
 @NgModule({

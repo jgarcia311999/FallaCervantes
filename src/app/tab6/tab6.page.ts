@@ -18,11 +18,11 @@ interface FechaDestacada {
 }
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  selector: 'app-tab6',
+  templateUrl: './tab6.page.html',
+  styleUrls: ['./tab6.page.scss'],
 })
-export class Tab2Page {
+export class Tab6Page{
   @ViewChild(IonModal)
   modal!: IonModal;
 
@@ -118,7 +118,7 @@ export class Tab2Page {
 
   async openModal() {
     const modal = await this.modalController.create({
-      component: Tab2Page, // O el componente de contenido del modal
+      component: Tab6Page, // O el componente de contenido del modal
       cssClass: 'custom-modal-css',
       mode: 'ios',
       presentingElement: await this.modalController.getTop() // Esto se necesita para iOS 15+
