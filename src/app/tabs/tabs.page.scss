@@ -1,11 +1,14 @@
+// Estilo para la pestaña activa
+.tab-active {
+  color: #ff6a00; // Cambia al color deseado
+}
 
-/* Cambiar el color de fondo del tab bar */
+// Estilo para la pestaña inactiva
+.tab-inactive {
+  color: #000000; // Cambia al color deseado
+}
+
+// Cambiar el color de fondo del tab bar si es necesario
 ion-tab-bar {
-  background-color: #ffffff;
+  background-color: #ffffff; // Cambia al color deseado
 }
-
-/* Cambiar el color de los iconos de las pestañas */
-ion-tab-button {
-  color: #000000; /* Cambia el color a tu preferencia */
-}
-

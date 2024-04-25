@@ -10,47 +10,5 @@ register();
 export class Tab1Page {
 
   constructor() { }
-  fechaSeleccionada: string | undefined; // Define la propiedad fechaSeleccionada
-  eventoSeleccionado: any = {}; // Objeto para almacenar el evento asociado a la fecha seleccionada
-
-  imagenesFallaGrande: string[] = [
-    'assets/images/fallaGrande1.jpg',
-    'assets/images/fallaGrande2.jpg',
-    'assets/images/fallaGrande3.jpg',
-    'assets/images/fallaGrande4.jpg',
-    'assets/images/fallaGrande5.jpg',
-    'assets/images/fallaGrande6.jpg',
-    'assets/images/fallaGrande7.jpg',
-    'assets/images/fallaGrande8.jpg',
-    'assets/images/fallaGrande9.jpg',
-    'assets/images/fallaGrande10.jpg'
-  ];
   
-  imagenesFallaPequena: string[] = [
-    'assets/images/fallaPeqquenya1.jpg',
-    'assets/images/fallaPeqquenya2.jpg',
-    'assets/images/fallaPeqquenya3.jpg',
-    'assets/images/fallaPeqquenya4.jpg',
-    'assets/images/fallaPeqquenya5.jpg',
-    'assets/images/fallaPeqquenya6.jpg',
-    'assets/images/fallaPeqquenya7.jpg',
-    'assets/images/fallaPeqquenya8.jpg',
-    'assets/images/fallaPeqquenya9.jpg',
-    'assets/images/fallaPeqquenya10.jpg',
-  ];
-
-  primeraLinea: string = 'Sóc de la '
-  primeraPalabra: string = 'falla'
-  segundaLinea: string = 'de la falla del '
-  segundaPalabra: string = 'mercat'
-
-  
-
-  
-
-  isModalOpen = false;
-
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
-  }
 }
