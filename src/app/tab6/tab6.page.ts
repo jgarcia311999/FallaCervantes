@@ -23,11 +23,9 @@ interface FechaDestacada {
   styleUrls: ['./tab6.page.scss'],
 })
 export class Tab6Page{
-  @ViewChild(IonModal)
-  modal!: IonModal;
+  segmentValue: string = 'eventos'; // Valor inicial del segmento
 
   tarjetaSeleccionada: number | null | undefined;
-  nuevoEvento: Evento = { titulo: '', descripcion: '' };
   fechaSeleccionada: string | undefined;
   fechaDestacadaSeleccionada: FechaDestacada | undefined;
   bgColorCalendar = "#00006680";
@@ -113,61 +111,20 @@ export class Tab6Page{
       ]
     }
   ];
+  constructor() { }
 
-  constructor(private modalController: ModalController) { }
-
-  async openModal() {
-    const modal = await this.modalController.create({
-      component: Tab6Page, // O el componente de contenido del modal
-      cssClass: 'custom-modal-css',
-      mode: 'ios',
-      presentingElement: await this.modalController.getTop() // Esto se necesita para iOS 15+
-    });
-  
-    return await modal.present();
-  }
-  
-
-  closeModal() {
-    this.modalController.dismiss();
-  }
-  /**
-   * Agrega un nuevo evento al calendario.
-   */
-  /* agregarEvento() {
-    const fechaFormateada = formatDate(this.nuevoEvento.fechaHora, 'yyyy-MM-dd', 'en');
-    this.highlightedDates.push({
-      date: fechaFormateada,
-      textColor: 'rgb(251, 165, 35)',
-      backgroundColor: this.bgColorCalendar,
-      eventos: [this.nuevoEvento]
-    });
-
-    this.nuevoEvento = { titulo: '', descripcion: '' }; // Resetear el objeto nuevoEvento
-    this.closeModal(); // Cerrar el modal después de agregar el evento
-  } */
-
-  /**
-   * Comprueba si la fecha del evento es igual o posterior a la fecha actual.
-   */
   esFechaIgualOPosterior(fechaEvento: string): boolean {
     const hoy = new Date();
     const fecha = new Date(fechaEvento);
     return fecha >= hoy;
   }
 
-  /**
-   * Muestra información mejorada de un evento al seleccionar una fecha.
-   */
   mostrarInformacionMejorada() {
     const fechaSeleccionada = this.fechaSeleccionada ? this.fechaSeleccionada.substring(0, 10) : '';
     this.fechaDestacadaSeleccionada = this.highlightedDates.find(fechaDestacada => fechaDestacada.date === fechaSeleccionada);
     console.log('Función mostrarInformacionMejorada() llamada');
   }
 
-  /**
-   * Da formato a una fecha.
-   */
   formatDate(dateString: string): string {
     const date = new Date(dateString);
     const monthNames = [
@@ -181,18 +138,10 @@ export class Tab6Page{
     return `${formattedDay} de ${formattedMonth}`;
   }
 
-
-
-  /**
-   * Método para detener la propagación del evento de clic dentro del modal.
-   */
-  onModalContentClick(event: MouseEvent) {
-    event.stopPropagation(); // Previene que el clic cierre el modal si se hace clic en su contenido
+  agregarEvento() {
+    // Implementa la lógica para agregar un nuevo evento aquí
   }
 
-  /**
-   * Alternar la selección de tarjeta en la vista.
-   */
   seleccionarTarjeta(index: number) {
     this.tarjetaSeleccionada = this.tarjetaSeleccionada === index ? null : index;
   }
