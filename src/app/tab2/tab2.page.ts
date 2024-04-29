@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonModal, ModalController } from '@ionic/angular';
+import { ActionSheetController, IonModal, ModalController } from '@ionic/angular';
 import { formatDate } from '@angular/common';
 import { EventosService } from '../servicios/eventos.service';
 import NuevoEvento from '../interfaces/eventos.interface';
@@ -35,7 +35,8 @@ export class Tab2Page implements OnInit{
 
   highlightedDates: NuevoEvento[] = [];
   constructor(
-    private eventService: EventosService
+    private eventService: EventosService,
+    public actionSheetController: ActionSheetController
   ) { }
   ngOnInit(): void {
     this.eventService.getEvents().subscribe(events =>{
@@ -75,5 +76,39 @@ export class Tab2Page implements OnInit{
 
   seleccionarTarjeta(index: number) {
     this.tarjetaSeleccionada = this.tarjetaSeleccionada === index ? null : index;
+  }
+
+  async presentActionSheet(evento: any) {
+    const actionSheet = await this.actionSheetController.create({
+      header: evento.titulo,
+      buttons: [
+        {
+          text: 'Editar',
+          icon: 'pencil',
+          handler: () => {
+            console.log('Editar clicked for:', evento.titulo);
+            // Agrega aquí la lógica para editar el evento
+          }
+        },
+        {
+          text: 'Eliminar',
+          role: 'destructive',
+          icon: 'trash',
+          handler: () => {
+            console.log('Eliminar clicked for:', evento.titulo);
+            // Agrega aquí la lógica para eliminar el evento
+          }
+        },
+        {
+          text: 'Cancelar',
+          icon: 'close',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancelar clicked');
+          }
+        }
+      ]
+    });
+    await actionSheet.present();
   }
 }
