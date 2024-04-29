@@ -1,48 +1,31 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActionSheetController, IonModal, ModalController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { ActionSheetController } from '@ionic/angular';
 import { formatDate } from '@angular/common';
 import { EventosService } from '../servicios/eventos.service';
-import NuevoEvento from '../interfaces/eventos.interface';
-
-// Interfaz para definir la estructura de un evento
-interface Evento {
-  titulo: string;
-  descripcion: string;
-  photo?: string; // Campo opcional para almacenar la URL de la foto
-}
-
-// Interfaz para definir la estructura de una fecha destacada con eventos asociados
-interface FechaDestacada {
-  date: string;
-  textColor: string;
-  backgroundColor: string;
-  eventos: Evento[];
-}
+import NuevoEvento, { Evento } from '../interfaces/eventos.interface';
 
 @Component({
-  selector: 'app-tab6',
+  selector: 'app-tab2',
   templateUrl: './tab2.page.html',
   styleUrls: ['./tab2.page.scss'],
 })
-export class Tab2Page implements OnInit{
-  segmentValue: string = 'eventos'; // Valor inicial del segmento
-
+export class Tab2Page implements OnInit {
+  segmentValue: string = 'eventos';
   tarjetaSeleccionada: number | null | undefined;
   fechaSeleccionada: string | undefined;
-  fechaDestacadaSeleccionada: FechaDestacada | undefined;
-  bgColorCalendar = "#00006680";
-  
-
+  fechaDestacadaSeleccionada: NuevoEvento | undefined;
   highlightedDates: NuevoEvento[] = [];
+
   constructor(
     private eventService: EventosService,
     public actionSheetController: ActionSheetController
   ) { }
+
   ngOnInit(): void {
-    this.eventService.getEvents().subscribe(events =>{
+    this.eventService.getEvents().subscribe(events => {
       this.highlightedDates = events;
       console.log(events);
-    })
+    });
   }
 
   esFechaIgualOPosterior(fechaEvento: string): boolean {
@@ -78,16 +61,33 @@ export class Tab2Page implements OnInit{
     this.tarjetaSeleccionada = this.tarjetaSeleccionada === index ? null : index;
   }
 
-  async presentActionSheet(evento: any) {
+  async presentActionSheet(nuevoEvento: NuevoEvento) {
+    if (typeof nuevoEvento.id !== 'string') {
+      console.error('El evento no tiene un ID válido.');
+      return;
+    }
+
+    const eventId = nuevoEvento.id; // Aseguramos que el id es un string
+
     const actionSheet = await this.actionSheetController.create({
-      header: evento.titulo,
+      header: nuevoEvento.eventos[0].titulo,
       buttons: [
         {
           text: 'Editar',
           icon: 'pencil',
           handler: () => {
-            console.log('Editar clicked for:', evento.titulo);
-            // Agrega aquí la lógica para editar el evento
+            // Suponiendo que queremos actualizar la descripción del primer evento en el array
+            if (nuevoEvento.eventos.length > 0) {
+              this.eventService.updateEvent(eventId, {
+                "eventos": [
+                  { ...nuevoEvento.eventos[0], descripcion: 'Nueva Descripción' }  // Actualizar la descripción del primer evento
+                ]
+              }).then(() => {
+                console.log('Evento actualizado');
+              }).catch(error => {
+                console.error('Error actualizando evento:', error);
+              });
+            }
           }
         },
         {
@@ -95,8 +95,11 @@ export class Tab2Page implements OnInit{
           role: 'destructive',
           icon: 'trash',
           handler: () => {
-            console.log('Eliminar clicked for:', evento.titulo);
-            // Agrega aquí la lógica para eliminar el evento
+            this.eventService.deleteEvent(eventId).then(() => {
+              console.log('Evento eliminado');
+            }).catch(error => {
+              console.error('Error eliminando evento:', error);
+            });
           }
         },
         {
@@ -109,6 +112,16 @@ export class Tab2Page implements OnInit{
         }
       ]
     });
+
     await actionSheet.present();
   }
+
+
+
+
+
+
+
+
+
 }

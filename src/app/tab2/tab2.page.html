@@ -91,18 +91,18 @@
 
           <ion-button class="newEvent" (click)="agregarEvento()" routerLink="/event-form">Event nou</ion-button>
 
-          <ion-list *ngFor="let fechaDestacada of highlightedDates">
+          <ion-list *ngFor="let nuevoEvento of highlightedDates">
             <!-- Contenido de las tarjetas de eventos -->
-            <ion-item class="custom-item" *ngIf="esFechaIgualOPosterior(fechaDestacada.date)">
+            <ion-item class="custom-item" *ngIf="esFechaIgualOPosterior(nuevoEvento.date)">
               <div class="card-container2">
                 <div class="card-content2">
                   <ion-row>
                     <!-- Columna para la fecha y el título -->
                     <ion-col size="9">
-                      <h1 class="dateEdit">{{ formatDate(fechaDestacada.date) }}</h1>
+                      <h1 class="dateEdit">{{ formatDate(nuevoEvento.date) }}</h1>
                       <!-- Iterar sobre los eventos de la fecha seleccionada que son igual o superior a la fecha actual -->
                       <ion-list>
-                        <ion-item class="event-item2" *ngFor="let evento of fechaDestacada.eventos">
+                        <ion-item class="event-item2" *ngFor="let evento of nuevoEvento.eventos">
                           <ion-label>
                             <h2>{{ evento.titulo }}</h2>
                           </ion-label>
@@ -111,8 +111,8 @@
                     </ion-col>
                     <!-- Columna para el botón -->
                     <ion-col size="3">
-                      <ion-button  class="action-button">Actuar</ion-button>
-                      <!--<ion-button (click)="actuarSobreEvento(evento)" class="action-button">Actuar</ion-button>-->
+                      <!-- <ion-button  class="action-button">Actuar</ion-button> -->
+                      <ion-button (click)="presentActionSheet(nuevoEvento)" class="action-button">Actuar</ion-button>
                     </ion-col>
                   </ion-row>
                 </div>
