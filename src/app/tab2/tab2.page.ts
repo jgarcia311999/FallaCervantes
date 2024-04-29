@@ -1,6 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonModal, ModalController } from '@ionic/angular';
 import { formatDate } from '@angular/common';
+import { EventosService } from '../servicios/eventos.service';
+import NuevoEvento from '../interfaces/eventos.interface';
 
 // Interfaz para definir la estructura de un evento
 interface Evento {
@@ -22,96 +24,25 @@ interface FechaDestacada {
   templateUrl: './tab2.page.html',
   styleUrls: ['./tab2.page.scss'],
 })
-export class Tab2Page {
+export class Tab2Page implements OnInit{
   segmentValue: string = 'eventos'; // Valor inicial del segmento
 
   tarjetaSeleccionada: number | null | undefined;
   fechaSeleccionada: string | undefined;
   fechaDestacadaSeleccionada: FechaDestacada | undefined;
   bgColorCalendar = "#00006680";
+  
 
-  highlightedDates: FechaDestacada[] = [
-    {
-      date: '2024-03-31',
-      textColor: 'rgb(251, 165, 35)',
-      backgroundColor: this.bgColorCalendar,
-      eventos: [
-        { titulo: "Evento mejorado 1", descripcion: "Decripcion mejorado 1" },
-        { titulo: "Evento mejorado 1.2", descripcion: "Decripcion mejorado 1.2" }
-      ]
-    },
-    {
-      date: '2024-04-24',
-      textColor: 'rgb(251, 165, 35)',
-      backgroundColor: this.bgColorCalendar,
-      eventos: [
-        { titulo: "Evento mejorado 2", descripcion: "Decripcion mejorado 2" },
-        { titulo: "Evento mejorado 2.2", descripcion: "Decripcion mejorado 2.2" }
-      ]
-    },
-    {
-      date: '2024-04-16',
-      textColor: 'rgb(251, 165, 35)',
-      backgroundColor: this.bgColorCalendar,
-      eventos: [
-        { titulo: "Evento mejorado 3", descripcion: "Decripcion mejorado 3" },
-      ]
-    },
-    {
-      date: '2024-04-10',
-      textColor: 'rgb(251, 165, 35)',
-      backgroundColor: this.bgColorCalendar,
-      eventos: [
-        { titulo: "Evento mejorado 4", descripcion: "Decripcion mejorado 4" },
-        { titulo: "Evento mejorado 4.2", descripcion: "Decripcion mejorado 4.2" }
-      ]
-    },
-    {
-      date: '2024-04-25',
-      textColor: 'rgb(251, 165, 35)',
-      backgroundColor: this.bgColorCalendar,
-      eventos: [
-        { titulo: "Evento 5", descripcion: "Descripción del evento 5" },
-        { titulo: "Evento 5.2", descripcion: "Descripción del evento 5.2" }
-      ]
-    },
-    {
-      date: '2024-05-01',
-      textColor: 'rgb(251, 165, 35)',
-      backgroundColor: this.bgColorCalendar,
-      eventos: [
-        { titulo: "Evento 6", descripcion: "Descripción del evento 6" },
-        { titulo: "Evento 6.2", descripcion: "Descripción del evento 6.2" }
-      ]
-    },
-    {
-      date: '2024-05-10',
-      textColor: 'rgb(251, 165, 35)',
-      backgroundColor: this.bgColorCalendar,
-      eventos: [
-        { titulo: "Evento 7", descripcion: "Descripción del evento 7" },
-      ]
-    },
-    {
-      date: '2024-05-15',
-      textColor: 'rgb(251, 165, 35)',
-      backgroundColor: this.bgColorCalendar,
-      eventos: [
-        { titulo: "Evento 8", descripcion: "Descripción del evento 8" },
-        { titulo: "Evento 8.2", descripcion: "Descripción del evento 8.2" }
-      ]
-    },
-    {
-      date: '2024-05-20',
-      textColor: 'rgb(251, 165, 35)',
-      backgroundColor: this.bgColorCalendar,
-      eventos: [
-        { titulo: "Evento 9", descripcion: "Descripción del evento 9" },
-        { titulo: "Evento 9.2", descripcion: "Descripción del evento 9.2" }
-      ]
-    }
-  ];
-  constructor() { }
+  highlightedDates: NuevoEvento[] = [];
+  constructor(
+    private eventService: EventosService
+  ) { }
+  ngOnInit(): void {
+    this.eventService.getEvents().subscribe(events =>{
+      this.highlightedDates = events;
+      console.log(events);
+    })
+  }
 
   esFechaIgualOPosterior(fechaEvento: string): boolean {
     const hoy = new Date();

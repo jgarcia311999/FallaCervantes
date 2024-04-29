@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { EventosService } from '../servicios/eventos.service';
+import NuevoEvento from '../interfaces/eventos.interface'; // Asumiendo que NuevoEvento es la interfaz correcta para importar
+import Evento from '../interfaces/eventos.interface'; // Asumiendo que NuevoEvento es la interfaz correcta para importar
 
 @Component({
   selector: 'app-event-form',
@@ -9,61 +12,40 @@ export class EventFormPage {
 
   nombreEvento: string | undefined;
   descripcion: string | undefined;
-  fechaEvento: Date | undefined;
+  fechaEvento: string | undefined;
 
-  constructor() {}
+  constructor(private eventService: EventosService) {}
 
-  /**
-   * Guarda el evento en la lista de eventos.
-   * Comprueba si la fecha está definida y es válida. Si no es así, lanza un error y termina la función.
-   * Convierte la fecha a un objeto Date y verifica si la conversión fue exitosa. Si no, lanza un error y termina la función.
-   * Obtiene la fecha en formato YYYY-MM-DD y la guarda en un objeto con los datos del evento.
-   * Agrega el evento a la lista de eventos existente o crea una nueva lista si aún no existe.
-   * Muestra los datos guardados en la consola.
-   */
-  guardarEvento() {
-    // Verificar si this.fechaEvento está definido y no es null
-    if (!this.fechaEvento) {
-      console.error('Error: La fecha no está definida');
+  async guardarEvento() {
+    if (!this.fechaEvento || !this.nombreEvento || !this.descripcion) {
+      console.error('Error: Datos del evento incompletos o inválidos');
       return;
     }
 
-    // Convertir this.fechaEvento a un objeto Date
     const fecha = new Date(this.fechaEvento);
-
-    // Verificar si la conversión fue exitosa
     if (isNaN(fecha.getTime())) {
       console.error('Error: La fecha no es válida');
       return;
     }
+    
 
-    // Obtener la fecha en formato YYYY-MM-DD
     const fechaFormateada = fecha.toISOString().slice(0, 10);
-
-    // Crear un objeto con los datos del evento
-    const nuevoEvento = {
+    const nuevoEvento: NuevoEvento = {
       date: fechaFormateada,
       textColor: 'rgb(251, 165, 35)',
-      backgroundColor: 'rgb(251, 165, 35)',
-      eventos: [
-        {
-          titulo: this.nombreEvento,
-          descripcion: this.descripcion
-        }
-      ]
+      backgroundColor: 'rgba(0, 0, 102, 0.5)',
+      eventos: [{
+        titulo: this.nombreEvento,
+        descripcion: this.descripcion
+      }]
     };
 
-    // Agregar el nuevo evento a la lista de eventos existente o crear una nueva lista si aún no existe
-    /* if (!this.listaEventos) {
-      this.listaEventos = [nuevoEvento];
-    } else {
-      this.listaEventos.push(nuevoEvento);
-    } */
-
-    // Mostrar los datos guardados
-    console.log('Evento guardado:', nuevoEvento);
-  }
-  
-  
+    try {
+      const response = await this.eventService.addEvent(nuevoEvento);
+      console.log('Evento guardado:', response);
+    } catch (error) {
+      console.error('Error al guardar el evento:', error);
+    }
+}
 
 }

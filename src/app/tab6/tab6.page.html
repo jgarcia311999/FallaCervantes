@@ -1,86 +1,94 @@
 <ion-content [fullscreen]="true">
-  <div class="circle-background1" *ngIf="segmentValue === 'eventos'"></div>
-
-  <div class="circle-background2" *ngIf="segmentValue === 'calendario'"></div>
-
-  <ion-segment [(ngModel)]="segmentValue">
-    <ion-segment-button value="eventos">
-      <ion-label>Eventos</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="calendario">
-      <ion-label>Calendario</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-
-  <!-- Contenido para Eventos -->
-  <div *ngIf="segmentValue === 'eventos'">
-    <ion-card class="main-card" *ngFor="let fechaDestacada of highlightedDates; let i = index">
-      <!-- Contenido de las tarjetas de eventos -->
-      <ion-card-content [class.expanded]="tarjetaSeleccionada === i" (click)="seleccionarTarjeta(i)"
-        *ngIf="esFechaIgualOPosterior(fechaDestacada.date)">
-        <div class="card-container">
-          <div class="card">
-            <div class="card-content">
-              <h1>{{ formatDate(fechaDestacada.date) }}</h1>
-            </div>
-          </div>
-        </div>
-      </ion-card-content>
-
-      <!-- Contenido de las tarjetas expandibles -->
-      <ion-card *ngIf="tarjetaSeleccionada === i" class="expanded-card">
-        <ion-card-content>
-          <div class="card-container">
-            <div class="card">
-              <div class="card-content">
-                <!-- Iterar sobre los eventos de la fecha seleccionada que son igual o superior a la fecha actual -->
-                <ion-list>
-                  <ion-item *ngFor="let evento of fechaDestacada.eventos">
-                    <ion-label>
-                      <h2>{{ evento.titulo }}</h2>
-                      <p>{{ evento.descripcion }}</p>
-                    </ion-label>
-                  </ion-item>
-                </ion-list>
-              </div>
-            </div>
-          </div>
-        </ion-card-content>
-      </ion-card>
-    </ion-card>
-  </div>
-
-  <!-- Contenido para Calendario -->
-  <div *ngIf="segmentValue === 'calendario'">
-    <div class="calendar-container">
-      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fechaSeleccionada" presentation="date"
-          [highlightedDates]="highlightedDates" (ionChange)="mostrarInformacionMejorada()"></ion-datetime>
-    </div>
-    
-
-    <ion-card *ngIf="fechaDestacadaSeleccionada" class="full-width-card">
-      <!-- Contenido que estaba en el modal -->
-      <ion-card-header>
-        <ion-card-title>{{ fechaDestacadaSeleccionada.date }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content class="full-width-content">
-        <ion-list>
-          <ion-item *ngFor="let evento of fechaDestacadaSeleccionada.eventos">
-            <ion-label>
-              <h2>{{ evento.titulo }}</h2>
-              <p>{{ evento.descripcion }}</p>
-            </ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-
-    <!-- Botón para añadir evento -->
-    <ion-row class="centered-row">
-      <ion-fab-button (click)="agregarEvento()" routerLink="/event-form">
-        <ion-icon name="add-circle-outline"></ion-icon>
-      </ion-fab-button>
+  <div class="circle-background1" ></div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>21 ABRIL</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>Algo</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>3 MAYO</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>Algo</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
     </ion-row>
-  </div>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>6 ABRIL</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>Algo</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>31 MAYO</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>Algo</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>23 ABRIL</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>Algo</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>15 MAYO</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>Algo</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>21 ABRIL</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>Algo</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>3 MAYO</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>Algo</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
