@@ -23,16 +23,29 @@ export class Tab2Page implements OnInit {
 
   ngOnInit(): void {
     this.eventService.getEvents().subscribe(events => {
-      this.highlightedDates = events;
-      console.log(events);
+      // Ordenar los eventos por fecha antes de asignarlos a highlightedDates
+      this.highlightedDates = events.sort((a, b) => {
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
+      });
+      console.log(this.highlightedDates);
     });
   }
 
   esFechaIgualOPosterior(fechaEvento: string): boolean {
-    const hoy = new Date();
-    const fecha = new Date(fechaEvento);
-    return fecha >= hoy;
+    const hoy: Date = new Date();
+    const fecha: Date = new Date(fechaEvento);
+
+    // Establecemos la hora de hoy a las 00:00:00 para considerar solo la fecha.
+    hoy.setHours(0, 0, 0, 0);
+
+    // Establecemos la hora de la fecha proporcionada a las 00:00:00 para considerar solo la fecha.
+    fecha.setHours(0, 0, 0, 0);
+
+    return fecha.getTime() >= hoy.getTime();
   }
+
+
+
 
   mostrarInformacionMejorada() {
     const fechaSeleccionada = this.fechaSeleccionada ? this.fechaSeleccionada.substring(0, 10) : '';
