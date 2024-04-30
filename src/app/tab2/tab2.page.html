@@ -89,7 +89,8 @@
       <ng-template>
         <div class="block">
 
-          <ion-button class="newEvent" (click)="agregarEvento()" routerLink="/event-form">Event nou</ion-button>
+          <ion-button class="newEvent" (click)="agregarEvento(); closeModal()" routerLink="/event-form">Event
+            nou</ion-button>
 
           <ion-list *ngFor="let nuevoEvento of highlightedDates">
             <!-- Contenido de las tarjetas de eventos -->

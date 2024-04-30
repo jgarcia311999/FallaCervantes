@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, ModalController } from '@ionic/angular';
 import { formatDate } from '@angular/common';
 import { EventosService } from '../servicios/eventos.service';
 import NuevoEvento, { Evento } from '../interfaces/eventos.interface';
@@ -18,7 +18,8 @@ export class Tab2Page implements OnInit {
 
   constructor(
     private eventService: EventosService,
-    public actionSheetController: ActionSheetController
+    public actionSheetController: ActionSheetController,
+    private modalController: ModalController,
   ) { }
 
   ngOnInit(): void {
@@ -72,6 +73,10 @@ export class Tab2Page implements OnInit {
 
   seleccionarTarjeta(index: number) {
     this.tarjetaSeleccionada = this.tarjetaSeleccionada === index ? null : index;
+  }
+
+  closeModal() {
+    this.modalController.dismiss();
   }
 
   async presentActionSheet(nuevoEvento: NuevoEvento) {
