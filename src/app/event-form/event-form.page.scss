@@ -1,24 +1,36 @@
-/* event-form.page.scss */
+ion-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-.page-event-form {
-    ion-content {
-      --ion-background-color: #f4f4f4; /* Color de fondo del contenido */
-    }
-  
-    ion-item {
-      --padding-start: 16px; /* Espaciado izquierdo del elemento */
-      --padding-end: 16px; /* Espaciado derecho del elemento */
-      --padding-top: 8px; /* Espaciado superior del elemento */
-      --padding-bottom: 8px; /* Espaciado inferior del elemento */
-      --ion-item-background: #ffffff; /* Color de fondo del item */
-      --border-radius: 8px; /* Radio de borde del item */
-    }
-  
-    ion-button {
-      margin-top: 16px; /* Espaciado superior del botón */
-      --background: #007bff; /* Color de fondo del botón */
-      --color: #ffffff; /* Color de texto del botón */
-      --border-radius: 8px; /* Radio de borde del botón */
-    }
-  }
-  
+ion-item {
+  margin-bottom: 20px; // Añadir un margen inferior a los elementos de la lista
+}
+
+ion-datetime {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ion-label {
+  color: #000000 !important; // Asegurar que el color de las etiquetas se aplique
+  text-align: center; // Centrar el texto de las etiquetas
+  font-size: 1.5em !important; // Ajustar el tamaño de fuente de las etiquetas
+  text-transform: uppercase; // Convertir el texto de las etiquetas a mayúsculas
+  margin-bottom: 10px; // Añadir margen inferior a las etiquetas
+}
+
+ion-button {
+  margin-top: 60px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3vh;
+  width: 80%;
+  border-radius: 10px;
+  box-sizing: border-box;
+  --background: #fa8f42; // Color de fondo del botón
+  --color: #fff; // Color del texto del botón
+}

@@ -7,7 +7,7 @@
 
 
   <div class="imagen-redonda">
-    <img src="../../assets/images/placeholder.PNG" alt="" style="border-radius: 20vh;">
+    <img [src]="selectedImage" alt="Imagen seleccionada" style="border-radius: 20vh;">
   </div>
 
   <div class="nombreUsuario">
@@ -15,8 +15,20 @@
   </div>
 
   <ion-fab vertical="bottom" horizontal="end">
-    <ion-fab-button (click)="onClick()">
+    <ion-fab-button id="open-modal" expand="block">
       <ion-icon name="log-out-outline"></ion-icon> </ion-fab-button>
   </ion-fab>
+
+
+  <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+    <ng-template>
+      <div class="image-container">
+        <img class="imagen-redonda" src="../../assets/images/userIconA.webp"
+          (click)="selectImage('../../assets/images/userIconA.webp'); closeModal()">
+        <img class="imagen-redonda" src="../../assets/images/userIconB.webp"
+          (click)="selectImage('../../assets/images/userIconB.webp'); closeModal()">
+      </div>
+    </ng-template>
+  </ion-modal>
 
 </ion-content>

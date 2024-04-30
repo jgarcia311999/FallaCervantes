@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../servicios/user.service';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab5',
@@ -9,7 +10,9 @@ import { Router } from '@angular/router';
 })
 export class Tab5Page {
 
-  constructor(private userService: UserService, private router: Router) { }
+  selectedImage: string = '../../assets/images/userIconB.webp'; 
+
+  constructor(private userService: UserService, private router: Router, private modalController: ModalController) { }
 
   onClick() {
     this.userService.logout()
@@ -20,4 +23,14 @@ export class Tab5Page {
         console.log(error);
       });
   }
+
+
+  selectImage(image: string) {
+    this.selectedImage = image;
+  }
+
+  closeModal() {
+    this.modalController.dismiss();
+  }
+
 }
