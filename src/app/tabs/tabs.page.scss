@@ -11,4 +11,24 @@
 // Cambiar el color de fondo del tab bar si es necesario
 ion-tab-bar {
   background-color: #ffffff; // Cambia al color deseado
+  border-radius: 30px; // Aplicar bordes redondeados al tab-bar
+  width: 90%; // Hacer que el tab-bar ocupe el 90% del ancho de la pantalla
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 1vh;
+}
+
+ion-tab-button {
+  flex: 1;
+  text-align: center;
+}
+
+// Estilos para el ícono
+ion-tab-button ion-icon {
+  font-size: 24px;
+}
+
+// Estilos para el ícono cuando está activo
+.tab-active ion-icon {
+  color: #ff6a00; // Cambiar el color del ícono cuando está activo
 }

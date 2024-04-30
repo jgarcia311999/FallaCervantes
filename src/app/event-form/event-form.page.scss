@@ -5,11 +5,16 @@ ion-content {
   justify-content: center;
 }
 
+ion-item:first-child {
+  margin-top: 5vh; /* Agregar margen superior solo al primer ion-item */
+}
+
 ion-item {
   margin-bottom: 20px; // Añadir un margen inferior a los elementos de la lista
 }
 
 ion-datetime {
+  margin-top: 3vh;
   margin-left: auto;
   margin-right: auto;
 }
@@ -33,4 +38,8 @@ ion-button {
   box-sizing: border-box;
   --background: #fa8f42; // Color de fondo del botón
   --color: #fff; // Color del texto del botón
+}
+
+ion-toolbar{
+  background-color: transparent;
 }
