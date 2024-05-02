@@ -10,8 +10,8 @@
     <img [src]="selectedImage" alt="Imagen seleccionada" style="border-radius: 20vh;">
   </div>
 
-  <div class="nombreUsuario">
-    <h1>Jesús García</h1>
+  <div *ngIf="correoUsuario" class="nombreUsuario">
+      <p>{{ correoUsuario }}</p>
   </div>
 
   <ion-fab vertical="bottom" horizontal="end">
