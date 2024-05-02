@@ -65,6 +65,7 @@ ion-list {
 
 .main-card {
   background-color: #d9d9d9;
+
 }
 
 .first-heading {
@@ -144,8 +145,11 @@ ion-modal {
   margin-right: auto;
   padding: 10px;
 }
+.card-dentro{
+  background-image: url('../../assets/images/comida.png');
+}
 
-.card-content2 {
+.card-content {
   flex: 1; // El contenido ocupa todo el espacio disponible
 }
 

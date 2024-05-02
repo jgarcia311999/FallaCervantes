@@ -20,7 +20,20 @@ export class Tab5Page implements OnInit {
     if (usuarioActual) {
       this.correoUsuario = usuarioActual.email;
     }
+
+    const selectedImage = localStorage.getItem('selectedImage');
+    console.log('Valor de selectedImage antes de establecer en localStorage:', selectedImage);
+    if(selectedImage) {
+      this.selectedImage = selectedImage;
+    } else {
+      this.selectedImage = '../../assets/images/placeholder.PNG'; // Si no hay valor en localStorage, usa un valor predeterminado
+    }
+
+    console.log('Valor de selectedImage después de establecer en localStorage:', this.selectedImage);
+  
   }
+
+  
 
   onClick() {
     this.userService.logout()
@@ -36,6 +49,9 @@ export class Tab5Page implements OnInit {
 
   selectImage(image: string) {
     this.selectedImage = image;
+
+    // Guardar la imagen seleccionada en el localStorage
+    localStorage.setItem('selectedImage', image);
   }
 
   closeModal() {

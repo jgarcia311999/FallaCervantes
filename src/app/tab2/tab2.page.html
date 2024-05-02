@@ -16,7 +16,7 @@
   <div *ngIf="segmentValue === 'eventos'">
     <ion-card class="main-card" *ngFor="let fechaDestacada of highlightedDates; let i = index">
       <!-- Contenido de las tarjetas de eventos -->
-      <ion-card-content [class.expanded]="tarjetaSeleccionada === i" (click)="seleccionarTarjeta(i)"
+      <ion-card-content [class.expanded]="tarjetaSeleccionada === i" (click)="seleccionarTarjeta(i)" 
         *ngIf="esFechaIgualOPosterior(fechaDestacada.date)">
         <div class="card-container">
           <div class="card">
@@ -28,14 +28,14 @@
       </ion-card-content>
 
       <!-- Contenido de las tarjetas expandibles -->
-      <ion-card *ngIf="tarjetaSeleccionada === i" class="expanded-card">
-        <ion-card-content>
+      <ion-card *ngIf="tarjetaSeleccionada === i" class="expanded-card"> 
+        <ion-card-content class="card-dentro">
           <div class="card-container">
             <div class="card">
               <div class="card-content">
                 <!-- Iterar sobre los eventos de la fecha seleccionada que son igual o superior a la fecha actual -->
                 <ion-list>
-                  <ion-item *ngFor="let evento of fechaDestacada.eventos">
+                  <ion-item *ngFor="let evento of fechaDestacada.eventos" style="background-color: aqua;">
                     <ion-label>
                       <h2>{{ evento.titulo }}</h2>
                       <p>{{ evento.descripcion }}</p>
