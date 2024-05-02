@@ -1,43 +1,10 @@
 <ion-content [fullscreen]="true">
   <div class="circle-background"></div>
 
-  <!-- Tarjeta principal con el título como el título del aviso -->
-  <ion-card *ngFor="let aviso of avisosFalla; let i = index" (click)="seleccionarTarjeta(i)">
-    <ion-card-content [class.expanded]="tarjetaSeleccionada === i">
-      <div class="card-container">
-        <div class="card">
-          <div class="card-content">
-            <!-- Muestra el título del aviso -->
-            <h1>{{ aviso.titulo }}</h1>
-          </div>
-        </div>
-      </div>
+  <!-- Mostrar los avisos completos -->
+  <ion-card *ngFor="let aviso of avisosFalla">
+    <ion-card-content>
+      <h1>{{ aviso.titulo }}</h1>
     </ion-card-content>
-  
-    <!-- Contenido de la tarjeta expandible, mostrando solo la descripción y opcionalmente la imagen si está disponible -->
-    <ion-card *ngIf="tarjetaSeleccionada === i" class="expanded-card">
-      <ion-card-content>
-        <div class="card-container">
-          <div class="card">
-            <div class="card-content">
-              <ion-list>
-                <ion-item>
-                  <ion-label>
-                    <h2>{{ aviso.descripcion }}</h2>
-                    <!-- Muestra la imagen solo si hay una y no está vacía -->
-                    <img *ngIf="aviso.img && aviso.img !== '.' && aviso.img.trim() !== ''" [src]="aviso.img" />
-                  </ion-label>
-                </ion-item>
-              </ion-list>
-            </div>
-          </div>
-        </div>
-      </ion-card-content>
-    </ion-card>
   </ion-card>
-
-
-
-  
-
 </ion-content>

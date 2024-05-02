@@ -14,7 +14,7 @@ export class EventFormPage {
   descripcion: string | undefined;
   fechaEvento: string | undefined;
 
-  constructor(private eventService: EventosService) {}
+  constructor(private eventService: EventosService) { }
 
   async guardarEvento() {
     if (!this.fechaEvento || !this.nombreEvento || !this.descripcion) {
@@ -27,7 +27,7 @@ export class EventFormPage {
       console.error('Error: La fecha no es válida');
       return;
     }
-    
+
 
     const fechaFormateada = fecha.toISOString().slice(0, 10);
     const nuevoEvento: NuevoEvento = {
@@ -46,6 +46,6 @@ export class EventFormPage {
     } catch (error) {
       console.error('Error al guardar el evento:', error);
     }
-}
+  }
 
 }

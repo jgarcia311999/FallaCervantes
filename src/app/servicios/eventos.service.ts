@@ -1,4 +1,3 @@
-// eventos.service.ts
 
 import { Injectable } from '@angular/core';
 import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, updateDoc } from '@angular/fire/firestore';
