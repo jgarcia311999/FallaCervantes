@@ -41,9 +41,9 @@ ion-fab {
   right: 3rem;
 }
 
-.full-width-card {
+/* .full-width-card {
   margin-top: 20px;
-}
+} */
 
 .centered-row {
   display: flex;
@@ -51,22 +51,22 @@ ion-fab {
   margin-top: 20px;
 }
 
-ion-card {
+/* ion-card {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
-}
+} */
 
-ion-card-header {
+/* ion-card-header {
   background-color: #f8f8f8;
-}
+} */
 
 ion-list {
   margin-top: 10px;
 }
 
-.main-card {
+/* .main-card {
   background-color: #d9d9d9;
 
-}
+} */
 
 .first-heading {
   margin-top: 15vh;
@@ -137,7 +137,7 @@ ion-modal {
 
 
 
-.card-container2 {
+/* .card-container2 {
   width: 100%;
   display: flex;
   flex-direction: column; // Contenido en columna
@@ -145,14 +145,11 @@ ion-modal {
   margin-right: auto;
   padding: 10px;
 }
-.card-dentro{
-  background-image: url('../../assets/images/comida.png');
-}
 
 .card-content {
   flex: 1; // El contenido ocupa todo el espacio disponible
 }
-
+ */
 .dateEdit {
   margin-bottom: 5px; // Espacio entre la fecha y el título
   text-align: start; // Centra el texto
