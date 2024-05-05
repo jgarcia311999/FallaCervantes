@@ -41,32 +41,15 @@ ion-fab {
   right: 3rem;
 }
 
-/* .full-width-card {
-  margin-top: 20px;
-} */
-
 .centered-row {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
-/* ion-card {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
-} */
-
-/* ion-card-header {
-  background-color: #f8f8f8;
-} */
-
 ion-list {
   margin-top: 10px;
 }
-
-/* .main-card {
-  background-color: #d9d9d9;
-
-} */
 
 .first-heading {
   margin-top: 15vh;
@@ -76,13 +59,8 @@ ion-list {
   margin-bottom: 20px;
 }
 
-ion-content[fullscreen="true"] {
-  .main-card:first-of-type {
-    margin-top: 30vh;
-  }
-}
-
-h1 {
+h1,
+h2 {
   font-size: 24px;
   font-weight: bold;
   color: black;
@@ -91,15 +69,8 @@ h1 {
 
 h2 {
   font-size: 20px;
-  font-weight: bold;
   margin-bottom: 3vh;
   margin-top: 1vh;
-}
-
-.centered-row {
-  margin-top: 3vh;
-  display: flex;
-  justify-content: center;
 }
 
 .calendar-container {
@@ -116,13 +87,13 @@ h2 {
 
 ion-modal {
   --height: auto;
-  
 }
-.block{
+.block {
   overflow-y: auto;
 }
 
-.newEvent, .newNoti {
+.newEvent,
+.newNoti {
   margin-top: 60px;
   display: flex;
   margin-left: auto;
@@ -134,8 +105,6 @@ ion-modal {
   --background: #fa8f42; // Color de fondo del botón
   --color: #fff; // Color del texto del botón
 }
-
-
 
 /* .card-container2 {
   width: 100%;
@@ -169,4 +138,23 @@ ion-modal {
   display: flex;
   flex-direction: end;
   align-items: end;
+}
+
+.custom-datetime {
+  --background: #f2f2f72a; /* Color de fondo del componente */
+  --button-border-radius: 4px; /* Radio del borde de los botones */
+  --padding-top: 10px; /* Padding superior */
+  --padding-bottom: 10px; /* Padding inferior */
+  --padding-start: 10px; /* Padding izquierdo */
+  --padding-end: 10px; /* Padding derecho */
+  --title-font-size: 18px; /* Tamaño de fuente del título */
+  --transition: all 0.3s ease; /* Transición suave para cambios de estado */
+}
+
+/* Agrega esto si necesitas estilos adicionales fuera de las variables de Ionic */
+.custom-datetime {
+  width: 100%; /* Establece un ancho completo */
+  border: 1px solid #ccc; /* Borde opcional para mejor visibilidad */
+  border-radius: 8px; /* Radio de borde */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
 }

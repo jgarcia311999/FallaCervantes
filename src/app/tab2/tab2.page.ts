@@ -10,7 +10,7 @@ import NuevoEvento, { Evento } from '../interfaces/eventos.interface';
   styleUrls: ['./tab2.page.scss'],
 })
 export class Tab2Page implements OnInit {
-  segmentValue: string = 'eventos';
+  segmentValue: string = 'calendario';
   tarjetaSeleccionada: number | null | undefined;
   fechaSeleccionada: string | undefined;
   fechaDestacadaSeleccionada: NuevoEvento | undefined;

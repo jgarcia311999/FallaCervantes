@@ -19,6 +19,7 @@ export class Tab5Page implements OnInit {
     const usuarioActual = this.userService.getCurrentUser();
     if (usuarioActual) {
       this.correoUsuario = usuarioActual.email;
+      console.log('El correo del usuario actual es:', this.correoUsuario);
     }
 
     const selectedImage = localStorage.getItem('selectedImage');
@@ -43,9 +44,7 @@ export class Tab5Page implements OnInit {
       .catch(error => {
         console.log(error);
       });
-  }
-
-  
+  }  
 
   selectImage(image: string) {
     this.selectedImage = image;

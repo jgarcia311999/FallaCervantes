@@ -1,4 +1,16 @@
 <ion-content [fullscreen]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tab5" text="Tornar"></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="primary">
+      <ion-button fill="outline">
+        Editar
+        <ion-icon slot="end" name="create"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
   <div class="circle-background"></div>
 
   <!-- Mostrar los avisos completos -->

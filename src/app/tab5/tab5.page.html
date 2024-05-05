@@ -11,14 +11,18 @@
   </div>
 
   <div *ngIf="correoUsuario" class="nombreUsuario">
-      <p>{{ correoUsuario }}</p>
+    <p>{{ correoUsuario }}</p>
   </div>
 
   <ion-fab vertical="bottom" horizontal="end">
     <ion-fab-button id="open-modal" expand="block">
-      <ion-icon name="log-out-outline"></ion-icon> </ion-fab-button>
+      <ion-icon name="log-out-outline"></ion-icon> 
+    </ion-fab-button>
   </ion-fab>
 
+  <ion-fab vertical="top" horizontal="end" class="btnNoti" routerLink="/tab3">
+    <ion-icon name="notifications-outline" size="large"></ion-icon>
+  </ion-fab>
 
   <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
     <ng-template>

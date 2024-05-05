@@ -1,95 +1,136 @@
-.circle-background {
+.circle-background2 {
   width: 550px;
   height: 550px;
   border-radius: 50%;
-  background-color: #fa8f42;/*  */
+  background-color: #fa8f42;
   position: absolute;
-  top: 35%;
-  right: -275px;
+  top: 5%;
+  left: -235px;
   transform: translate(0%, -50%);
   overflow: hidden;
   z-index: -1;
-  /* Aquí establecemos el z-index en un valor menor */
 }
 
-.centered-image {
-  position: static;
-  margin-top: 20vh;
-  top: 100%;
-  left: 50%;
+.circle-background1 {
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  background-color: #fa8f42;
+  position: absolute;
+  top: 5%;
+  right: -235px;
+  transform: translate(0%, -50%);
+  overflow: hidden;
+  z-index: -1;
 }
 
-.centered-image img {
-  width: 100%;
-  transform: scale(1.7);
-}
-
-h1 {
-  margin-top: 12vh;
-  margin-left: 2vh;
-  margin-bottom: 20px;
-  /* Agrega margen inferior para separar el h1 de la tarjeta */
-}
-
-.main-card {
-  background-color: #ffffff;
-
-  .card-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    width: 100%;
-    /* Color de fondo de la tarjeta */
-    border-radius: 10px;
-  }
-
-  .card-content {
-    display: flex;
-    align-items: center;
-  }
-
-  .circle {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 10px;
-    display: flex;
-    /* Usamos flexbox */
-    justify-content: center;
-    /* Centramos horizontalmente */
-  }
-
-  img {
-    width: 100%;
-    border-radius: 50%;
-    align-self: center;
-    /* Para centrar verticalmente */
-  }
-
-
-  h2 {
-    margin: 0;
-    font-size: 24px;
-    /* Tamaño de letra más grande */
-    font-weight: bold;
-    /* Texto en negrita */
-  }
-
-  .divider {
-    margin-top: 1.5vh;
-    border-top: 1px solid #888;
-    width: 90%;
-  }
+ion-segment {
+  margin-top: 15vh;
+  background-color: #fa8f42;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-sizing: border-box;
 }
 
 ion-fab {
   position: absolute;
   top: 3rem;
-  /* Ajusta según sea necesario */
-  left: 3rem;
-  /* Ajusta según sea necesario */
+  right: 3rem;
 }
+
+.centered-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+ion-list {
+  margin-top: 10px;
+}
+
+.first-heading {
+  margin-top: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h1, h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 3vh;
+  margin-top: 1vh;
+}
+
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 8vh;
+}
+
+.block {
+  width: 100%;
+  height: 800px;
+  justify-content: center;
+}
+
+ion-modal {
+  --height: auto;
+}
+
+.block{
+  overflow-y: auto;
+}
+
+.newEvent, .newNoti {
+  margin-top: 60px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3vh;
+  width: 80%;
+  border-radius: 10px;
+  box-sizing: border-box;
+  --background: #fa8f42; // Color de fondo del botón
+  --color: #fff; // Color del texto del botón
+}
+
+.dateEdit {
+  margin-bottom: 5px; // Espacio entre la fecha y el título
+  text-align: start; // Centra el texto
+}
+
+.button-container {
+  margin-top: 10px; // Espacio entre el contenido y el botón
+  text-align: right; // Alinea el botón a la derecha
+}
+
+.action-button {
+  --background: #fa8f42; // Color de fondo del botón
+  --color: #fff; // Color del texto del botón
+  --border-radius: 20px; // Radio de borde del botón
+  font-weight: bold;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: end;
+  align-items: end;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column; // Asegura que los elementos estén verticalmente alineados
+  align-items: center;
+  justify-content: center;
+}
+
+
