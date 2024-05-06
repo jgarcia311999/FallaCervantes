@@ -109,18 +109,8 @@ export class Tab5Page implements OnInit {
           text: 'Editar',
           icon: 'pencil',
           handler: () => {
-            // Suponiendo que queremos actualizar la descripción del primer evento en el array
-            if (nuevoEvento.eventos.length > 0) {
-              this.eventService.updateEvent(eventId, {
-                "eventos": [
-                  { ...nuevoEvento.eventos[0], descripcion: 'Nueva Descripción' }  // Actualizar la descripción del primer evento
-                ]
-              }).then(() => {
-                console.log('Evento actualizado');
-              }).catch(error => {
-                console.error('Error actualizando evento:', error);
-              });
-            }
+            this.router.navigate(['/event-form'], { state: { evento: event } });
+            this.closeModal();
           }
         },
         {

@@ -24,11 +24,12 @@ export class Tab2Page implements OnInit {
 
   ngOnInit(): void {
     this.eventService.getEvents().subscribe(events => {
+      console.log('Eventos recuperados:', events); // Agregar esta línea para depurar
       // Ordenar los eventos por fecha antes de asignarlos a highlightedDates
       this.highlightedDates = events.sort((a, b) => {
         return new Date(a.date).getTime() - new Date(b.date).getTime();
       });
-      console.log(this.highlightedDates);
+      console.log('Eventos destacados:', this.highlightedDates); // Agregar esta línea para depurar
     });
   }
 
@@ -49,10 +50,20 @@ export class Tab2Page implements OnInit {
 
 
   mostrarInformacionMejorada() {
-    const fechaSeleccionada = this.fechaSeleccionada ? this.fechaSeleccionada.substring(0, 10) : '';
+    const fechaSeleccionada = this.fechaSeleccionada ? new Date(this.fechaSeleccionada).toISOString().substring(0, 10) : '';
+    console.log('Tipo de datos de la fecha seleccionada:', typeof fechaSeleccionada);
+    console.log('Fecha seleccionada:', fechaSeleccionada);
+  
+    console.log('Fechas en highlightedDates:');
+    this.highlightedDates.forEach(fechaDestacada => {
+      console.log('Tipo de datos de la fecha resaltada:', typeof fechaDestacada.date);
+      console.log('Fecha resaltada:', fechaDestacada.date);
+    });
+  
     this.fechaDestacadaSeleccionada = this.highlightedDates.find(fechaDestacada => fechaDestacada.date === fechaSeleccionada);
-    console.log('Función mostrarInformacionMejorada() llamada');
+    console.log('Fecha destacada seleccionada:', this.fechaDestacadaSeleccionada);
   }
+  
 
   formatDate(dateString: string): string {
     const date = new Date(dateString);
@@ -67,77 +78,9 @@ export class Tab2Page implements OnInit {
     return `${formattedDay} de ${formattedMonth}`;
   }
 
-  agregarEvento() {
-    // Implementa la lógica para agregar un nuevo evento aquí
-  }
-
   seleccionarTarjeta(index: number) {
     this.tarjetaSeleccionada = this.tarjetaSeleccionada === index ? null : index;
   }
-
-  closeModal() {
-    this.modalController.dismiss();
-  }
-
-  async presentActionSheet(nuevoEvento: NuevoEvento) {
-    if (typeof nuevoEvento.id !== 'string') {
-      console.error('El evento no tiene un ID válido.');
-      return;
-    }
-
-    const eventId = nuevoEvento.id; // Aseguramos que el id es un string
-
-    const actionSheet = await this.actionSheetController.create({
-      header: nuevoEvento.eventos[0].titulo,
-      buttons: [
-        {
-          text: 'Editar',
-          icon: 'pencil',
-          handler: () => {
-            // Suponiendo que queremos actualizar la descripción del primer evento en el array
-            if (nuevoEvento.eventos.length > 0) {
-              this.eventService.updateEvent(eventId, {
-                "eventos": [
-                  { ...nuevoEvento.eventos[0], descripcion: 'Nueva Descripción' }  // Actualizar la descripción del primer evento
-                ]
-              }).then(() => {
-                console.log('Evento actualizado');
-              }).catch(error => {
-                console.error('Error actualizando evento:', error);
-              });
-            }
-          }
-        },
-        {
-          text: 'Eliminar',
-          role: 'destructive',
-          icon: 'trash',
-          handler: () => {
-            this.eventService.deleteEvent(eventId).then(() => {
-              console.log('Evento eliminado');
-            }).catch(error => {
-              console.error('Error eliminando evento:', error);
-            });
-          }
-        },
-        {
-          text: 'Cancelar',
-          icon: 'close',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancelar clicked');
-          }
-        }
-      ]
-    });
-
-    await actionSheet.present();
-  }
-
-
-
-
-
 
 
 

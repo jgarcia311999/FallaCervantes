@@ -9,6 +9,7 @@
   transform: translate(0%, -50%);
   overflow: hidden;
   z-index: -1;
+  position: fixed;
 }
 
 .circle-background1 {
@@ -53,10 +54,6 @@ ion-list {
 
 .main-card {
   background-color: #ffffffa8;
-}
-
-ion-item{
-  background-color: #c01c1ca8!important;
 }
 
 .first-heading {
