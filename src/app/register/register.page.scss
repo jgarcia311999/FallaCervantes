@@ -96,16 +96,11 @@ ion-item {
 .circle {
     position: fixed;
     top: 8vh;
-    right: 5vh;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
-    /* Usamos flexbox */
-    justify-content: center;
-    /* Centramos horizontalmente */
-}
+    right: 1vh;
+    width: 130px;
+    height: auto;
+    
+  }
 
 ion-fab {
     position: fixed;

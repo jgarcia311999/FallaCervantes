@@ -243,3 +243,24 @@ html {
    */
   --ion-dynamic-font: var(--ion-default-dynamic-font);
 }
+
+
+$lato-font: 'Lato', sans-serif;
+
+// Estilos globales
+body {
+  font-family: $lato-font; // Aplica Lato a todo el cuerpo de la aplicación
+}
+
+// Estilos específicos para otros elementos
+h1, h2, h3, h4, h5, h6 {
+  font-family: $lato-font; // Aplica Lato a los títulos
+}
+
+p {
+  font-family: $lato-font; // Aplica Lato a los párrafos
+}
+
+.button {
+  font-family: $lato-font; // Aplica Lato a los botones
+}

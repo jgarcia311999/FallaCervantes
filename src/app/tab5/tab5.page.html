@@ -50,7 +50,7 @@
   <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
     <ng-template>
       <ion-button class="btnNew" (click)="closeModal()" routerLink="/event-form">Nou Event</ion-button>
-      <ion-list *ngFor="let nuevoEvento of highlightedDates; let i = index; let last = last" (click)="presentActionSheet(nuevoEvento)">
+      <ion-list *ngFor="let nuevoEvento of highlightedDates; let i = index; let last = last" (click)="presentActionSheetEventos(nuevoEvento)">
         <div [class.first]="i === 0" [class.last]="last">
           <ion-row>
             <ion-col class="col1">
@@ -73,7 +73,7 @@
       <ion-button class="btnNew" (click)="closeModal()" routerLink="/avis-form">Nou Avis</ion-button>
       <ion-list *ngFor="let aviso of avisosFalla; let i = index; let last = last">
         <div [class.first]="i === 0" [class.last]="last">
-          <ion-row>
+          <ion-row (click)="presentActionSheetAvisos(aviso)">
             <ion-col class="col3">
               <h5>{{ aviso.titulo }}</h5>
             </ion-col>
@@ -81,6 +81,7 @@
           </ion-row>
         </div>
       </ion-list>
+      
     </ng-template>
     
   </ion-modal>

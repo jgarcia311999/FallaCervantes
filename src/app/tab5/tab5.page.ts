@@ -94,7 +94,7 @@ export class Tab5Page implements OnInit {
     return `${formattedDay} de ${formattedMonth}`;
   }
 
-  async presentActionSheet(nuevoEvento: NuevoEvento) {
+  async presentActionSheetEventos(nuevoEvento: NuevoEvento) {
     if (typeof nuevoEvento.id !== 'string') {
       console.error('El evento no tiene un ID válido.');
       return;
@@ -139,4 +139,44 @@ export class Tab5Page implements OnInit {
     await actionSheet.present();
   }
 
+  async presentActionSheetAvisos(aviso: any) {
+    const actionSheet = await this.actionSheetController.create({
+      header: aviso.titulo,
+      buttons: [
+        {
+          text: 'Editar',
+          icon: 'pencil',
+          handler: () => {
+            // Aquí debes pasar aviso en lugar de event
+            this.router.navigate(['/event-form'], { state: { aviso: aviso } });
+            this.closeModal();
+          }
+        },
+        {
+          text: 'Eliminar',
+          role: 'destructive',
+          icon: 'trash',
+          handler: () => {
+            // Debes usar el id adecuado de aviso en lugar de eventId
+            this.avisoService.deleteNotification(aviso.id).then(() => {
+              console.log('Aviso eliminado');
+            }).catch(error => {
+              console.error('Error eliminando aviso:', error);
+            });
+          }
+        },
+        {
+          text: 'Cancelar',
+          icon: 'close',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancelar clicked');
+          }
+        }
+      ]
+    });
+  
+    await actionSheet.present();
+  }
+  
 }

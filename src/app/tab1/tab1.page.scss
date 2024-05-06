@@ -2,7 +2,8 @@
   width: 550px;
   height: 550px;
   border-radius: 50%;
-  background-color: #fa8f42;/*  */
+  background-color: #fa8f42;
+  /*  */
   position: absolute;
   top: 35%;
   right: -275px;
@@ -11,6 +12,15 @@
   z-index: -1;
   position: fixed;
   /* Aquí establecemos el z-index en un valor menor */
+}
+
+.circle2 {
+  position: absolute;
+  top: 8vh;
+  left: 1vh;
+  width: 130px;
+  height: auto;
+
 }
 
 .centered-image {
@@ -33,7 +43,7 @@ h1 {
 }
 
 .main-card {
-  background-color: #ffffffa8!important;
+  background-color: #ffffffa8 !important;
 
   .card-container {
     display: flex;
