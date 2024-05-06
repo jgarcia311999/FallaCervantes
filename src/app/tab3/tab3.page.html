@@ -6,12 +6,18 @@
 
     
   </ion-toolbar>
-  <div class="circle-background"></div>
+  <div class="circle-background1"></div>
+  <div class="circle-background2"></div>
+  <div class="circle-background3"></div>
+  <div class="circle-background4"></div>
+  <div class="circle-background5"></div>
+  <div class="circle-background6"></div>
 
-  <!-- Mostrar los avisos completos -->
-  <ion-card *ngFor="let aviso of avisosFalla">
-    <ion-card-content>
-      <h1>{{ aviso.titulo }}</h1>
-    </ion-card-content>
+  <ion-card >
+    <ion-list *ngFor="let aviso of avisosFalla">
+      <ion-item>
+        <h1>{{ aviso.titulo }}</h1>
+      </ion-item>
+      </ion-list>
   </ion-card>
 </ion-content>

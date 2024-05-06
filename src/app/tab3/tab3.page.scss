@@ -1,35 +1,80 @@
-.circle-background {
-  width: 550px;
-  height: 550px;
+.circle-background1 {
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   background-color: #fa8f42;
   position: absolute;
   top: 35%;
-  left: -275px;
+  left: -60px;
+  transform: translate(0%, -50%);
+  overflow: hidden;
+  z-index: -1;
+}
+.circle-background2 {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background-color: #fa8f42;
+  position: absolute;
+  top: 45%;
+  right: -60px;
+  transform: translate(0%, -50%);
+  overflow: hidden;
+  z-index: -1;
+}
+.circle-background3 {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: #fa8f42;
+  position: absolute;
+  bottom: 25%;
+  left: 35px;
+  transform: translate(0%, -50%);
+  overflow: hidden;
+  z-index: -1;
+}
+.circle-background4 {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background-color: #fa8f42;
+  position: absolute;
+  top: 90px;
+  left: 150px;
+  transform: translate(0%, -50%);
+  overflow: hidden;
+  z-index: -1;
+}
+.circle-background5 {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #fa8f42;
+  position: absolute;
+  bottom: 10%;
+  right: 40px;
+  transform: translate(0%, -50%);
+  overflow: hidden;
+  z-index: -1;
+}
+.circle-background6 {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #fa8f42;
+  position: absolute;
+  bottom: 3%;
+  left: 50px;
   transform: translate(0%, -50%);
   overflow: hidden;
   z-index: -1;
 }
 
-.main-card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  transition: box-shadow 0.3s ease-in-out;
+ion-card {
+  background-color: #ffffffa8;
+}
 
-  &:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-
-  ion-card-content {
-    padding: 20px;
-  }
-  h1 {
-    color: #000 !important;
-  font-weight: bold !important;
-  text-align: center !important;
-  }
-
-  h2 {
-    color: #333; // Color gris ya establecido
-  }
+h1{
+  color: #000000;
 }

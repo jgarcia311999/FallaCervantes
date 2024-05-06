@@ -17,22 +17,26 @@ export class EventFormPage {
 
   constructor(private eventService: EventosService, private activatedRoute: ActivatedRoute) { }
 
+  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngOnInit() {
-    this.activatedRoute.queryParams.subscribe(params => {
-      if (params && params['evento']) {
-        this.evento = JSON.parse(params['evento']);
-        console.log('Datos del evento:', this.evento);
+    const evento: NuevoEvento = history.state.evento;
+    // Asignar los valores del evento a las variables del formulario
+    if (evento && evento.eventos && evento.eventos.length > 0) {
+      this.nombreEvento = evento.eventos[0].titulo;
+      this.descripcion = evento.eventos[0].descripcion;
+    } else {
+      // Manejar el caso en el que evento o evento.eventos no están definidos o están vacíos
+      // Por ejemplo, podrías asignar valores por defecto o mostrar un mensaje de error
+    }
 
-        // Inicializar los campos del formulario con los datos del evento
-        if (this.evento) {
-          this.nombreEvento = this.evento.eventos[0].titulo; // Corregir aquí
-          this.descripcion = this.evento.eventos[0].descripcion; // Corregir aquí
-          this.fechaEvento = this.evento.date;
-        } else {
-          console.error('Error: this.evento es undefined');
-        }
-      }
-    });
+    if (evento && evento.date) {
+      this.fechaEvento = evento.date;
+    } else {
+      // Manejar el caso en el que evento o evento.date no están definidos
+      // Por ejemplo, podrías asignar una fecha por defecto o mostrar un mensaje de error
+    }
+
+
   }
 
   async guardarEvento() {

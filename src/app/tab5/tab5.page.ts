@@ -109,7 +109,11 @@ export class Tab5Page implements OnInit {
           text: 'Editar',
           icon: 'pencil',
           handler: () => {
-            this.router.navigate(['/event-form'], { state: { evento: event } });
+            const eventData = {
+              id: nuevoEvento.id,
+              // Otros datos necesarios para la edición del evento
+            };
+            this.router.navigate(['/event-form'], { state: { evento: eventData } });
             this.closeModal();
           }
         },
