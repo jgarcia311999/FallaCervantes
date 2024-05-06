@@ -6,7 +6,8 @@ ion-content {
 }
 
 ion-item:first-child {
-  margin-top: 5vh; /* Agregar margen superior solo al primer ion-item */
+  margin-top: 5vh;
+  /* Agregar margen superior solo al primer ion-item */
 }
 
 ion-item {
@@ -40,6 +41,40 @@ ion-button {
   --color: #fff; // Color del texto del botón
 }
 
-ion-toolbar{
+ion-toolbar {
   background-color: transparent;
+}
+
+.custom-datetime {
+  --background: #f2f2f72a;
+  /* Color de fondo del componente */
+  --button-border-radius: 4px;
+  /* Radio del borde de los botones */
+  --padding-top: 10px;
+  /* Padding superior */
+  --padding-bottom: 10px;
+  /* Padding inferior */
+  --padding-start: 10px;
+  /* Padding izquierdo */
+  --padding-end: 10px;
+  /* Padding derecho */
+  --title-font-size: 18px;
+  /* Tamaño de fuente del título */
+  --transition: all 0.3s ease;
+  /* Transición suave para cambios de estado */
+  width: 100%;
+  /* Establece un ancho completo */
+  border: 1px solid #ccc;
+  /* Borde opcional para mejor visibilidad */
+  border-radius: 8px;
+  /* Radio de borde */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Sombra para dar profundidad */
+}
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 2vh;
 }

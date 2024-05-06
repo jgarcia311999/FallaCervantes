@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab2"></ion-back-button>
+      <ion-back-button defaultHref="/tabs/tab5"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -19,9 +19,10 @@
 
   <ion-item>
     <ion-label position="stacked">Fecha</ion-label>
-    <ion-datetime #calendario displayFormat="DD/MM/YYYY" [(ngModel)]="fechaEvento"
-      presentation="date"></ion-datetime>
+    <div class="calendar-container">
+      <ion-datetime displayFormat="DD/MM/YYYY" presentation="date" class="custom-datetime" ></ion-datetime>
+    </div>
   </ion-item>
 
-  <ion-button  (click)="guardarEvento()" routerLink="/tabs/tab2">Guardar</ion-button>
+  <ion-button  (click)="guardarEvento()" routerLink="/tabs/tab5">Guardar</ion-button>
 </ion-content>

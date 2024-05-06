@@ -51,6 +51,14 @@ ion-list {
   margin-top: 10px;
 }
 
+.main-card {
+  background-color: #ffffffa8;
+}
+
+ion-item{
+  background-color: #c01c1ca8!important;
+}
+
 .first-heading {
   margin-top: 15vh;
   display: flex;
@@ -88,6 +96,7 @@ h2 {
 ion-modal {
   --height: auto;
 }
+
 .block {
   overflow-y: auto;
 }
@@ -141,20 +150,32 @@ ion-modal {
 }
 
 .custom-datetime {
-  --background: #f2f2f72a; /* Color de fondo del componente */
-  --button-border-radius: 4px; /* Radio del borde de los botones */
-  --padding-top: 10px; /* Padding superior */
-  --padding-bottom: 10px; /* Padding inferior */
-  --padding-start: 10px; /* Padding izquierdo */
-  --padding-end: 10px; /* Padding derecho */
-  --title-font-size: 18px; /* Tamaño de fuente del título */
-  --transition: all 0.3s ease; /* Transición suave para cambios de estado */
+  --background: #f2f2f72a;
+  /* Color de fondo del componente */
+  --button-border-radius: 4px;
+  /* Radio del borde de los botones */
+  --padding-top: 10px;
+  /* Padding superior */
+  --padding-bottom: 10px;
+  /* Padding inferior */
+  --padding-start: 10px;
+  /* Padding izquierdo */
+  --padding-end: 10px;
+  /* Padding derecho */
+  --title-font-size: 18px;
+  /* Tamaño de fuente del título */
+  --transition: all 0.3s ease;
+  /* Transición suave para cambios de estado */
 }
 
 /* Agrega esto si necesitas estilos adicionales fuera de las variables de Ionic */
 .custom-datetime {
-  width: 100%; /* Establece un ancho completo */
-  border: 1px solid #ccc; /* Borde opcional para mejor visibilidad */
-  border-radius: 8px; /* Radio de borde */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  width: 100%;
+  /* Establece un ancho completo */
+  border: 1px solid #ccc;
+  /* Borde opcional para mejor visibilidad */
+  border-radius: 8px;
+  /* Radio de borde */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Sombra para dar profundidad */
 }

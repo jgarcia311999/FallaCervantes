@@ -1,3 +1,17 @@
+.circle-background {
+    width: 550px;
+    height: 550px;
+    border-radius: 50%;
+    background-color: #fa8f42;
+    position: absolute;
+    top: 35%;
+    left: -275px;
+    transform: translate(0%, -50%);
+    overflow: hidden;
+    z-index: -1;
+    /* Aquí establecemos el z-index en un valor menor */
+}
+
 .imagen-redonda {
     width: 200px;
     /* Ajusta el tamaño según sea necesario */
@@ -9,7 +23,7 @@
     /* Esto redondeará la imagen */
     margin-left: auto;
     margin-right: auto;
-    margin-top: 3vh;
+    margin-bottom: 3vh;
 }
 
 .imagen-redonda img {
@@ -21,13 +35,22 @@
     /* Para evitar espacios en blanco debajo de la imagen */
 }
 
-.btnNoti{
+.imgModal {
+    margin-top: 2vh;
+    margin-bottom: 4vh;
+}
+
+.btnNoti {
     margin-top: 5vh;
 }
 
 .nombreUsuario {
+    font-size: 15px;
+    color: #000000;
     text-align: center;
-    margin-top: 5vh;
+    margin-bottom: 5vh;
+    margin-top: 3vh;
+    font-weight: bold;
 }
 
 ion-fab {
@@ -56,4 +79,123 @@ ion-fab {
 
 ion-modal {
     --height: auto;
+}
+
+.firstCard {
+    margin-top: 13vh;
+    background-color: #ffffffa8;
+}
+.secondCard {
+    background-color: #ffffffa8;
+}
+
+.interiorCard {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    /* Usa flexbox para alinear elementos hijos */
+    align-items: center;
+    /* Centra verticalmente los elementos hijos */
+}
+
+.interiorIcon {
+    font-size: 30px;
+    color: #000000;
+    margin: 2vh;
+}
+
+.logIcon {
+    color: red;
+}
+
+span {
+    font-size: 17px;
+    color: #000000;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    text-align: center;
+}
+
+.h2Admin {
+    color: #000000;
+    text-align: center;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+hr {
+    border: 0;
+    /* Elimina el borde predeterminado */
+    height: 1px;
+    /* Establece la altura de la línea */
+    background-color: #fa8f42;
+    /* Establece el color de fondo de la línea */
+    width: 90%;
+}
+
+ion-item ion-row ion-col {
+    display: flex;
+    align-items: center;
+    /* Centra verticalmente el contenido */
+    justify-content: center;
+    /* Centra horizontalmente el contenido */
+}
+
+
+
+
+.cardModal1 {
+    background-color: rgba(255, 255, 255, 0);
+    /* Fondo semi-transparente */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    /* Sombra */
+    padding: 20px;
+    /* Espaciado interno */
+
+    /* Estilos para hacer que la tarjeta sea un poco más grande */
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+
+.col1 {
+    text-align: right;
+    /* Alinea el texto a la derecha */
+    justify-self: end;
+    /* Empieza en el extremo derecho */
+    margin-right: 2vh;
+}
+
+.col2 {
+    border-left: 1px solid #fa8f42;
+    /* Añade un borde a la derecha */
+    justify-self: start;
+    /* Empieza en el extremo izquierdo */
+}
+
+.col3 {
+    text-align: center;
+}
+
+.h5Modal {
+    margin-left: 2vh;
+}
+
+
+.first {
+    margin-top: 3vh;
+}
+
+.last {
+    margin-bottom: 3vh;
+}
+
+.btnNew{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vh;
 }

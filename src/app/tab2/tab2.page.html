@@ -23,18 +23,16 @@
           <!-- <h2 *ngIf="fechaDestacada.eventos.length > 0">{{ fechaDestacada.eventos[0].titulo }}</h2> -->
         </div>
       </ion-card-content>
-    
+
       <!-- Contenido de las tarjetas expandibles -->
-      <ion-card-content *ngIf="tarjetaSeleccionada === i" class="expanded-card">
-        <ion-list>
-          <ion-item *ngFor="let evento of fechaDestacada.eventos" class="event-item">
-            <ion-label>
-              <h2>{{ evento.titulo }}</h2>
-              <p>{{ evento.descripcion }}</p>
-            </ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
+      <ion-list *ngIf="tarjetaSeleccionada === i" class="expanded-card">
+        <ion-item *ngFor="let evento of fechaDestacada.eventos" class="event-item">
+          <ion-label>
+            <h2>{{ evento.titulo }}</h2>
+            <p>{{ evento.descripcion }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
     </ion-card>
 
 
@@ -44,7 +42,8 @@
   <div *ngIf="segmentValue === 'calendario'">
     <div class="calendar-container">
       <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fechaSeleccionada" presentation="date"
-        [highlightedDates]="highlightedDates" (ionChange)="mostrarInformacionMejorada()" class="custom-datetime" ></ion-datetime>
+        [highlightedDates]="highlightedDates" (ionChange)="mostrarInformacionMejorada()"
+        class="custom-datetime"></ion-datetime>
     </div>
 
 
@@ -53,7 +52,6 @@
       <ion-card-header>
         <ion-card-title>{{ formatDate(fechaDestacadaSeleccionada.date) }}</ion-card-title>
       </ion-card-header>
-      <ion-card-content class="full-width-content">
         <ion-list>
           <ion-item *ngFor="let evento of fechaDestacadaSeleccionada.eventos">
             <ion-label>
@@ -62,76 +60,6 @@
             </ion-label>
           </ion-item>
         </ion-list>
-      </ion-card-content>
     </ion-card>
-
-    <!-- Botón para añadir evento -->
-    <ion-row class="centered-row">
-      <ion-fab-button id="open-modal" expand="block">
-        <ion-icon name="add-circle-outline"></ion-icon>
-      </ion-fab-button>
-      <!-- <ion-fab-button (click)="agregarEvento()" routerLink="/event-form">
-        <ion-icon name="add-circle-outline"></ion-icon>
-      </ion-fab-button> -->
-    </ion-row>
-
-    <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
-      <ng-template>
-        <div class="block">
-
-          <ion-row>
-            <ion-col>
-              <ion-button class="newEvent" (click)="agregarEvento(); closeModal()" routerLink="/event-form">Event
-                nou</ion-button>
-            </ion-col>
-            <ion-col>
-              <ion-button class="newNoti" (click)="closeModal()">Avis nou</ion-button>
-            </ion-col>
-          </ion-row>
-
-
-
-          <ion-list *ngFor="let nuevoEvento of highlightedDates">
-            <!-- Contenido de las tarjetas de eventos -->
-            <ion-item class="custom-item">
-              <div class="card-container2">
-                <div class="card-content2">
-                  <ion-row>
-                    <!-- Columna para la fecha y el título -->
-                    <ion-col size="9">
-                      <h1 class="dateEdit">{{ formatDate(nuevoEvento.date) }}</h1>
-                      <!-- Iterar sobre los eventos de la fecha seleccionada que son igual o superior a la fecha actual -->
-                      <ion-list>
-                        <ion-item class="event-item2" *ngFor="let evento of nuevoEvento.eventos">
-                          <ion-label>
-                            <h2>{{ evento.titulo }}</h2>
-                          </ion-label>
-                        </ion-item>
-                      </ion-list>
-                    </ion-col>
-                    <!-- Columna para el botón -->
-                    <ion-col size="3">
-                      <!-- <ion-button  class="action-button">Actuar</ion-button> -->
-                      <ion-button (click)="presentActionSheet(nuevoEvento)" class="action-button">Actuar</ion-button>
-                    </ion-col>
-                  </ion-row>
-                </div>
-              </div>
-            </ion-item>
-          </ion-list>
-
-
-
-
-
-
-        </div>
-      </ng-template>
-    </ion-modal>
-
-
   </div>
-
-
-
 </ion-content>

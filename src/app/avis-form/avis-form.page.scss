@@ -1,0 +1,37 @@
+ion-content {
+    align-items: center;
+    justify-content: center;
+}
+
+ion-item:first-child {
+    margin-top: 5vh;
+}
+
+ion-item {
+    margin-bottom: 20px;
+}
+
+ion-label {
+    color: #000000 !important;
+    text-align: center;
+    font-size: 1.5em !important;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+ion-button {
+    margin-top: 60px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3vh;
+    width: 80%;
+    border-radius: 10px;
+    box-sizing: border-box;
+    --background: #fa8f42;
+    --color: #fff;
+}
+
+ion-toolbar {
+    background-color: transparent;
+}

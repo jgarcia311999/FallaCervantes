@@ -1,24 +1,47 @@
 <ion-content [fullscreen]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
-    </ion-buttons>
-  </ion-toolbar>
+
+  <div class="circle-background"></div>
 
 
-  <div class="imagen-redonda">
-    <img [src]="selectedImage" alt="Imagen seleccionada" style="border-radius: 20vh;">
-  </div>
 
-  <div *ngIf="correoUsuario" class="nombreUsuario">
-    <p>{{ correoUsuario }}</p>
-  </div>
+  <ion-card class="firstCard">
+    <div *ngIf="correoUsuario" class="nombreUsuario">
+      <p>{{ correoUsuario }}</p>
+    </div>
+    <div class="imagen-redonda">
+      <img [src]="selectedImage" alt="Imagen seleccionada" style="border-radius: 20vh;">
+    </div>
 
-  <ion-fab vertical="bottom" horizontal="end">
-    <ion-fab-button id="open-modal" expand="block">
-      <ion-icon name="log-out-outline"></ion-icon> 
-    </ion-fab-button>
-  </ion-fab>
+
+  </ion-card>
+
+  <ion-card class="secondCard">
+    <h2 class="h2Admin">ADMIN PANEL</h2>
+    <ion-card class="interiorCard" id="open-modal">
+      <ion-icon class="interiorIcon" name="calendar"></ion-icon>
+      <span>Events</span>
+    </ion-card>
+
+    <ion-card class="interiorCard" id="open-modal2">
+      <ion-icon class="interiorIcon" name="notifications"></ion-icon>
+      <span>Avisós</span>
+    </ion-card>
+    <hr>
+    <ion-row>
+      <ion-col>
+        <ion-card class="interiorCard" id="open-modal3">
+          <ion-icon class="interiorIcon" name="finger-print"></ion-icon>
+          <span>Editar</span>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card class="interiorCard" (click)="onClick()">
+          <ion-icon class="interiorIcon logIcon" name="log-out-outline"></ion-icon>
+          <span>Eixir</span>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 
   <ion-fab vertical="top" horizontal="end" class="btnNoti" routerLink="/tab3">
     <ion-icon name="notifications-outline" size="large"></ion-icon>
@@ -26,10 +49,47 @@
 
   <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
     <ng-template>
+      <ion-button class="btnNew" (click)="closeModal()" routerLink="/event-form">Nou Event</ion-button>
+      <ion-list *ngFor="let nuevoEvento of highlightedDates; let i = index; let last = last">
+        <div [class.first]="i === 0" [class.last]="last">
+          <ion-row>
+            <ion-col class="col1">
+              <h5>{{ formatDate(nuevoEvento.date) }}</h5>
+            </ion-col>
+            <ion-col class="col2">
+              <h5 *ngFor="let evento of nuevoEvento.eventos" class="h5Modal">{{ evento.titulo }}</h5>
+            </ion-col>
+            <hr *ngIf="!last">
+          </ion-row>
+        </div>
+      </ion-list>
+    </ng-template>
+    
+  </ion-modal>
+
+  <ion-modal trigger="open-modal2" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+    <ng-template>
+      <ion-button class="btnNew" (click)="closeModal()" routerLink="/avis-form">Nou Avis</ion-button>
+      <ion-list *ngFor="let aviso of avisosFalla; let i = index; let last = last">
+        <div [class.first]="i === 0" [class.last]="last">
+          <ion-row>
+            <ion-col class="col3">
+              <h5>{{ aviso.titulo }}</h5>
+            </ion-col>
+            <hr *ngIf="!last">
+          </ion-row>
+        </div>
+      </ion-list>
+    </ng-template>
+    
+  </ion-modal>
+
+  <ion-modal trigger="open-modal3" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+    <ng-template>
       <div class="image-container">
-        <img class="imagen-redonda" src="../../assets/images/userIconA.webp"
+        <img class="imagen-redonda imgModal" src="../../assets/images/userIconA.webp"
           (click)="selectImage('../../assets/images/userIconA.webp'); closeModal()">
-        <img class="imagen-redonda" src="../../assets/images/userIconB.webp"
+        <img class="imagen-redonda imgModal" src="../../assets/images/userIconB.webp"
           (click)="selectImage('../../assets/images/userIconB.webp'); closeModal()">
       </div>
     </ng-template>
