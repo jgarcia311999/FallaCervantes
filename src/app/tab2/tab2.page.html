@@ -19,7 +19,7 @@
         <ion-card-content [class.expanded]="tarjetaSeleccionada === i" (click)="seleccionarTarjeta(i)"
           *ngIf="esFechaIgualOPosterior(fechaDestacada.date)">
           <div class="card-container">
-            <h1>{{ formatDate(fechaDestacada.date) }} - {{ fechaDestacada.eventos[0].titulo }}</h1>
+            <h1>{{ formatDate(fechaDestacada.date) }}  <h2>{{ fechaDestacada.eventos[0].titulo }}</h2></h1>
             <!-- Muestra el título del primer evento o el más destacado -->
             <!-- <h2 *ngIf="fechaDestacada.eventos.length > 0">{{ fechaDestacada.eventos[0].titulo }}</h2> -->
           </div>
@@ -29,8 +29,7 @@
         <ion-list *ngIf="tarjetaSeleccionada === i" class="expanded-card">
           <ion-item *ngFor="let evento of fechaDestacada.eventos" class="event-item">
             <ion-label>
-              <h2>{{ evento.titulo }}</h2>
-              <p>{{ evento.descripcion }}</p>
+              <h4>{{ evento.descripcion }}</h4>
             </ion-label>
           </ion-item>
         </ion-list>
@@ -56,8 +55,8 @@
         <ion-list>
           <ion-item *ngFor="let evento of fechaDestacadaSeleccionada.eventos">
             <ion-label>
-              <h1>{{ evento.titulo }}</h1>
-              <h2>{{ evento.descripcion }}</h2>
+              <h2>{{ evento.titulo }}</h2>
+              <h4>{{ evento.descripcion }}</h4>
             </ion-label>
           </ion-item>
         </ion-list>
