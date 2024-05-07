@@ -1,15 +1,3 @@
-/* .tab-active {
-  color: #ff6a00; 
-}
-
-.tab-inactive {
-  color: #000000; 
-}
-
-ion-tab-bar {
-  background-color: #ffffff; 
-} */
-
 // Estilo para la pestaña inactiva
 .tab-inactive {
   color: #000000; // Cambia al color deseado
@@ -17,7 +5,7 @@ ion-tab-bar {
 
 // Cambiar el color de fondo del tab bar si es necesario
 ion-tab-bar {
-  background-color: #ffffff; // Cambia al color deseado
+  background-color: #ffffffd2; // Cambia al color deseado
   border-radius: 30px; // Aplicar bordes redondeados al tab-bar
   width: 90%; // Hacer que el tab-bar ocupe el 90% del ancho de la pantalla
   margin-right: auto;
@@ -38,4 +26,55 @@ ion-tab-button ion-icon {
 // Estilos para el ícono cuando está activo
 .tab-active ion-icon {
   color: #ff6a00; // Cambiar el color del ícono cuando está activo
+}
+
+@media (min-width: 1200px) {
+  /* Estilo para la pestaña inactiva */
+  .tab-inactive {
+    color: #000000;
+    /* Cambia al color deseado */
+  }
+
+  /* Cambiar el color de fondo del tab bar si es necesario */
+  ion-tab-bar {
+    background-color: #ffffffd2;
+    /* Cambia al color deseado */
+    width: 90px;
+    /* Ancho fijo para la barra en pantallas más grandes */
+    height: 100%;
+    /* Altura completa */
+    flex-direction: column;
+    /* Orientación vertical */
+    justify-content: flex-start;
+    /* Alinear al inicio del contenedor */
+    position: fixed;
+    /* Fijar la posición para que se mantenga visible al hacer scroll */
+    top: 0;
+    /* Alinear en la parte superior de la pantalla */
+    left: 0;
+    /* Alinear en el lado izquierdo de la pantalla */
+    z-index: 999;
+    /* Asegurar que esté por encima de otros elementos */
+    border-radius: 0;
+    /* Eliminar las esquinas redondeadas */
+  }
+
+  ion-tab-button {
+    width: 100%;
+    /* Ancho completo */
+    text-align: center;
+    /* Alinear el texto al centro */
+  }
+
+  /* Estilos para el ícono */
+  ion-tab-button ion-icon {
+    font-size: 24px;
+    /* Tamaño del ícono */
+  }
+
+  /* Estilos para el ícono cuando está activo */
+  .tab-active ion-icon {
+    color: #ff6a00;
+    /* Cambiar el color del ícono cuando está activo */
+  }
 }

@@ -41,7 +41,7 @@
 }
 
 .btnNoti {
-    margin-top: 5vh;
+    margin-top: 3vh;
 }
 
 .nombreUsuario {
@@ -82,7 +82,7 @@ ion-modal {
 }
 
 .firstCard {
-    margin-top: 13vh;
+    margin-top: 11vh;
     background-color: #ffffffa8;
 }
 
@@ -141,8 +141,9 @@ ion-item ion-row ion-col {
     /* Centra horizontalmente el contenido */
 }
 
-
-
+ion-col {
+    padding: 0px;
+}
 
 .cardModal1 {
     background-color: rgba(255, 255, 255, 0);
@@ -201,11 +202,13 @@ ion-item ion-row ion-col {
     margin-top: 2vh;
 }
 
-@media (min-width: 768px) {
-    .firstCard, .secondCard {
+@media (min-width: 1200px) {
+
+    .firstCard,
+    .secondCard {
         width: 50%;
         margin-left: auto;
         margin-right: auto;
     }
-    
+
 }

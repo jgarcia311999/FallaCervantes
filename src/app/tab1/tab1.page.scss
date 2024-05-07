@@ -25,7 +25,7 @@
 
 .centered-image img {
   width: 100%;
-  transform: scale(1.7); 
+  transform: scale(1.7);
 }
 
 h1 {
@@ -82,9 +82,10 @@ h1 {
   width: 90%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .centered-image img {
-    transform: scale(1); 
+    transform: scale(1);
+    left: 50%;
   }
 
   .circle-background {
@@ -94,18 +95,23 @@ h1 {
   }
 
   .circle2 {
-    width: 10vw;
-    height: auto;
+    top: 8vh;
+    left: 44%;
   }
+
   .main-card {
-    max-height: 150px; /* Establece un ancho máximo más pequeño para las tarjetas */
-    max-height: 200px; /* Establece un ancho máximo más pequeño para las tarjetas */
-    margin: auto; /* Centra las tarjetas horizontalmente en su columna */
+    max-height: 150px;
+    /* Establece un ancho máximo más pequeño para las tarjetas */
+    max-height: 200px;
+    /* Establece un ancho máximo más pequeño para las tarjetas */
+    margin: auto;
+    /* Centra las tarjetas horizontalmente en su columna */
     margin-bottom: 3vh;
   }
 
   .main-card .card-container {
-    flex-direction: row; /* Cambio a fila para más espacio */
+    flex-direction: row;
+    /* Cambio a fila para más espacio */
   }
 
   .main-card .circle {
@@ -113,7 +119,9 @@ h1 {
     height: 7vw;
   }
 
-  h1, .main-card h2 {
-    font-size: 2em; /* Ajuste del tamaño de fuente en pantallas grandes */
+  h1,
+  .main-card h2 {
+    font-size: 2em;
+    /* Ajuste del tamaño de fuente en pantallas grandes */
   }
 }

@@ -88,6 +88,7 @@ ion-col {
   align-items: center;
   justify-content: center;
 }
+
 .wrapper {
   width: 180px;
   height: 50px;
@@ -97,6 +98,7 @@ ion-col {
   justify-content: center;
   z-index: 2;
 }
+
 .text {
   z-index: 3;
   font-family: Whitney, -apple-system, Helvetica;
@@ -106,6 +108,7 @@ ion-col {
   color: white;
   filter: drop-shadow(2px 2px 0px #ff9e02);
 }
+
 .box {
   width: 100%;
   height: 100%;
@@ -122,10 +125,12 @@ ion-col {
   0% {
     transform: translateX(-20px);
   }
+
   100% {
     transform: translateX(20px);
   }
 }
+
 .box::before {
   content: "";
   width: 20px;
@@ -135,16 +140,18 @@ ion-col {
   z-index: 1;
   animation: loading2 ease-in-out 0.9s infinite alternate-reverse;
 }
+
 @keyframes loading2 {
   0% {
     transform: translateX(-50px);
   }
+
   100% {
     transform: translateX(50px);
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .circle-background {
     width: 850px;
     height: 850px;
@@ -173,13 +180,13 @@ ion-col {
     height: 250px;
   }
 
-  @media (min-width: 992px) {
-    ion-col:first-child {
-      width: 50%;
-    }
 
-    ion-col:not(:first-child) {
-      width: 50%;
-    }
+  ion-col:first-child {
+    width: 50%;
   }
+
+  ion-col:not(:first-child) {
+    width: 50%;
+  }
+
 }

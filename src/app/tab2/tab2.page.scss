@@ -25,9 +25,19 @@
   z-index: -1;
 }
 
-ion-segment {
+.ios ion-segment {
   margin-top: 15vh;
   background-color: #fa8f42;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.md ion-segment {
+  margin-top: 15vh;
+  background-color: #f9efe8;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
@@ -104,9 +114,7 @@ h2 {
   justify-content: center;
 }
 
-ion-modal {
-  --height: auto;
-}
+
 
 .block {
   overflow-y: auto;
@@ -208,7 +216,7 @@ ion-modal {
   margin-top: 8vh;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
 
   /* Contenido para pantallas grandes */
   .desktop-content {
