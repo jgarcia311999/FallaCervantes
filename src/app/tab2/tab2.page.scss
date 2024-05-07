@@ -56,6 +56,13 @@ ion-list {
   background-color: #ffffffa8;
 }
 
+.main-card2 {
+  background-color: #ffffffa8;
+  width: 70%;
+  float: right; /* Alinear las tarjetas a la derecha */
+
+}
+
 .first-heading {
   margin-top: 15vh;
   display: flex;
@@ -81,6 +88,13 @@ h2 {
 .calendar-container {
   display: flex;
   justify-content: center;
+  margin-top: 8vh;
+}
+
+.calendar-container2 {
+  display: flex;
+  justify-content: start;
+  margin-left: 3vw;
   margin-top: 8vh;
 }
 
@@ -175,4 +189,36 @@ ion-modal {
   /* Radio de borde */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   /* Sombra para dar profundidad */
+}
+
+.desktop-content {
+  display: none;
+  /* Ocultar contenido para dispositivos móviles */
+}
+
+/* Contenido para dispositivos móviles */
+.mobile-content {
+  display: block;
+  /* Mostrar contenido para dispositivos móviles */
+}
+
+.firstPart {
+  
+  margin-right: 3vw;
+  margin-top: 8vh;
+}
+
+@media (min-width: 768px) {
+
+  /* Contenido para pantallas grandes */
+  .desktop-content {
+    display: block;
+    /* Mostrar contenido para pantallas grandes */
+  }
+
+  /* Contenido para dispositivos móviles */
+  .mobile-content {
+    display: none;
+    /* Ocultar contenido para pantallas grandes */
+  }
 }

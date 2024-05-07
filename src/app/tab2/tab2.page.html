@@ -1,57 +1,58 @@
 <ion-content [fullscreen]="true">
-  <div class="circle-background1" *ngIf="segmentValue === 'eventos'"></div>
+  <div class="mobile-content">
+    <div class="circle-background1" *ngIf="segmentValue === 'eventos'"></div>
 
-  <div class="circle-background2" *ngIf="segmentValue === 'calendario'"></div>
+    <div class="circle-background2" *ngIf="segmentValue === 'calendario'"></div>
 
-  <ion-segment [(ngModel)]="segmentValue">
-    <ion-segment-button value="eventos">
-      <ion-label>Eventos</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="calendario">
-      <ion-label>Calendario</ion-label>
-    </ion-segment-button>
-  </ion-segment>
+    <ion-segment [(ngModel)]="segmentValue">
+      <ion-segment-button value="eventos">
+        <ion-label>Eventos</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="calendario">
+        <ion-label>Calendario</ion-label>
+      </ion-segment-button>
+    </ion-segment>
 
-  <!-- Contenido para Eventos -->
-  <div *ngIf="segmentValue === 'eventos'">
-    <ion-card class="main-card" *ngFor="let fechaDestacada of highlightedDates; let i = index">
-      <ion-card-content [class.expanded]="tarjetaSeleccionada === i" (click)="seleccionarTarjeta(i)"
-        *ngIf="esFechaIgualOPosterior(fechaDestacada.date)">
-        <div class="card-container">
-          <h1>{{ formatDate(fechaDestacada.date) }} - {{ fechaDestacada.eventos[0].titulo }}</h1>
-          <!-- Muestra el título del primer evento o el más destacado -->
-          <!-- <h2 *ngIf="fechaDestacada.eventos.length > 0">{{ fechaDestacada.eventos[0].titulo }}</h2> -->
-        </div>
-      </ion-card-content>
+    <!-- Contenido para Eventos -->
+    <div *ngIf="segmentValue === 'eventos'">
+      <ion-card class="main-card" *ngFor="let fechaDestacada of highlightedDates; let i = index">
+        <ion-card-content [class.expanded]="tarjetaSeleccionada === i" (click)="seleccionarTarjeta(i)"
+          *ngIf="esFechaIgualOPosterior(fechaDestacada.date)">
+          <div class="card-container">
+            <h1>{{ formatDate(fechaDestacada.date) }} - {{ fechaDestacada.eventos[0].titulo }}</h1>
+            <!-- Muestra el título del primer evento o el más destacado -->
+            <!-- <h2 *ngIf="fechaDestacada.eventos.length > 0">{{ fechaDestacada.eventos[0].titulo }}</h2> -->
+          </div>
+        </ion-card-content>
 
-      <!-- Contenido de las tarjetas expandibles -->
-      <ion-list *ngIf="tarjetaSeleccionada === i" class="expanded-card">
-        <ion-item *ngFor="let evento of fechaDestacada.eventos" class="event-item">
-          <ion-label>
-            <h2>{{ evento.titulo }}</h2>
-            <p>{{ evento.descripcion }}</p>
-          </ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-card>
+        <!-- Contenido de las tarjetas expandibles -->
+        <ion-list *ngIf="tarjetaSeleccionada === i" class="expanded-card">
+          <ion-item *ngFor="let evento of fechaDestacada.eventos" class="event-item">
+            <ion-label>
+              <h2>{{ evento.titulo }}</h2>
+              <p>{{ evento.descripcion }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card>
 
 
-  </div>
-
-  <!-- Contenido para Calendario -->
-  <div *ngIf="segmentValue === 'calendario'">
-    <div class="calendar-container">
-      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fechaSeleccionada" presentation="date"
-        [highlightedDates]="highlightedDates" (ionChange)="mostrarInformacionMejorada()"
-        class="custom-datetime"></ion-datetime>
     </div>
 
+    <!-- Contenido para Calendario -->
+    <div *ngIf="segmentValue === 'calendario'">
+      <div class="calendar-container">
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fechaSeleccionada" presentation="date"
+          [highlightedDates]="highlightedDates" (ionChange)="mostrarInformacionMejorada()"
+          class="custom-datetime"></ion-datetime>
+      </div>
 
-    <ion-card *ngIf="fechaDestacadaSeleccionada" class="full-width-card">
-      <!-- Contenido que estaba en el modal -->
-      <ion-card-header>
-        <ion-card-title>{{ formatDate(fechaDestacadaSeleccionada.date) }}</ion-card-title>
-      </ion-card-header>
+
+      <ion-card *ngIf="fechaDestacadaSeleccionada" class="full-width-card">
+        <!-- Contenido que estaba en el modal -->
+        <ion-card-header>
+          <ion-card-title>{{ formatDate(fechaDestacadaSeleccionada.date) }}</ion-card-title>
+        </ion-card-header>
         <ion-list>
           <ion-item *ngFor="let evento of fechaDestacadaSeleccionada.eventos">
             <ion-label>
@@ -60,6 +61,66 @@
             </ion-label>
           </ion-item>
         </ion-list>
-    </ion-card>
+      </ion-card>
+    </div>
   </div>
+
+  <div class="desktop-content">
+    <div class="circle-background1"></div>
+
+    <div class="circle-background2"></div>
+    <!-- Contenido para Eventos -->
+    <ion-row>
+      <ion-col>
+        <div class="firstPart">
+          <ion-card class="main-card2" *ngFor="let fechaDestacada of highlightedDates; let i = index">
+            <ion-card-content [class.expanded]="tarjetaSeleccionada === i" (click)="seleccionarTarjeta(i)"
+              *ngIf="esFechaIgualOPosterior(fechaDestacada.date)">
+              <div class="card-container">
+                <h1>{{ formatDate(fechaDestacada.date) }} - {{ fechaDestacada.eventos[0].titulo }}</h1>
+                <!-- Muestra el título del primer evento o el más destacado -->
+                <!-- <h2 *ngIf="fechaDestacada.eventos.length > 0">{{ fechaDestacada.eventos[0].titulo }}</h2> -->
+              </div>
+            </ion-card-content>
+            <!-- Contenido de las tarjetas expandibles -->
+            <ion-list *ngIf="tarjetaSeleccionada === i" class="expanded-card">
+              <ion-item *ngFor="let evento of fechaDestacada.eventos" class="event-item">
+                <ion-label>
+                  <h2>{{ evento.titulo }}</h2>
+                  <p>{{ evento.descripcion }}</p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card>
+        </div>
+      </ion-col>
+      <ion-col>
+        <!-- Contenido para Calendario -->
+        <div class="secondPart">
+          <div class="calendar-container2">
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fechaSeleccionada" presentation="date"
+              [highlightedDates]="highlightedDates" (ionChange)="mostrarInformacionMejorada()"
+              class="custom-datetime"></ion-datetime>
+          </div>
+          <ion-card *ngIf="fechaDestacadaSeleccionada" class="full-width-card">
+            <!-- Contenido que estaba en el modal -->
+            <ion-card-header>
+              <ion-card-title>{{ formatDate(fechaDestacadaSeleccionada.date) }}</ion-card-title>
+            </ion-card-header>
+            <ion-list>
+              <ion-item *ngFor="let evento of fechaDestacadaSeleccionada.eventos">
+                <ion-label>
+                  <h1>{{ evento.titulo }}</h1>
+                  <h2>{{ evento.descripcion }}</h2>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+
+
+  </div>
+
 </ion-content>

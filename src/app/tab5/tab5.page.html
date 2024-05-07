@@ -16,31 +16,43 @@
   </ion-card>
 
   <ion-card class="secondCard">
-    <h2 class="h2Admin">ADMIN PANEL</h2>
-    <ion-card class="interiorCard" id="open-modal">
-      <ion-icon class="interiorIcon" name="calendar"></ion-icon>
-      <span>Events</span>
-    </ion-card>
 
-    <ion-card class="interiorCard" id="open-modal2">
-      <ion-icon class="interiorIcon" name="notifications"></ion-icon>
-      <span>Avisós</span>
-    </ion-card>
-    <hr>
     <ion-row>
-      <ion-col>
-        <ion-card class="interiorCard" id="open-modal3">
-          <ion-icon class="interiorIcon" name="finger-print"></ion-icon>
-          <span>Editar</span>
+      <ion-col size="12">
+        <h2 class="h2Admin">ADMIN PANEL</h2>
+      </ion-col>
+      <ion-col size="12" size-lg="6">
+        <ion-card class="interiorCard" id="open-modal">
+          <ion-icon class="interiorIcon" name="calendar"></ion-icon>
+          <span>Events</span>
         </ion-card>
       </ion-col>
-      <ion-col>
-        <ion-card class="interiorCard" (click)="onClick()">
-          <ion-icon class="interiorIcon logIcon" name="log-out-outline"></ion-icon>
-          <span>Eixir</span>
+      <ion-col size="12" size-lg="6">
+        <ion-card class="interiorCard" id="open-modal2">
+          <ion-icon class="interiorIcon" name="notifications"></ion-icon>
+          <span>Avisós</span>
         </ion-card>
       </ion-col>
+      <hr>
+      <ion-col size="12">
+        <ion-row>
+          <ion-col>
+            <ion-card class="interiorCard" id="open-modal3">
+              <ion-icon class="interiorIcon" name="finger-print"></ion-icon>
+              <span>Editar</span>
+            </ion-card>
+          </ion-col>
+          <ion-col>
+            <ion-card class="interiorCard" (click)="onClick()">
+              <ion-icon class="interiorIcon logIcon" name="log-out-outline"></ion-icon>
+              <span>Eixir</span>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+
     </ion-row>
+
   </ion-card>
 
   <ion-fab vertical="top" horizontal="end" class="btnNoti" routerLink="/tab3">
@@ -50,22 +62,23 @@
   <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
     <ng-template>
       <ion-button class="btnNew" (click)="closeModal()" routerLink="/event-form">Nou Event</ion-button>
-      <ion-list *ngFor="let nuevoEvento of highlightedDates; let i = index; let last = last" (click)="presentActionSheetEventos(nuevoEvento)">
+      <ion-list *ngFor="let nuevoEvento of highlightedDates; let i = index; let last = last"
+        (click)="presentActionSheetEventos(nuevoEvento)">
         <div [class.first]="i === 0" [class.last]="last">
           <ion-row>
             <ion-col class="col1">
               <h5>{{ formatDate(nuevoEvento.date) }}</h5>
             </ion-col>
-            <ion-col class="col2" >
+            <ion-col class="col2">
               <h5 *ngFor="let evento of nuevoEvento.eventos" class="h5Modal">{{ evento.titulo }}</h5>
             </ion-col>
             <hr *ngIf="!last">
           </ion-row>
         </div>
       </ion-list>
-      
+
     </ng-template>
-    
+
   </ion-modal>
 
   <ion-modal trigger="open-modal2" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
@@ -81,9 +94,9 @@
           </ion-row>
         </div>
       </ion-list>
-      
+
     </ng-template>
-    
+
   </ion-modal>
 
   <ion-modal trigger="open-modal3" [initialBreakpoint]="1" [breakpoints]="[0, 1]">

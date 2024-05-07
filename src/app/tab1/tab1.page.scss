@@ -3,103 +3,117 @@
   height: 550px;
   border-radius: 50%;
   background-color: #fa8f42;
-  /*  */
-  position: absolute;
+  position: fixed;
   top: 35%;
   right: -275px;
   transform: translate(0%, -50%);
   overflow: hidden;
   z-index: -1;
-  position: fixed;
-  /* Aquí establecemos el z-index en un valor menor */
 }
 
 .circle2 {
+  width: 130px;
+  height: auto;
   position: absolute;
   top: 8vh;
   left: 1vh;
-  width: 130px;
-  height: auto;
-
 }
 
 .centered-image {
-  position: static;
   margin-top: 20vh;
-  top: 100%;
-  left: 50%;
 }
 
 .centered-image img {
   width: 100%;
-  transform: scale(1.7);
+  transform: scale(1.7); 
 }
 
 h1 {
   margin-top: 12vh;
   margin-left: 2vh;
   margin-bottom: 20px;
-  /* Agrega margen inferior para separar el h1 de la tarjeta */
 }
 
 .main-card {
   background-color: #ffffffa8 !important;
-
-  .card-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    width: 100%;
-    border-radius: 10px;
-  }
-
-  .card-content {
-    display: flex;
-    align-items: center;
-  }
-
-  .circle {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 10px;
-    display: flex;
-    /* Usamos flexbox */
-    justify-content: center;
-    /* Centramos horizontalmente */
-  }
-
-  img {
-    width: 100%;
-    border-radius: 50%;
-    align-self: center;
-    /* Para centrar verticalmente */
-  }
-
-
-  h2 {
-    margin: 0;
-    font-size: 24px;
-    /* Tamaño de letra más grande */
-    font-weight: bold;
-    /* Texto en negrita */
-  }
-
-  .divider {
-    margin-top: 1.5vh;
-    border-top: 1px solid #888;
-    width: 90%;
-  }
 }
 
-ion-fab {
-  position: absolute;
-  top: 3rem;
-  /* Ajusta según sea necesario */
-  left: 3rem;
-  /* Ajusta según sea necesario */
+.main-card .card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-card .card {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.main-card .card-content {
+  display: flex;
+  align-items: center;
+}
+
+.main-card .circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.main-card img {
+  width: 100%;
+  border-radius: 50%;
+  align-self: center;
+}
+
+.main-card h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.main-card .divider {
+  margin-top: 1.5vh;
+  border-top: 1px solid #888;
+  width: 90%;
+}
+
+@media (min-width: 768px) {
+  .centered-image img {
+    transform: scale(1); 
+  }
+
+  .circle-background {
+    width: 40vw;
+    height: 40vw;
+    right: -20vw;
+  }
+
+  .circle2 {
+    width: 10vw;
+    height: auto;
+  }
+  .main-card {
+    max-height: 150px; /* Establece un ancho máximo más pequeño para las tarjetas */
+    max-height: 200px; /* Establece un ancho máximo más pequeño para las tarjetas */
+    margin: auto; /* Centra las tarjetas horizontalmente en su columna */
+    margin-bottom: 3vh;
+  }
+
+  .main-card .card-container {
+    flex-direction: row; /* Cambio a fila para más espacio */
+  }
+
+  .main-card .circle {
+    width: 7vw;
+    height: 7vw;
+  }
+
+  h1, .main-card h2 {
+    font-size: 2em; /* Ajuste del tamaño de fuente en pantallas grandes */
+  }
 }

@@ -1,35 +1,36 @@
 <ion-content [fullscreen]="true">
-
   <div class="circle-background"></div>
-  <div class="centered-image">
-    <img src="../../assets/images/fallallibret1.png" alt="Descripción de la imagen">
-  </div>
-  <div class="circle2">
-    <img src="../../assets/images/fentfalla__13_-removebg-preview.png" alt="Imagen">
-  </div>
-  <h1>Els nostres representants.</h1>
 
-  <ion-card class="main-card" *ngFor="let card of cards">
-    <ion-card-content>
-      <div class="card-container">
-        <div class="card">
-          <div class="card-content" [routerLink]="['/info-page']" [queryParams]="{ id: card.id }">
-            <div class="circle">
-              <img [src]="'../../assets/images/fallallibret' + card.id + '.png'" alt="Imagen">
-            </div>
-            <h2>{{ card.name }}</h2>
-          </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-lg="6">
+        <div class="circle-background"></div>
+        <div class="centered-image">
+          <img src="../../assets/images/fallallibret1.png" alt="Descripción de la imagen">
         </div>
-      </div>
-    </ion-card-content>
-  </ion-card>
+        <div class="circle2">
+          <img src="../../assets/images/fentfalla__13_-removebg-preview.png" alt="Imagen">
+        </div>
+      </ion-col>
 
-
-
-  <!-- <ion-fab vertical="top" horizontal="start" routerLink="/tab5">
-    <ion-fab-button>
-      <ion-icon name="person"></ion-icon>
-    </ion-fab-button>
-  </ion-fab> -->
-
+      <ion-col size="12" size-lg="6">
+        <h1>Els nostres representants.</h1>
+        <ion-card class="main-card" *ngFor="let card of cards">
+          <ion-card-content>
+            <div class="card-container">
+              <div class="card">
+                <div class="card-content" [routerLink]="['/info-page']" [queryParams]="{ id: card.id }">
+                  <div class="circle">
+                    <img [src]="'../../assets/images/fallallibret' + card.id + '.png'"
+                      alt="Imagen de representante {{ card.name }}">
+                  </div>
+                  <h2>{{ card.name }}</h2>
+                </div>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

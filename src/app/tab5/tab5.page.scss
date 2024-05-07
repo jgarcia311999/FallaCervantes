@@ -85,6 +85,7 @@ ion-modal {
     margin-top: 13vh;
     background-color: #ffffffa8;
 }
+
 .secondCard {
     background-color: #ffffffa8;
 }
@@ -193,9 +194,18 @@ ion-item ion-row ion-col {
     margin-bottom: 3vh;
 }
 
-.btnNew{
+.btnNew {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 2vh;
+}
+
+@media (min-width: 768px) {
+    .firstCard, .secondCard {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
 }

@@ -1,42 +1,46 @@
 <ion-content [fullscreen]="true">
 
   <div class="circle-background"></div>
-  
-    <!-- Contenido de la página -->
-    <div *ngIf="!isLoading">
-      <!-- Mostrar el contenido cuando no esté cargando -->
-      
+
+  <!-- Contenido de la página -->
+  <div *ngIf="!isLoading">
+    <!-- Mostrar el contenido cuando no esté cargando -->
+    <ion-grid>
+
       <!-- Mostrar la primera foto por separado -->
-      <div class="centered-photo">
-        <ion-img [src]="photos[0]" class="fotoGrande"></ion-img>
-      </div>
-      
-      <div class="centered-text">
-        <h1>LA FALLA DEL MERCAT</h1>
-      </div>
-      
-      <!-- Iterar sobre el resto de las fotos -->
-      <ion-grid>
-        <ion-row>
-          <!-- Ignorar la primera foto en la iteración -->
-          <ng-container *ngFor="let photo of photos; let first = first">
-            <ng-container *ngIf="!first">
-              <ion-col size="4">
-                <ion-img [src]="photo" class="square-image"></ion-img>
-              </ion-col>
+      <ion-row *ngIf="photos && photos.length > 0">
+        <ion-col size="12" size-lg="6" class="centered-photo">
+          <ion-img [src]="photos[0]" class="fotoGrande"></ion-img>
+        </ion-col>
+        <ion-col size="12" size-lg="6">
+          <ion-row>
+            <ion-col size="12">
+              <div class="centered-text">
+                <h1>LA FALLA DEL MERCAT</h1>
+              </div>
+            </ion-col>
+            <!-- Iterar sobre el resto de las fotos -->
+
+            <!-- Ignorar la primera foto en la iteración -->
+            <ng-container *ngFor="let photo of photos; let first = first">
+              <ng-container *ngIf="!first">
+                <ion-col size="4">
+                  <ion-img [src]="photo" class="square-image"></ion-img>
+                </ion-col>
+              </ng-container>
             </ng-container>
-          </ng-container>
-        </ion-row>
-      </ion-grid>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- Loader -->
+  <div class="loader" *ngIf="isLoading" style="margin-top: 7vh;">
+    <div class="wrapper">
+      <div class="text">LOADING</div>
+      <div class="box"></div>
     </div>
-  
-    <!-- Loader -->
-    <div class="loader" *ngIf="isLoading" style="margin-top: 7vh;">
-      <div class="wrapper">
-        <div class="text">LOADING</div>
-        <div class="box"></div>
-      </div>
-    </div>
-    
-  </ion-content>
-  
+  </div>
+
+</ion-content>
