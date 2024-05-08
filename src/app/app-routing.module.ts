@@ -28,6 +28,11 @@ const routes: Routes = [
     ...canActivate(() => redirectUnauthorizedTo(['/login']))
   },
   {
+    path: 'event-form/:id',
+    loadChildren: () => import('./event-form/event-form.module').then(m => m.EventFormPageModule),
+    canActivateChild: [redirectUnauthorizedTo(['/login'])] // Proteger las rutas hijas
+  },
+  {
     path: 'info-page',
     loadChildren: () => import('./info-page/info-page.module').then(m => m.InfoPagePageModule),
     ...canActivate(() => redirectUnauthorizedTo(['/login']))

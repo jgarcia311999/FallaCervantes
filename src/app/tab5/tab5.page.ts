@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../servicios/user.service';
 import { Router } from '@angular/router';
-import { ActionSheetController, ModalController } from '@ionic/angular';
+import { ActionSheetController, ModalController, AlertController } from '@ionic/angular';
 import { EventosService } from '../servicios/eventos.service';
 import NuevoEvento from '../interfaces/eventos.interface';
 import Aviso from '../interfaces/avisos.interface';
@@ -19,13 +19,17 @@ export class Tab5Page implements OnInit {
   highlightedDates: NuevoEvento[] = [];
   avisosFalla: Aviso[] = [];
   avisos: string[] = [];
+
   constructor(
-    private userService: UserService, 
-    private router: Router, 
-    private modalController: ModalController, 
+    private userService: UserService,
+    private router: Router,
+    private modalController: ModalController,
     private eventService: EventosService,
     private avisoService: AvisosService,
-    public actionSheetController: ActionSheetController) { }
+    public actionSheetController: ActionSheetController,
+    public alertController: AlertController
+  ) { }
+
   ngOnInit(): void {
     // Al iniciar la página, obtener el usuario actual y su correo electrónico
     const usuarioActual = this.userService.getCurrentUser();
@@ -55,10 +59,7 @@ export class Tab5Page implements OnInit {
     this.avisoService.getNotifications().subscribe(avisos => {
       this.avisosFalla = avisos;
     });
-
   }
-
-
 
   onClick() {
     this.userService.logout()
@@ -100,8 +101,8 @@ export class Tab5Page implements OnInit {
       return;
     }
 
-    const eventId = nuevoEvento.id; // Aseguramos que el id es un string
-
+    let eventId: string = nuevoEvento.id; // Aseguramos que el id es un string
+    console.log("EventId", eventId)
     const actionSheet = await this.actionSheetController.create({
       header: nuevoEvento.eventos[0].titulo,
       buttons: [
@@ -109,11 +110,7 @@ export class Tab5Page implements OnInit {
           text: 'Editar',
           icon: 'pencil',
           handler: () => {
-            const eventData = {
-              id: nuevoEvento.id,
-              // Otros datos necesarios para la edición del evento
-            };
-            this.router.navigate(['/event-form'], { state: { evento: eventData } });
+            this.router.navigate(['/event-form'], { queryParams: { id: eventId } });
             this.closeModal();
           }
         },
@@ -122,11 +119,7 @@ export class Tab5Page implements OnInit {
           role: 'destructive',
           icon: 'trash',
           handler: () => {
-            this.eventService.deleteEvent(eventId).then(() => {
-              console.log('Evento eliminado');
-            }).catch(error => {
-              console.error('Error eliminando evento:', error);
-            });
+            this.presentDeleteEventAlert(eventId);
           }
         },
         {
@@ -143,7 +136,7 @@ export class Tab5Page implements OnInit {
     await actionSheet.present();
   }
 
-  async presentActionSheetAvisos(aviso: any) {
+  async presentActionSheetAvisos(aviso: Aviso) {
     const actionSheet = await this.actionSheetController.create({
       header: aviso.titulo,
       buttons: [
@@ -152,7 +145,7 @@ export class Tab5Page implements OnInit {
           icon: 'pencil',
           handler: () => {
             // Aquí debes pasar aviso en lugar de event
-            this.router.navigate(['/event-form'], { state: { aviso: aviso } });
+            this.router.navigate(['/event-form']);
             this.closeModal();
           }
         },
@@ -161,12 +154,12 @@ export class Tab5Page implements OnInit {
           role: 'destructive',
           icon: 'trash',
           handler: () => {
-            // Debes usar el id adecuado de aviso en lugar de eventId
-            this.avisoService.deleteNotification(aviso.id).then(() => {
-              console.log('Aviso eliminado');
-            }).catch(error => {
-              console.error('Error eliminando aviso:', error);
-            });
+            const avisoId = aviso.id;
+            if (avisoId) { // Verifica si avisoId no es undefined
+              this.presentDeleteAvisoAlert(avisoId); // Llama a la función solo si avisoId es válido
+            } else {
+              console.error('El ID del aviso es undefined.');
+            }
           }
         },
         {
@@ -179,8 +172,78 @@ export class Tab5Page implements OnInit {
         }
       ]
     });
-  
+
     await actionSheet.present();
   }
-  
+
+
+  async presentDeleteEventAlert(eventId: string) {
+    const alert = await this.alertController.create({
+      header: 'Confirmar eliminación',
+      message: '¿Estás seguro de que quieres eliminar este evento?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Eliminación cancelada');
+          }
+        },
+        {
+          text: 'Eliminar',
+          role: 'destructive',
+          handler: () => {
+            this.deleteEvent(eventId);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  async presentDeleteAvisoAlert(avisoId: string) {
+    const alert = await this.alertController.create({
+      header: 'Confirmar eliminación',
+      message: '¿Estás seguro de que quieres eliminar este aviso?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Eliminación cancelada');
+          }
+        },
+        {
+          text: 'Eliminar',
+          role: 'destructive',
+          handler: () => {
+            this.deleteAviso(avisoId);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  deleteEvent(eventId: string) {
+    this.eventService.deleteEvent(eventId)
+      .then(() => {
+        console.log('Evento eliminado');
+      })
+      .catch(error => {
+        console.error('Error eliminando evento:', error);
+      });
+  }
+
+  deleteAviso(avisoId: string) {
+    this.avisoService.deleteNotification(avisoId)
+      .then(() => {
+        console.log('Aviso eliminado');
+      })
+      .catch(error => {
+        console.error('Error eliminando aviso:', error);
+      });
+  }
 }

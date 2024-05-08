@@ -26,8 +26,5 @@ export class AvisosService {
     return deleteDoc(notificationDocRef);
   }
 
-  updateNotification(notificationId: string, updateData: Partial<Aviso>) {
-    const notificationDocRef = doc(this.firestore, `avisos/${notificationId}`);
-    return updateDoc(notificationDocRef, updateData);
-  }
+  
 }

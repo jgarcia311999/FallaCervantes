@@ -6,7 +6,7 @@ export interface Evento {
 
 export default interface NuevoEvento {
     
-    id?: string;  // Agregar esta línea para representar el ID opcional
+    id?: string; 
     date: string;
     textColor: string;
     backgroundColor: string;

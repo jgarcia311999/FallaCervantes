@@ -65,12 +65,12 @@
       <ion-list *ngFor="let nuevoEvento of highlightedDates; let i = index; let last = last"
         (click)="presentActionSheetEventos(nuevoEvento)">
         <div [class.first]="i === 0" [class.last]="last">
-          <ion-row>
-            <ion-col class="col1">
+          <ion-row *ngFor="let evento of nuevoEvento.eventos" class="h5Modal">
+            <ion-col size="4" class="col1">
               <h5>{{ formatDate(nuevoEvento.date) }}</h5>
             </ion-col>
-            <ion-col class="col2">
-              <h5 *ngFor="let evento of nuevoEvento.eventos" class="h5Modal">{{ evento.titulo }}</h5>
+            <ion-col size="6" class="col2">
+              <h5 class="h5Modal">{{ evento.titulo }}</h5>
             </ion-col>
             <hr *ngIf="!last">
           </ion-row>
@@ -110,4 +110,5 @@
     </ng-template>
   </ion-modal>
 
+  
 </ion-content>

@@ -1,3 +1,9 @@
+ion-content::part(scroll) {
+    overflow-y: hidden; /* Deshabilita el desplazamiento vertical */
+    overflow-x: hidden; /* Deshabilita el desplazamiento horizontal, si lo deseas */
+}
+
+
 .circle-background {
     width: 550px;
     height: 550px;
@@ -176,6 +182,7 @@ ion-col {
     /* Añade un borde a la derecha */
     justify-self: start;
     /* Empieza en el extremo izquierdo */
+
 }
 
 .col3 {
