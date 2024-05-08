@@ -21,8 +21,8 @@
               <div class="card">
                 <div class="card-content" [routerLink]="['/info-page']" [queryParams]="{ id: card.id }">
                   <div class="circle">
-                    <img [src]="'../../assets/images/fallallibret' + card.id + '.png'"
-                      alt="Imagen de representante {{ card.name }}">
+                    <img [src]="card.image" alt="{{ card.name }}">
+
                   </div>
                   <h2>{{ card.name }}</h2>
                 </div>

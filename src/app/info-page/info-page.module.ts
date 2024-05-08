@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { InfoPagePageRoutingModule } from './info-page-routing.module';
 
 import { InfoPagePage } from './info-page.page';
+import { SwiperModule } from "../components/swiper/swiper.module";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    InfoPagePageRoutingModule
-  ],
-  declarations: [InfoPagePage]
+    declarations: [InfoPagePage],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        InfoPagePageRoutingModule,
+        SwiperModule
+    ]
 })
 export class InfoPagePageModule {}

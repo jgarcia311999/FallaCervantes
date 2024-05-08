@@ -1,7 +1,10 @@
 <swiper-container speed="300" loop="true" css-mode="true" pagination="true">
-  <ng-container *ngFor="let imagen of imagenes">
-    <swiper-slide>
-      <img [src]="imagen" alt="Imagen" class="imagen-falla">
-    </swiper-slide>
-  </ng-container>
+    @for (imagen of imagenes; track imagen) {
+    <ng-container>
+      <swiper-slide>
+        <img [src]="imagen" alt="Imagen" class="imagen-falla">
+      </swiper-slide>
+    </ng-container>
+  }
+
 </swiper-container>

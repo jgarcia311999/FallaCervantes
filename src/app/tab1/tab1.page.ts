@@ -22,10 +22,30 @@ export class Tab1Page {
   }
 
   cards = [
-    { id: 1, name: 'La nostra fallera major' },
-    { id: 2, name: 'El nostre president' },
-    { id: 3, name: 'La nostra fallera major infantil' },
-    { id: 4, name: 'El nostre president infantil' }
+    {
+      id: 1, name: 'La nostra fallera major',
+      image: '../../assets/images/fallera.webp'
+    },
+    {
+      id: 2, name: 'El nostre president',
+      image: '../../assets/images/presidente.webp'
+    },
+    {
+      id: 3, name: 'La nostra fallera major infantil',
+      image: '../../assets/images/falleraInfantil.webp'
+    },
+    {
+      id: 4, name: 'El nostre president infantil',
+      image: '../../assets/images/presidenteInfantil.webp'
+    },
+    {
+      id: 5, name: 'La nostra falla Gran',
+      image: '../../assets/images/fallaGrande2.jpg'
+    },
+    {
+      id: 6, name: 'La nostra falla infantil',
+      image: '../../assets/images/fallaPeqquenya2.jpg'
+    }
   ];
 
 }
