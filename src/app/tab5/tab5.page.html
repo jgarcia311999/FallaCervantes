@@ -5,9 +5,10 @@
 
 
   <ion-card class="firstCard">
-    <div *ngIf="correoUsuario" class="nombreUsuario">
-      <p>{{ correoUsuario }}</p>
-    </div>
+    @if (correoUsuario) {
+    <p class="nombreUsuario">{{ correoUsuario }}</p>
+    }
+
     <div class="imagen-redonda">
       <img [src]="selectedImage" alt="Imagen seleccionada" style="border-radius: 20vh;">
     </div>
@@ -19,7 +20,7 @@
 
     <ion-row>
       <ion-col size="12">
-        <h2 class="h2Admin">ADMIN PANEL</h2>
+        <h2 class="h2Admin">PANELL D'ADMINISTRACIÓ</h2>
       </ion-col>
       <ion-col size="12" size-xl="6">
         <ion-card class="interiorCard" id="open-modal">
@@ -62,20 +63,26 @@
   <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
     <ng-template>
       <ion-button class="btnNew" (click)="closeModal()" routerLink="/event-form">Nou Event</ion-button>
-      <ion-list *ngFor="let nuevoEvento of highlightedDates; let i = index; let last = last"
-        (click)="presentActionSheetEventos(nuevoEvento)">
+      @for (nuevoEvento of highlightedDates; let i = $index; let last = $last; track nuevoEvento) {
+      <ion-list (click)="presentActionSheetEventos(nuevoEvento)">
         <div [class.first]="i === 0" [class.last]="last">
-          <ion-row *ngFor="let evento of nuevoEvento.eventos" class="h5Modal">
+          @for (evento of nuevoEvento.eventos; track evento) {
+          <ion-row class="h5Modal">
             <ion-col size="4" class="col1">
               <h5>{{ formatDate(nuevoEvento.date) }}</h5>
             </ion-col>
             <ion-col size="6" class="col2">
               <h5 class="h5Modal">{{ evento.titulo }}</h5>
             </ion-col>
-            <hr *ngIf="!last">
+            @if (!last) {
+            <hr>
+            }
           </ion-row>
+          }
         </div>
       </ion-list>
+      }
+
 
     </ng-template>
 
@@ -84,17 +91,20 @@
   <ion-modal trigger="open-modal2" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
     <ng-template>
       <ion-button class="btnNew" (click)="closeModal()" routerLink="/avis-form">Nou Avis</ion-button>
-      <ion-list *ngFor="let aviso of avisosFalla; let i = index; let last = last">
+      @for (aviso of avisosFalla; let i = $index; let last = $last; track aviso) {
+      <ion-list>
         <div [class.first]="i === 0" [class.last]="last">
           <ion-row (click)="presentActionSheetAvisos(aviso)">
             <ion-col class="col3">
               <h5>{{ aviso.titulo }}</h5>
             </ion-col>
-            <hr *ngIf="!last">
+            @if (!last) {
+            <hr>
+            }
           </ion-row>
         </div>
       </ion-list>
-
+      }
     </ng-template>
 
   </ion-modal>
@@ -110,5 +120,5 @@
     </ng-template>
   </ion-modal>
 
-  
+
 </ion-content>

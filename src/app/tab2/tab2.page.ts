@@ -53,23 +53,23 @@ export class Tab2Page implements OnInit {
     const fechaSeleccionada = this.fechaSeleccionada ? new Date(this.fechaSeleccionada).toISOString().substring(0, 10) : '';
     console.log('Tipo de datos de la fecha seleccionada:', typeof fechaSeleccionada);
     console.log('Fecha seleccionada:', fechaSeleccionada);
-  
+
     console.log('Fechas en highlightedDates:');
     this.highlightedDates.forEach(fechaDestacada => {
       console.log('Tipo de datos de la fecha resaltada:', typeof fechaDestacada.date);
       console.log('Fecha resaltada:', fechaDestacada.date);
     });
-  
+
     this.fechaDestacadaSeleccionada = this.highlightedDates.find(fechaDestacada => fechaDestacada.date === fechaSeleccionada);
     console.log('Fecha destacada seleccionada:', this.fechaDestacadaSeleccionada);
   }
-  
+
 
   formatDate(dateString: string): string {
     const date = new Date(dateString);
     const monthNames = [
-      'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-      'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+      'Gener', 'Febrer', 'Març', 'Abril', 'Maig', 'Juny',
+      'Juliol', 'Agost', 'Setembre', 'Octubre', 'Novembre', 'Desembre'
     ];
     const monthIndex = date.getMonth();
     const day = date.getDate();

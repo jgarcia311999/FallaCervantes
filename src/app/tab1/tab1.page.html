@@ -15,7 +15,8 @@
 
       <ion-col size="12" size-xl="6">
         <h1>Els nostres representants.</h1>
-        <ion-card class="main-card" *ngFor="let card of cards">
+        @for (card of cards ; track card) {
+        <ion-card class="main-card">
           <ion-card-content>
             <div class="card-container">
               <div class="card">
@@ -30,6 +31,8 @@
             </div>
           </ion-card-content>
         </ion-card>
+        }
+
       </ion-col>
     </ion-row>
   </ion-grid>
