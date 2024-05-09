@@ -39,7 +39,7 @@ export class Tab1Page {
       image: '../../assets/images/presidenteInfantil.webp'
     },
     {
-      id: 5, name: 'La nostra falla Gran',
+      id: 5, name: 'La nostra falla gran',
       image: '../../assets/images/fallaGrande2.jpg'
     },
     {

@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.example.app',
-  appName: 'Cervantes',
+  appId: 'com.casaleo.app',
+  appName: 'Casaleo',
   webDir: 'www',
   server: {
     androidScheme: 'https'

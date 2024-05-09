@@ -1,10 +1,10 @@
 <ion-content [fullscreen]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tab5" text="Tornar"></ion-back-button>
+      <ion-back-button defaultHref="/tabs/tab5" text="Tornar"></ion-back-button>
     </ion-buttons>
 
-    
+
   </ion-toolbar>
   <div class="circle-background1"></div>
   <div class="circle-background2"></div>
@@ -13,11 +13,14 @@
   <div class="circle-background5"></div>
   <div class="circle-background6"></div>
 
-  <ion-card >
-    <ion-list *ngFor="let aviso of avisosFalla">
+  <ion-card>
+    @for (aviso of avisosFalla; track aviso) {
+    <ion-list>
       <ion-item>
         <h1>{{ aviso.titulo }}</h1>
       </ion-item>
-      </ion-list>
+    </ion-list>
+    }
+
   </ion-card>
 </ion-content>
