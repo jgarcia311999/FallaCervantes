@@ -1,12 +1,9 @@
-import { CapacitorConfig } from '@capacitor/cli';
+import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.casaleo.app',
+  appId: 'com.casale.app',
   appName: 'casaleo',
-  webDir: 'www',
-  server: {
-    androidScheme: 'https'
-  }
+  webDir: 'www'
 };
 
 export default config;

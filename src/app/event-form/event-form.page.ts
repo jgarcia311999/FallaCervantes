@@ -43,6 +43,7 @@ export class EventFormPage implements OnInit {
 
     // Si existe un ID de evento, actualizar el evento existente
     if (this.eventId) {
+        console.log(this.eventId);
         const eventoActualizado: NuevoEvento = {
             id: this.eventId, // Asegúrate de incluir el id al objeto si vas a actualizar
             date: fechaFormateada,

@@ -141,15 +141,6 @@ export class Tab5Page implements OnInit {
       header: aviso.titulo,
       buttons: [
         {
-          text: 'Editar',
-          icon: 'pencil',
-          handler: () => {
-            // Aquí debes pasar aviso en lugar de event
-            this.router.navigate(['/event-form']);
-            this.closeModal();
-          }
-        },
-        {
           text: 'Eliminar',
           role: 'destructive',
           icon: 'trash',
