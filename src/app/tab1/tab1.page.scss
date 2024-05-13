@@ -84,8 +84,11 @@ h1 {
 
 @media (min-width: 1200px) {
   .centered-image img {
-    transform: scale(1);
-    left: 50%;
+    position: fixed; /* Posicionamiento fijo en relación al viewport */
+    top: 50%; /* Centrado verticalmente: 50% desde la parte superior */
+    left: 25%; /* Centrado horizontalmente: 50% desde el lado izquierdo */
+    transform: translate(-50%, -50%) scale(0.5);
+    z-index: 10; /* Asegúrate de que está por encima de otros elementos si es necesario */
   }
 
   .circle-background {
@@ -96,7 +99,8 @@ h1 {
 
   .circle2 {
     top: 8vh;
-    left: 44%;
+    left: 20%;
+    position: fixed; /* Posicionamiento fijo en relación al viewport */
   }
 
   .main-card {

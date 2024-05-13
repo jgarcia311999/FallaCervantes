@@ -3,7 +3,8 @@ import { UserService } from '../servicios/user.service';
 import { Router } from '@angular/router';
 import { ActionSheetController, ModalController, AlertController } from '@ionic/angular';
 import { EventosService } from '../servicios/eventos.service';
-import NuevoEvento from '../interfaces/eventos.interface';
+import  NuevoEvento  from '../interfaces/eventos.interface';
+import { Evento } from '../interfaces/eventos.interface';
 import Aviso from '../interfaces/avisos.interface';
 import { AvisosService } from '../servicios/avisos.service';
 
@@ -95,22 +96,23 @@ export class Tab5Page implements OnInit {
     return `${formattedDay} de ${formattedMonth}`;
   }
 
-  async presentActionSheetEventos(nuevoEvento: NuevoEvento) {
+  async presentActionSheetEventos(nuevoEvento: NuevoEvento, eventoSeleccionado: Evento) {
     if (typeof nuevoEvento.id !== 'string') {
       console.error('El evento no tiene un ID válido.');
       return;
     }
 
-    let eventId: string = nuevoEvento.id; // Aseguramos que el id es un string
+    let eventId: string = nuevoEvento.id;
+    let eventName: string = eventoSeleccionado.titulo;
     console.log("EventId", eventId)
     const actionSheet = await this.actionSheetController.create({
-      header: nuevoEvento.eventos[0].titulo,
+      header: eventName,  // Usar el título del evento seleccionado
       buttons: [
         {
           text: 'Editar',
           icon: 'pencil',
           handler: () => {
-            this.router.navigate(['/event-form'], { queryParams: { id: eventId } });
+            this.router.navigate(['/event-form'], { queryParams: { id: eventId, name: eventName } });
             this.closeModal();
           }
         },
@@ -119,7 +121,7 @@ export class Tab5Page implements OnInit {
           role: 'destructive',
           icon: 'trash',
           handler: () => {
-            this.presentDeleteEventAlert(eventId);
+            this.presentDeleteEventAlert(eventId, eventName);
           }
         },
         {
@@ -136,10 +138,20 @@ export class Tab5Page implements OnInit {
     await actionSheet.present();
   }
 
+
   async presentActionSheetAvisos(aviso: Aviso) {
     const actionSheet = await this.actionSheetController.create({
       header: aviso.titulo,
       buttons: [
+        {
+          text: 'Editar',
+          icon: 'pencil',
+          handler: () => {
+            // Aquí debes pasar aviso en lugar de event
+            this.router.navigate(['/event-form']);
+            this.closeModal();
+          }
+        },
         {
           text: 'Eliminar',
           role: 'destructive',
@@ -168,10 +180,10 @@ export class Tab5Page implements OnInit {
   }
 
 
-  async presentDeleteEventAlert(eventId: string) {
+  async presentDeleteEventAlert(eventId: string, eventName: string) {
     const alert = await this.alertController.create({
       header: 'Confirmar eliminación',
-      message: '¿Estás seguro de que quieres eliminar este evento?',
+      message: `¿Estás seguro de que quieres eliminar este evento llamado "${eventName}"?`, // Interpolación para incluir eventName
       buttons: [
         {
           text: 'Cancelar',
@@ -184,7 +196,7 @@ export class Tab5Page implements OnInit {
           text: 'Eliminar',
           role: 'destructive',
           handler: () => {
-            this.deleteEvent(eventId);
+            this.deleteEvent(eventId, eventName);
           }
         }
       ]
@@ -218,8 +230,8 @@ export class Tab5Page implements OnInit {
     await alert.present();
   }
 
-  deleteEvent(eventId: string) {
-    this.eventService.deleteEvent(eventId)
+  deleteEvent(eventId: string, eventName: string) {
+    this.eventService.deleteEvent(eventId, eventName)
       .then(() => {
         console.log('Evento eliminado');
       })

@@ -62,31 +62,24 @@
 
   <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
     <ng-template>
-      <ion-button class="btnNew" (click)="closeModal()" routerLink="/event-form">Nou Event</ion-button>
-      @for (nuevoEvento of highlightedDates; let i = $index; let last = $last; track nuevoEvento) {
-      <ion-list (click)="presentActionSheetEventos(nuevoEvento)">
+      <ion-button class="btnNew" (click)="closeModal()" routerLink="/event-form">Nuevo Evento</ion-button>
+      <ion-list *ngFor="let nuevoEvento of highlightedDates; let i = index; let last = last">
         <div [class.first]="i === 0" [class.last]="last">
-          @for (evento of nuevoEvento.eventos; track evento) {
-          <ion-row class="h5Modal">
+          <ion-row *ngFor="let evento of nuevoEvento.eventos" class="h5Modal"
+            (click)="presentActionSheetEventos(nuevoEvento, evento)">
             <ion-col size="4" class="col1">
               <h5>{{ formatDate(nuevoEvento.date) }}</h5>
             </ion-col>
             <ion-col size="6" class="col2">
               <h5 class="h5Modal">{{ evento.titulo }}</h5>
             </ion-col>
-            @if (!last) {
-            <hr>
-            }
           </ion-row>
-          }
+          <hr *ngIf="!last">
         </div>
       </ion-list>
-      }
-
-
     </ng-template>
-
   </ion-modal>
+
 
   <ion-modal trigger="open-modal2" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
     <ng-template>

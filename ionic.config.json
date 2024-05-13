@@ -3,5 +3,14 @@
   "integrations": {
     "capacitor": {}
   },
-  "type": "angular"
+  "type": "angular",
+  "devServer": {
+    "proxy": {
+      "/": {
+        "target": "http://localhost",
+        "changeOrigin": true,
+        "secure": false
+      }
+    }
+  }
 }

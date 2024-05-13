@@ -2,7 +2,7 @@
 
 import { Injectable } from '@angular/core';
 import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, updateDoc, query, where, getDocs, getDoc } from '@angular/fire/firestore';
-import NuevoEvento from '../interfaces/eventos.interface';
+import  NuevoEvento  from '../interfaces/eventos.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -54,28 +54,56 @@ export class EventosService {
   }
 
   /* Elimina un evento de la colección 'eventos' en Firestore. */
-  deleteEvent(eventId: string) {
-    const eventDocRef = doc(this.firestore, `eventos/${eventId}`);
-    return deleteDoc(eventDocRef);
+  deleteEvent(eventId: string, eventTitle: string): Promise<void> {
+    const eventDocRef = doc(this.firestore, 'eventos', eventId);
+
+    return getDoc(eventDocRef).then(docSnapshot => {
+      if (docSnapshot.exists()) {
+        const eventData = docSnapshot.data();
+        const events = eventData['eventos'] as Array<{ titulo: string; descripcion: string; }>;
+
+        // Encuentra los eventos que NO se van a eliminar
+        const remainingEvents = events.filter(event => !(event.titulo === eventTitle));
+
+        // Si el array resultante tiene menos elementos y no está vacío, actualiza el documento sin el evento específico
+        if (remainingEvents.length < events.length) {
+          if (remainingEvents.length === 0) {
+            // Si no quedan eventos, considera eliminar todo el documento
+            return deleteDoc(eventDocRef)
+              .then(() => console.log('Documento completo eliminado, no quedan eventos.'))
+              .catch(error => console.error('Error eliminando documento completo:', error));
+          } else {
+            // Actualiza el documento sin el evento específico
+            return updateDoc(eventDocRef, {
+              eventos: remainingEvents
+            })
+              .then(() => console.log('Evento eliminado del documento.'))
+              .catch(error => console.error('Error actualizando el documento sin el evento:', error));
+          }
+        } else {
+          console.log('No se encontró un evento con el título dado para eliminar, o hay múltiples eventos con el mismo título.');
+          return Promise.resolve(); // Asegúrate de retornar una promesa incluso si no haces una operación de Firestore
+        }
+      } else {
+        console.log('No se encontró el documento con el ID especificado.');
+        return Promise.resolve(); // Retorna una promesa cuando no existe el documento
+      }
+    }).catch(error => {
+      console.error('Error accediendo al documento:', error);
+      return Promise.reject(error); // Retorna una promesa rechazada cuando hay un error accediendo al documento
+    });
   }
 
   async updateEvent(eventId: string, event: NuevoEvento): Promise<void> {
     const eventDocRef = doc(this.firestore, `eventos/${eventId}`);
     try {
-      const updatePayload = {
-        date: event.date,
-        textColor: event.textColor,
-        backgroundColor: event.backgroundColor,
-        // Si necesitas actualizar eventos específicos, necesitas hacerlo uno por uno o actualizar todo el array.
-        'eventos': event.eventos // Esto reemplaza el array completo. Para operaciones más granulares, consulta la documentación de Firestore.
-      };
-  
-      await updateDoc(eventDocRef, updatePayload);
+      await updateDoc(eventDocRef, { ...event });
       console.log('Evento actualizado con éxito');
     } catch (error) {
-      console.error('Error al actualizar el evento: ', error);
+      console.error('Error al actualizar el evento:', error);
       throw error;
     }
   }
+
   
 }
