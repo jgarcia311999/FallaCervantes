@@ -24,8 +24,7 @@
       @if (esFechaIgualOPosterior(fechaDestacada.date)) {
       <ion-card-content [class.expanded]="tarjetaSeleccionada === i" (click)="seleccionarTarjeta(i)">
         <div class="card-container">
-          <h1>{{ formatDate(fechaDestacada.date) }} <h2>{{ fechaDestacada.eventos[0].titulo }}</h2>
-          </h1>
+          <h1>{{ formatDate(fechaDestacada.date) }} </h1>
         </div>
       </ion-card-content>
 
@@ -35,6 +34,7 @@
         @for (evento of fechaDestacada.eventos ; track evento) {
         <ion-item class="event-item">
           <ion-label>
+            <h3>{{ evento.titulo }}</h3>
             <h4>{{ evento.descripcion }}</h4>
           </ion-label>
         </ion-item>
