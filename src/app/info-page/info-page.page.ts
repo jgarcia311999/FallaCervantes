@@ -14,27 +14,27 @@ export class InfoPagePage implements OnInit {
       id: 1,
       title: 'La nostra fallera major',
       text: 'Coneix a la nostra fallera major, la representant principal de la nostra comissió fallera. Descobreix la seua història, els seus èxits i el seu compromís amb les nostres tradicions. La nostra fallera major va créixer en el cor de València, immersa en la cultura i l esperit de les festes des de ben joveneta. Des de petita, va mostrar un profund amor per les festes de les Falles, participant activament en tots els esdeveniments i actes culturals. El seu somni sempre havia estat representar la seua falla com a fallera major, un somni que ara s ha fet realitat gràcies al seu dedicació i passió. \n\nA més de la seua implicació en la festa, la nostra fallera major també es destaca per la seua labor en la promoció de la cultura valenciana més enllà de les nostres fronteres. Ha col·laborat amb diverses organitzacions culturals per a expandir el coneixement de les tradicions valencianes, fent especial èmfasi en l artesania del vestit de fallera i la importància del patrimoni oral. El seu lideratge i carisma han contribuït enormement a unir la nostra comunitat, reforçant els llaços que ens uneixen al voltant de les nostres arrelades tradicions i celebracions.',
-      imagenes: ['../../assets/images/50aniversari.jpg', '../../assets/images/50aniversari.jpg', '../../assets/images/50aniversari.jpg']
+      imagenes: ['../../assets/images/f1.webp', '../../assets/images/f2.webp', '../../assets/images/f3.webp']
     },
     {
       id: 2,
       title: 'El nostre president',
       text: 'Descobreix qui lidera la nostra comissió fallera com a president. Coneix els seus objectius, la seua visió de futur i com treballa per fer realitat les il·lusions de tots nosaltres. El nostre president és un apassionat defensor de la cultura fallera, amb una trajectòria llarga i reeixida dins de l organització de les festes. Des de la seua joventut, ha estat involucrat en diversos aspectes de la festa, des de la construcció de falles fins a l organització d actes culturals. Amb una visió clara cap a la innovació sense perdre l essència tradicional, el nostre president busca modernitzar la festa atraient a un públic més jove i divers. Sota la seua gestió, la comissió ha vist un augment significatiu en la participació i en el reconeixement cultural a nivell local i internacional. El president té un pla estratègic per a expandir el coneixement i l apreciació de les Falles més enllà de les nostres fronteres, utilitzant plataformes digitals i col·laboracions amb altres festivitats culturals. El seu lideratge no només ha reforçat la visibilitat de les nostres tradicions, sinó que també ha creat un sentit més fort de comunitat i pertinença entre els membres de la comissió.',
-      imagenes: ['../../assets/images/comida.png', '../../assets/images/comida.png', '../../assets/images/50aniversari.jpg']
+      imagenes: ['../../assets/images/p1.webp', '../../assets/images/p2.webp', '../../assets/images/p3.webp']
 
     },
     {
       id: 3,
       title: 'La nostra fallera major infantil',
       text: 'Coneix a la nostra fallera major infantil, la jove que representa l alegria i l energia de la nostra comissió fallera. Descobreix les seues activitats, la seua creativitat i com contagia el seu entusiasme. La nostra fallera major infantil és una figura central en la dinamització de les activitats per als més joves, organitzant tallers de manualitats i jocs que promouen la cultura valenciana d una manera divertida i educativa. Amb un esperit creatiu inigualable, ha ajudat a dissenyar mini-monuments i ha participat activament en la creació de vestits tradicionals per a les representacions infantils. \n\nLa seua capacitat per connectar amb altres nens i contagiar-los amb la seua passió per les Falles és remarcable. \n\nSota la seua influència, molts nens han descobert no només el goig de les festes, sinó també l importància de mantenir vives les tradicions. Amb un somriure sempre present, la nostra fallera major infantil és una inspiració per a tots, demostrant que l amor per la cultura i les tradicions pot començar des de molt jove i tenir un impacte profund en la comunitat.',
-      imagenes: ['../../assets/images/50aniversari.jpg', '../../assets/images/50aniversari.jpg', '../../assets/images/50aniversari.jpg']
+      imagenes: ['../../assets/images/fi1.webp', '../../assets/images/fi2.webp', '../../assets/images/fi3.webp']
 
     },
     {
       id: 4,
       title: 'El nostre president infantil',
       text: 'Coneix al líder més jove de la nostra comissió fallera, el nostre president infantil. Descobreix com inspira als més menuts, el seu paper en les nostres activitats i com porta endavant la diversió i la camaraderia. Aquest jove líder no només coordina les activitats per als infants sinó que també serveix d exemple amb la seua participació activa i entusiasta en tots els esdeveniments. La seua capacitat per motivar i animar als seus coetanis és fonamental per mantenir l esperit festiu i inclusiu de les Falles entre la joventut. \n\nAmb un enfocament fresc i energètic, el nostre president infantil ha introduït noves idees que fan les festivitats més accessibles i divertides per a nens de totes les edats. Des de desfilades infantils fins a competicions de dibuix de falles, la seua visió per a crear un espai on cada infant puga sentir-se part de la tradició ha estat clau. La seua liderança no sols promou la diversió, sinó que també fomenta la camaraderia i el treball en equip, essencials per a la construcció d una comunitat fallera forta i unida des de la base.',
-      imagenes: ['../../assets/images/50aniversari.jpg', '../../assets/images/50aniversari.jpg', '../../assets/images/50aniversari.jpg']
+      imagenes: ['../../assets/images/pi1.webp', '../../assets/images/pi2.webp', '../../assets/images/pi3.webp']
     },
     {
       id: 5,
