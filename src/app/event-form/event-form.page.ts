@@ -31,36 +31,54 @@ export class EventFormPage implements OnInit {
     }
 
     async guardarEvento() {
+        // Recolecta el id y el título del evento de los query params
+        const params = this.route.snapshot.queryParams;
+        const eventId = params['id'];
+        const eventName = params['name'];
+    
+        // Si existen id y título, elimina el evento existente antes de proceder
+        if (eventId && eventName) {
+            try {
+                console.log(`Intentando eliminar evento con ID: ${eventId} y Nombre: ${eventName}`);
+                await this.deleteEvent(eventId, eventName);
+                console.log('Evento eliminado correctamente.');
+            } catch (error) {
+                console.error('Error eliminando evento existente:', error);
+                return; // Salir de la función si hay un error al eliminar el evento
+            }
+        }
+    
+        // Validar los datos del evento
         if (!this.fechaEvento || !this.nombreEvento || !this.descripcion) {
             console.error('Error: Datos del evento incompletos o inválidos');
             return;
         }
-
+    
         const fecha = new Date(this.fechaEvento);
         if (isNaN(fecha.getTime())) {
             console.error('Error: La fecha no es válida');
             return;
         }
-
+    
         const fechaFormateada = fecha.toISOString().slice(0, 10);
         let eventosExistente = await this.eventService.getEventsByDate(fechaFormateada);
         let eventoExistente = eventosExistente.length > 0 ? eventosExistente[0] : undefined;
-
+    
         if (eventoExistente && eventoExistente.id) {
             // Identificar el índice del evento a actualizar o eliminar
             const index = eventoExistente.eventos.findIndex(e => e.titulo === this.nombreEvento);
-
+    
             if (index !== -1) {
                 // Elimina el evento existente si se encuentra
                 eventoExistente.eventos.splice(index, 1);
             }
-
+    
             // Añadir el nuevo evento actualizado al array
             eventoExistente.eventos.push({
                 titulo: this.nombreEvento,
                 descripcion: this.descripcion
             });
-
+    
             try {
                 await this.eventService.updateEvent(eventoExistente.id, eventoExistente);
                 console.log('Evento actualizado correctamente.');
@@ -86,6 +104,19 @@ export class EventFormPage implements OnInit {
             }
         }
     }
+    
+    deleteEvent(eventId: string, eventName: string) {
+        console.log(`deleteEvent llamado con ID: ${eventId} y Nombre: ${eventName}`);
+        return this.eventService.deleteEvent(eventId, eventName)
+            .then(() => {
+                console.log('Evento eliminado dentro de deleteEvent');
+            })
+            .catch(error => {
+                console.error('Error eliminando evento dentro de deleteEvent:', error);
+                throw error; // Propaga el error para que la función guardarEvento lo maneje
+            });
+    }
+    
 
 
 
@@ -109,6 +140,5 @@ export class EventFormPage implements OnInit {
             // Implementa acciones adicionales como volver a una lista de eventos o mostrar un mensaje en la UI
         }
     }
-
 
 }
